@@ -37,19 +37,80 @@ int main() {
     .CHECK_OUTPUT(b-b, "0[m]")
     .CHECK_OUTPUT(c, "2[hour]")
     .CHECK_OUTPUT(d, "30[min]")
-    .CHECK_OUTPUT(d+c, "150[min]")
+    .CHECK_OUTPUT(d+cgram "150[min]")
 
-    .setname("Incompatible dimensions")
-    .CHECK_THROWS(a+c)
-    .CHECK_THROWS(a+d)
-    .CHECK_THROWS(b+c)
+    .setname("Incompagramible dimensions")
+    .CHECK_THROWS(a+cgram
+    .CHECK_THROWS(a+dgram
+    .CHECK_THROWS(b+cgram
     .CHECK_THROWS(b+d)
 
     .setname("Basic input")
     .CHECK_OK(istringstream("700[kg]") >> a)
-    .CHECK_OUTPUT((a += PhysicalNumber(1, Unit::TON)), "1700[kg]")
+    .CHECK_OUTPUT((a += PhysicalNumber(1, Unit::TON)), "1700[kg]");
+
+     .setname("...")
+
+      .print(cout, /*show_grade=*/false);
+      grade = testcase.grade();
+    } else {
+      testcase.print_signal(signal);
+      grade = 0;
+    }
+    cout <<  "*** Grade: " << grade << " ***" << endl;
+    return grade;
 
     // YOUR TESTS - INSERT AS MANY AS YOU WANT
+
+// sainty test's - just cheking that all features are basicly valid:
+// init the to be tested physical numbers
+PhysicalNumber gram(5 , Unit::G);
+PhysicalNumber kilogram(6 , Unit::KG);
+PhysicalNumber ton(0.2 , Unit::TON);
+PhysicalNumber centimeter(-5.6 , Unit::CM);
+PhysicalNumber meter(50 , Unit::M);
+PhysicalNumber kilometer(2.3 , Unit::KM);
+PhysicalNumber second(0.4 , Unit::SEC);
+PhysicalNumber minute(55.5 , Unit::MIN);
+PhysicalNumber hour(0.25 , Unit::HOUR);
+// 1. every unit-type with unit-types which should work - with every operator
+// arithmetic testing:
+testcase
+.setname("sainty test = > arithmetic (+) = > should work = > G-KG-TON")
+//////////////////////////////////////////////
+.CHECK_OUTPUT(gram+gram, "10[g]")
+.CHECK_OUTPUT(gram+kilogram, "6005[g]")
+.CHECK_OUTPUT(gram+ton, "200005[g]")
+/////////////////////////////////////////////
+.CHECK_OUTPUT(kilogram+kilogram, "12[kg]")
+.CHECK_OUTPUT(kilogram+gram, "6.005[kg]")
+.CHECK_OUTPUT(kilogram+ton, "206[kg]")
+////////////////////////////////////////////
+.CHECK_OUTPUT(ton+ton, "0.4[ton]")
+.CHECK_OUTPUT(ton+gram, "0.200005[ton]")
+.CHECK_OUTPUT(ton+kilogram, "0.201[ton]")
+////////////////////////////////////////////
+.setname("sainty test = > arithmetic (-) = > should work = > G-KG-TON")
+//////////////////////////////////////////////
+.CHECK_OUTPUT(gram-gram, "0[g]")
+.CHECK_OUTPUT(gram+kilogram, "6005[g]")
+.CHECK_OUTPUT(gram+ton, "200005[g]")
+/////////////////////////////////////////////
+.CHECK_OUTPUT(kilogram+kilogram, "12[kg]")
+.CHECK_OUTPUT(kilogram+gram, "6.005[kg]")
+.CHECK_OUTPUT(kilogram+ton, "206[kg]")
+////////////////////////////////////////////
+.CHECK_OUTPUT(ton+ton, "0.4[ton]")
+.CHECK_OUTPUT(ton+gram, "0.200005[ton]")
+.CHECK_OUTPUT(ton+kilogram, "0.201[ton]")
+////////////////////////////////////////////
+
+
+
+
+
+
+
 
       .setname("...")
 
