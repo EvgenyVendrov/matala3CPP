@@ -70,12 +70,15 @@ PhysicalNumber ton(0.2 , Unit::TON);
 PhysicalNumber centimeter(-5.6 , Unit::CM);
 PhysicalNumber meter(50 , Unit::M);
 PhysicalNumber kilometer(2.3 , Unit::KM);
-PhysicalNumber second(0.4 , Unit::SEC);
-PhysicalNumber minute(55.5 , Unit::MIN);
+PhysicalNumber second(4 , Unit::SEC);
+PhysicalNumber minute(55 , Unit::MIN);
 PhysicalNumber hour(0.25 , Unit::HOUR);
 // 1. every unit-type tested with unit-types which should work - with every operator
 // arithmetic testing:
 testcase
+/*********************************************/
+// G - KG - TON tests//
+/*********************************************/
 .setname("sainty test = > arithmetic (+) = > should work = > G-KG-TON")
 //////////////////////////////////////////////
 .CHECK_OUTPUT(gram+gram, "10[g]")
@@ -143,8 +146,151 @@ setname("sainty test = > unary (-) = > should work = > G-KG-TON")
 .CHECK_OUTPUT(-gram, "-5[g]")
 .CHECK_OUTPUT(-kilogram, "-6[kg]")
 .CHECK_OUTPUT(-ton, "-0.2[ton]")
+//////////////////////////////////////////////
 
+/*********************************************/
+// CM - M - KM tests//
+/*********************************************/
+.setname("sainty test = > arithmetic (+) = > should work = > CM-M-KM")
+//////////////////////////////////////////////
+.CHECK_OUTPUT(centimeter+centimeter, "-11.2[cm]")
+.CHECK_OUTPUT(centimeter+minute, "4994.4[cm]")
+.CHECK_OUTPUT(centimeter+kilometer, "229994.4[cm]")
+/////////////////////////////////////////////
+.CHECK_OUTPUT(meter+meter, "100[m]")
+.CHECK_OUTPUT(meter+second, "49.944[m]")
+.CHECK_OUTPUT(meter+kilometer, "2350[m]")
+////////////////////////////////////////////
+.CHECK_OUTPUT(kilometer+kilometer, "4.6[km]")
+.CHECK_OUTPUT(kilometer+centimeter, "2.299944[km]")
+.CHECK_OUTPUT(kilometer+meter, "2.35[km]")
+////////////////////////////////////////////
+.setname("sainty test = > arithmetic (-) = > should work = > CM-M-KM")
+//////////////////////////////////////////////
+.CHECK_OUTPUT(centimeter-centimeter, "0[cm]")
+.CHECK_OUTPUT(centimeter-meter, "-5005.6[cm]")
+.CHECK_OUTPUT(centimeter-kilometer, "-230005.6[cm]")
+/////////////////////////////////////////////
+.CHECK_OUTPUT(meter-meter, "0[m]")
+.CHECK_OUTPUT(meter-centimeter, "50.056[m]")
+.CHECK_OUTPUT(meter-kilometer, "-2250[m]")
+////////////////////////////////////////////
+.CHECK_OUTPUT(kilometer-kilometer, "0[km]")
+.CHECK_OUTPUT(kilometer-centimeter, "2.300056[km]")
+.CHECK_OUTPUT(kilometer-meter, "2.25[km]")
+////////////////////////////////////////////
+.setname("sainty test = > arithmetic (+=) = > should work = > CM-M-KM")
+//////////////////////////////////////////////
+.CHECK_OUTPUT(centimeter+=centimeter, "-11.2[cm]")
+.CHECK_OUTPUT(centimeter+=meter, "4994.4[cm]")
+.CHECK_OUTPUT(centimeter+=kilometer, "229994.4[cm]")
+/////////////////////////////////////////////
+.CHECK_OUTPUT(meter+=meter, "100[m]")
+.CHECK_OUTPUT(meter+=centimeter, "49.944[m]")
+.CHECK_OUTPUT(meter+=kilometer, "2350[m]")
+////////////////////////////////////////////
+.CHECK_OUTPUT(kilometer+=kilometer, "4.6[km]")
+.CHECK_OUTPUT(kilometer+=centimeter, "2.299944[km]")
+.CHECK_OUTPUT(kilometer+=meter, "2.35[km]")
+////////////////////////////////////////////
+.setname("sainty test = > unary (+) = > should work = > CM-M-KM")
+//////////////////////////////////////////////
+.CHECK_OUTPUT(+centimeter, "-5.6[cm]")
+.CHECK_OUTPUT(+meter, "50[m]")
+.CHECK_OUTPUT(+kilometer, "2.3[km]")
+/////////////////////////////////////////////
+.setname("sainty test = > arithmetic (-=) = > should work = > CM-M-KM")
+//////////////////////////////////////////////
+.CHECK_OUTPUT(centimeter-=centimeter, "0[cm]")
+.CHECK_OUTPUT(centimeter-=meter, "-5005.6[cm]")
+.CHECK_OUTPUT(centimeter-=kilometer, "-230005.6[cm]")
+/////////////////////////////////////////////
+.CHECK_OUTPUT(meter-=meter, "0[m]")
+.CHECK_OUTPUT(meter-=centimeter, "50.056[m]")
+.CHECK_OUTPUT(meter-=kilometer, "-2250[m]")
+////////////////////////////////////////////
+.CHECK_OUTPUT(kilometer-=kilometer, "0[km]")
+.CHECK_OUTPUT(kilometer-=centimeter, "2.300056[km]")
+.CHECK_OUTPUT(kilometer-=meter, "2.25[km]")
+////////////////////////////////////////////
+setname("sainty test = > unary (-) = > should work = > CM-M-KM")
+//////////////////////////////////////////////
+.CHECK_OUTPUT(-centimeter, "5.6[cm]")
+.CHECK_OUTPUT(-meter, "-50[m]")
+.CHECK_OUTPUT(-kilometer, "-2.3[km]")
+//////////////////////////////////////////////
 
+/*********************************************/
+// SEC - MIN - HOUR tests//
+/*********************************************/
+.setname("sainty test = > arithmetic (+) = > should work = > CM-M-KM")
+//////////////////////////////////////////////
+.CHECK_OUTPUT(second+second, "8[sec]")
+.CHECK_OUTPUT(second+minute, "3304[sec]")
+.CHECK_OUTPUT(second+hour, "1504[sec]")
+/////////////////////////////////////////////
+.CHECK_OUTPUT(minute+minute, "110[min]")
+.CHECK_OUTPUT(minute+second, "55.0666[min]")
+.CHECK_OUTPUT(minute+hour, "70[min]")
+////////////////////////////////////////////
+.CHECK_OUTPUT(hour+hour, "0.5[hour]")
+.CHECK_OUTPUT(hour+second, "0.261[hour]")
+.CHECK_OUTPUT(hour+minute, "1.166[hour]")
+////////////////////////////////////////////
+.setname("sainty test = > arithmetic (-) = > should work = > CM-M-KM")
+//////////////////////////////////////////////
+.CHECK_OUTPUT(second-second, "0[sec]")
+.CHECK_OUTPUT(second-minute, "-3296[sec]")
+.CHECK_OUTPUT(second-hour, "-896[sec]")
+/////////////////////////////////////////////
+.CHECK_OUTPUT(minute-minute, "0[min]")
+.CHECK_OUTPUT(minute-second, "50.056[min]")
+.CHECK_OUTPUT(minute-hour, "40[min]")
+////////////////////////////////////////////
+.CHECK_OUTPUT(hour-hour, "0[hour]")
+.CHECK_OUTPUT(hour-second, "0.24889[hour]")
+.CHECK_OUTPUT(hour-minute, "-0.666[hour]")
+////////////////////////////////////////////
+.setname("sainty test = > arithmetic (+=) = > should work = > CM-M-KM")
+//////////////////////////////////////////////
+.CHECK_OUTPUT(second+=second, "8[sec]")
+.CHECK_OUTPUT(second+=minute, "3304[sec]")
+.CHECK_OUTPUT(second+=hour, "1504[sec]")
+/////////////////////////////////////////////
+.CHECK_OUTPUT(minute+=minute, "110[min]")
+.CHECK_OUTPUT(minute+=second, "55.0666[min]")
+.CHECK_OUTPUT(minute+=hour, "70[min]")
+////////////////////////////////////////////
+.CHECK_OUTPUT(hour+=hour, "0.5[hour]")
+.CHECK_OUTPUT(hour+=second, "0.261[hour]")
+.CHECK_OUTPUT(hour+=minute, "1.166[hour]")
+////////////////////////////////////////////
+.setname("sainty test = > unary (+) = > should work = > CM-M-KM")
+//////////////////////////////////////////////
+.CHECK_OUTPUT(+second, "4[sec]")
+.CHECK_OUTPUT(+minute, "55[min]")
+.CHECK_OUTPUT(+hour, "0.25[hour]")
+/////////////////////////////////////////////
+.setname("sainty test = > arithmetic (-=) = > should work = > CM-M-KM")
+//////////////////////////////////////////////
+.CHECK_OUTPUT(second-=second, "0[sec]")
+.CHECK_OUTPUT(second-=minute, "-3296[sec]")
+.CHECK_OUTPUT(second-=hour, "-896[sec]")
+/////////////////////////////////////////////
+.CHECK_OUTPUT(minute-=minute, "0[min]")
+.CHECK_OUTPUT(minute-=second, "50.056[min]")
+.CHECK_OUTPUT(minute-=hour, "40[min]")
+////////////////////////////////////////////
+.CHECK_OUTPUT(hour-=hour, "0[hour]")
+.CHECK_OUTPUT(hour-=second, "0.24889[hour]")
+.CHECK_OUTPUT(hour-=minute, "-0.666[hour]")
+////////////////////////////////////////////
+setname("sainty test = > unary (-) = > should work = > CM-M-KM")
+//////////////////////////////////////////////
+.CHECK_OUTPUT(-second, "-4[sec]")
+.CHECK_OUTPUT(-minute, "-55[min]")
+.CHECK_OUTPUT(-hour, "-0.25[hour]")
+//////////////////////////////////////////////
 
 
 
