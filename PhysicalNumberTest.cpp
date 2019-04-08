@@ -53,7 +53,7 @@ int main()
 
     // YOUR TESTS - INSERT AS MANY AS YOU WANT
 
-    // sainty test's - just cheking that all features are basicly valid:
+    // sanity test's - just cheking that all features are basicly valid:
     // init the to be tested physical numbers
     PhysicalNumber gram(5, Unit::G);
     PhysicalNumber kilogram(6, Unit::KG);
@@ -70,7 +70,7 @@ int main()
         /*********************************************/
         // G - KG - TON tests//
         /*********************************************/
-        .setname("sainty test = > arithmetic (+) = > should work = > G-KG-TON")
+        .setname("sanity test = > arithmetic (+) = > should work = > G-KG-TON")
         //////////////////////////////////////////////
         .CHECK_OUTPUT(gram + gram, "10[g]")
         .CHECK_OUTPUT(gram + kilogram, "6005[g]")
@@ -84,7 +84,7 @@ int main()
         .CHECK_OUTPUT(ton + gram, "0.200005[ton]")
         .CHECK_OUTPUT(ton + kilogram, "0.206[ton]")
         ////////////////////////////////////////////
-        .setname("sainty test = > arithmetic (-) = > should work = > G-KG-TON")
+        .setname("sanity test = > arithmetic (-) = > should work = > G-KG-TON")
         //////////////////////////////////////////////
         .CHECK_OUTPUT(gram - gram, "0[g]")
         .CHECK_OUTPUT(gram - kilogram, "-5995[g]")
@@ -98,7 +98,7 @@ int main()
         .CHECK_OUTPUT(ton - gram, "0.199995[ton]")
         .CHECK_OUTPUT(ton - kilogram, "0.194[ton]")
         ////////////////////////////////////////////
-        .setname("sainty test = > arithmetic (+=) = > should work = > G-KG-TON")
+        .setname("sanity test = > arithmetic (+=) = > should work = > G-KG-TON")
         //////////////////////////////////////////////
         .CHECK_OUTPUT((gram += gram), "10[g]")
         .CHECK_OUTPUT((gram += kilogram), "6005[g]")
@@ -112,13 +112,13 @@ int main()
         .CHECK_OUTPUT((ton += gram), "0.200005[ton]")
         .CHECK_OUTPUT((ton += kilogram), "0.206[ton]")
         ////////////////////////////////////////////
-        .setname("sainty test = > unary (+) = > should work = > G-KG-TON")
+        .setname("sanity test = > unary (+) = > should work = > G-KG-TON")
         //////////////////////////////////////////////
         .CHECK_OUTPUT(+gram, "5[g]")
         .CHECK_OUTPUT(+kilogram, "6[kg]")
         .CHECK_OUTPUT(+ton, "0.2[ton]")
         /////////////////////////////////////////////
-        .setname("sainty test = > arithmetic (-=) = > should work = > G-KG-TON")
+        .setname("sanity test = > arithmetic (-=) = > should work = > G-KG-TON")
         //////////////////////////////////////////////
         .CHECK_OUTPUT((gram -= gram), "0[g]")
         .CHECK_OUTPUT((gram -= kilogram), "-5995[g]")
@@ -132,7 +132,7 @@ int main()
         .CHECK_OUTPUT((ton -= gram), "0.199995[ton]")
         .CHECK_OUTPUT((ton -= kilogram), "0.194[ton]")
         ////////////////////////////////////////////
-        .setname("sainty test = > unary (-) = > should work = > G-KG-TON")
+        .setname("sanity test = > unary (-) = > should work = > G-KG-TON")
         //////////////////////////////////////////////
         .CHECK_OUTPUT(-gram, "-5[g]")
         .CHECK_OUTPUT(-kilogram, "-6[kg]")
@@ -142,7 +142,7 @@ int main()
         /*********************************************/
         // CM - M - KM tests//
         /*********************************************/
-        .setname("sainty test = > arithmetic (+) = > should work = > CM-M-KM")
+        .setname("sanity test = > arithmetic (+) = > should work = > CM-M-KM")
         //////////////////////////////////////////////
         .CHECK_OUTPUT(centimeter + centimeter, "-11.2[cm]")
         .CHECK_OUTPUT(centimeter + minute, "4994.4[cm]")
@@ -156,7 +156,7 @@ int main()
         .CHECK_OUTPUT(kilometer + centimeter, "2.299944[km]")
         .CHECK_OUTPUT(kilometer + meter, "2.35[km]")
         ////////////////////////////////////////////
-        .setname("sainty test = > arithmetic (-) = > should work = > CM-M-KM")
+        .setname("sanity test = > arithmetic (-) = > should work = > CM-M-KM")
         //////////////////////////////////////////////
         .CHECK_OUTPUT(centimeter - centimeter, "0[cm]")
         .CHECK_OUTPUT(centimeter - meter, "-5005.6[cm]")
@@ -170,7 +170,7 @@ int main()
         .CHECK_OUTPUT(kilometer - centimeter, "2.300056[km]")
         .CHECK_OUTPUT(kilometer - meter, "2.25[km]")
         ////////////////////////////////////////////
-        .setname("sainty test = > arithmetic (+=) = > should work = > CM-M-KM")
+        .setname("sanity test = > arithmetic (+=) = > should work = > CM-M-KM")
         //////////////////////////////////////////////
         .CHECK_OUTPUT((centimeter += centimeter), "-11.2[cm]")
         .CHECK_OUTPUT((centimeter += meter), "4994.4[cm]")
@@ -184,13 +184,13 @@ int main()
         .CHECK_OUTPUT((kilometer += centimeter), "2.299944[km]")
         .CHECK_OUTPUT((kilometer += meter), "2.35[km]")
         ////////////////////////////////////////////
-        .setname("sainty test = > unary (+) = > should work = > CM-M-KM")
+        .setname("sanity test = > unary (+) = > should work = > CM-M-KM")
         //////////////////////////////////////////////
         .CHECK_OUTPUT(+centimeter, "-5.6[cm]")
         .CHECK_OUTPUT(+meter, "50[m]")
         .CHECK_OUTPUT(+kilometer, "2.3[km]")
         /////////////////////////////////////////////
-        .setname("sainty test = > arithmetic (-=) = > should work = > CM-M-KM")
+        .setname("sanity test = > arithmetic (-=) = > should work = > CM-M-KM")
         //////////////////////////////////////////////
         .CHECK_OUTPUT((centimeter -= centimeter), "0[cm]")
         .CHECK_OUTPUT((centimeter -= meter), "-5005.6[cm]")
@@ -204,7 +204,7 @@ int main()
         .CHECK_OUTPUT((kilometer -= centimeter), "2.300056[km]")
         .CHECK_OUTPUT((kilometer -= meter), "2.25[km]")
         ////////////////////////////////////////////
-        .setname("sainty test = > unary (-) = > should work = > CM-M-KM")
+        .setname("sanity test = > unary (-) = > should work = > CM-M-KM")
         //////////////////////////////////////////////
         .CHECK_OUTPUT(-centimeter, "5.6[cm]")
         .CHECK_OUTPUT(-meter, "-50[m]")
@@ -214,7 +214,7 @@ int main()
         /*********************************************/
         // SEC - MIN - HOUR tests//
         /*********************************************/
-        .setname("sainty test = > arithmetic (+) = > should work = > CM-M-KM")
+        .setname("sanity test = > arithmetic (+) = > should work = > CM-M-KM")
         //////////////////////////////////////////////
         .CHECK_OUTPUT(second + second, "8[sec]")
         .CHECK_OUTPUT(second + minute, "3304[sec]")
@@ -228,7 +228,7 @@ int main()
         .CHECK_OUTPUT(hour + second, "0.261[hour]")
         .CHECK_OUTPUT(hour + minute, "1.166[hour]")
         ////////////////////////////////////////////
-        .setname("sainty test = > arithmetic (-) = > should work = > CM-M-KM")
+        .setname("sanity test = > arithmetic (-) = > should work = > CM-M-KM")
         //////////////////////////////////////////////
         .CHECK_OUTPUT(second - second, "0[sec]")
         .CHECK_OUTPUT(second - minute, "-3296[sec]")
@@ -242,7 +242,7 @@ int main()
         .CHECK_OUTPUT(hour - second, "0.24889[hour]")
         .CHECK_OUTPUT(hour - minute, "-0.666[hour]")
         ////////////////////////////////////////////
-        .setname("sainty test = > arithmetic (+=) = > should work = > CM-M-KM")
+        .setname("sanity test = > arithmetic (+=) = > should work = > CM-M-KM")
         //////////////////////////////////////////////
         .CHECK_OUTPUT((second += second), "8[sec]")
         .CHECK_OUTPUT((second += minute), "3304[sec]")
@@ -256,13 +256,13 @@ int main()
         .CHECK_OUTPUT((hour += second), "0.261[hour]")
         .CHECK_OUTPUT((hour += minute), "1.166[hour]")
         ////////////////////////////////////////////
-        .setname("sainty test = > unary (+) = > should work = > CM-M-KM")
+        .setname("sanity test = > unary (+) = > should work = > CM-M-KM")
         //////////////////////////////////////////////
         .CHECK_OUTPUT(+second, "4[sec]")
         .CHECK_OUTPUT(+minute, "55[min]")
         .CHECK_OUTPUT(+hour, "0.25[hour]")
         /////////////////////////////////////////////
-        .setname("sainty test = > arithmetic (-=) = > should work = > CM-M-KM")
+        .setname("sanity test = > arithmetic (-=) = > should work = > CM-M-KM")
         //////////////////////////////////////////////
         .CHECK_OUTPUT((second -= second), "0[sec]")
         .CHECK_OUTPUT((second -= minute), "-3296[sec]")
@@ -276,7 +276,7 @@ int main()
         .CHECK_OUTPUT((hour -= second), "0.24889[hour]")
         .CHECK_OUTPUT((hour -= minute), "-0.666[hour]")
         ////////////////////////////////////////////
-        .setname("sainty test = > unary (-) = > should work = > CM-M-KM")
+        .setname("sanity test = > unary (-) = > should work = > CM-M-KM")
         //////////////////////////////////////////////
         .CHECK_OUTPUT(-second, "-4[sec]")
         .CHECK_OUTPUT(-minute, "-55[min]")
@@ -288,7 +288,7 @@ int main()
         /*********************************************/
         // G - KG - TON tests//
         /*********************************************/
-        .setname("sainty test = > comparison (==) = > G-KG-TON")
+        .setname("sanity test = > comparison (==) = > G-KG-TON")
         //////////////////////////////////////////////
         .CHECK_OUTPUT((gram == gram), "true")
         .CHECK_OUTPUT((gram == kilogram), "false")
@@ -302,7 +302,7 @@ int main()
         .CHECK_OUTPUT((ton == gram), "false")
         .CHECK_OUTPUT((ton == kilogram), "false")
         ////////////////////////////////////////////
-        .setname("sainty test = > comparison (!=) = > G-KG-TON")
+        .setname("sanity test = > comparison (!=) = > G-KG-TON")
         //////////////////////////////////////////////
         .CHECK_OUTPUT((gram != gram), "false")
         .CHECK_OUTPUT((gram != kilogram), "true")
@@ -316,7 +316,7 @@ int main()
         .CHECK_OUTPUT((ton != gram), "true")
         .CHECK_OUTPUT((ton != kilogram), "true")
         ////////////////////////////////////////////
-        .setname("sainty test = > comparison (<) = > G-KG-TON")
+        .setname("sanity test = > comparison (<) = > G-KG-TON")
         //////////////////////////////////////////////
         .CHECK_OUTPUT((gram < gram), "false")
         .CHECK_OUTPUT((gram < kilogram), "true")
@@ -330,7 +330,7 @@ int main()
         .CHECK_OUTPUT((ton < gram), "false")
         .CHECK_OUTPUT((ton < kilogram), "false")
         ////////////////////////////////////////////
-        .setname("sainty test = > comparison (>) = > G-KG-TON")
+        .setname("sanity test = > comparison (>) = > G-KG-TON")
         //////////////////////////////////////////////
         .CHECK_OUTPUT((gram > gram), "false")
         .CHECK_OUTPUT((gram > kilogram), "true")
@@ -344,7 +344,7 @@ int main()
         .CHECK_OUTPUT((ton > gram), "true")
         .CHECK_OUTPUT((ton > kilogram), "true")
         /////////////////////////////////////////////
-        .setname("sainty test = > comparison (<=) = > G-KG-TON")
+        .setname("sanity test = > comparison (<=) = > G-KG-TON")
         //////////////////////////////////////////////
         .CHECK_OUTPUT((gram <= gram), "true")
         .CHECK_OUTPUT((gram <= kilogram), "true")
@@ -358,7 +358,7 @@ int main()
         .CHECK_OUTPUT((ton <= gram), "false")
         .CHECK_OUTPUT((ton <= kilogram), "false")
         ////////////////////////////////////////////
-        .setname("sainty test = > comparison (>=) = > G-KG-TON")
+        .setname("sanity test = > comparison (>=) = > G-KG-TON")
         //////////////////////////////////////////////
         .CHECK_OUTPUT((gram >= gram), "true")
         .CHECK_OUTPUT((gram >= kilogram), "false")
@@ -376,7 +376,7 @@ int main()
         /*********************************************/
         // CM - M - KM tests//
         /*********************************************/
-        .setname("sainty test = > comparison (==) = > CM - M - KM ")
+        .setname("sanity test = > comparison (==) = > CM - M - KM ")
         //////////////////////////////////////////////
         .CHECK_OUTPUT((centimeter == centimeter), "true")
         .CHECK_OUTPUT((centimeter == meter), "false")
@@ -390,7 +390,7 @@ int main()
         .CHECK_OUTPUT((kilometer == centimeter), "false")
         .CHECK_OUTPUT((kilometer == meter), "false")
         ////////////////////////////////////////////
-        .setname("sainty test = > comparison (!=) = >CM - M - KM ")
+        .setname("sanity test = > comparison (!=) = >CM - M - KM ")
         //////////////////////////////////////////////
         .CHECK_OUTPUT((centimeter != centimeter), "false")
         .CHECK_OUTPUT((centimeter != meter), "true")
@@ -404,7 +404,7 @@ int main()
         .CHECK_OUTPUT((kilometer != centimeter), "true")
         .CHECK_OUTPUT((kilometer != meter), "true")
         ////////////////////////////////////////////
-        .setname("sainty test = > comparison (<) = > CM - M - KM ")
+        .setname("sanity test = > comparison (<) = > CM - M - KM ")
         //////////////////////////////////////////////
         .CHECK_OUTPUT((centimeter < centimeter), "false")
         .CHECK_OUTPUT((centimeter < meter), "true")
@@ -418,7 +418,7 @@ int main()
         .CHECK_OUTPUT((kilometer < centimeter), "false")
         .CHECK_OUTPUT((kilometer < meter), "false")
         ////////////////////////////////////////////
-        .setname("sainty test = > comparison (>) = > CM - M - KM ")
+        .setname("sanity test = > comparison (>) = > CM - M - KM ")
         //////////////////////////////////////////////
         .CHECK_OUTPUT((centimeter > centimeter), "false")
         .CHECK_OUTPUT((centimeter > meter), "true")
@@ -432,7 +432,7 @@ int main()
         .CHECK_OUTPUT((kilometer > centimeter), "true")
         .CHECK_OUTPUT((kilometer > meter), "true")
         /////////////////////////////////////////////
-        .setname("sainty test = > comparison (<=) = > CM - M - KM ")
+        .setname("sanity test = > comparison (<=) = > CM - M - KM ")
         //////////////////////////////////////////////
         .CHECK_OUTPUT((centimeter <= centimeter), "true")
         .CHECK_OUTPUT((centimeter <= meter), "true")
@@ -446,7 +446,7 @@ int main()
         .CHECK_OUTPUT((kilometer <= centimeter), "false")
         .CHECK_OUTPUT((kilometer <= meter), "false")
         ////////////////////////////////////////////
-        .setname("sainty test = > comparison (>=) = > CM - M - KM ")
+        .setname("sanity test = > comparison (>=) = > CM - M - KM ")
         //////////////////////////////////////////////
         .CHECK_OUTPUT((centimeter >= centimeter), "true")
         .CHECK_OUTPUT((centimeter >= meter), "false")
@@ -464,7 +464,7 @@ int main()
         /*********************************************/
         // SEC - MIN - HOUR tests//
         /*********************************************/
-        .setname("sainty test = > comparison (==) = > SEC - MIN - HOUR ")
+        .setname("sanity test = > comparison (==) = > SEC - MIN - HOUR ")
         //////////////////////////////////////////////
         .CHECK_OUTPUT((second == second), "true")
         .CHECK_OUTPUT((second == minute), "false")
@@ -478,7 +478,7 @@ int main()
         .CHECK_OUTPUT((hour == second), "false")
         .CHECK_OUTPUT((hour == minute), "false")
         ////////////////////////////////////////////
-        .setname("sainty test = > comparison (!=) = >SEC - MIN - HOUR")
+        .setname("sanity test = > comparison (!=) = >SEC - MIN - HOUR")
         //////////////////////////////////////////////
         .CHECK_OUTPUT((second != second), "false")
         .CHECK_OUTPUT((second != minute), "true")
@@ -492,7 +492,7 @@ int main()
         .CHECK_OUTPUT((hour != second), "true")
         .CHECK_OUTPUT((hour != minute), "true")
         ////////////////////////////////////////////
-        .setname("sainty test = > comparison (<) = > SEC - MIN - HOUR")
+        .setname("sanity test = > comparison (<) = > SEC - MIN - HOUR")
         //////////////////////////////////////////////
         .CHECK_OUTPUT((second < second), "false")
         .CHECK_OUTPUT((second < minute), "true")
@@ -506,7 +506,7 @@ int main()
         .CHECK_OUTPUT((hour < second), "false")
         .CHECK_OUTPUT((hour < minute), "false")
         ////////////////////////////////////////////
-        .setname("sainty test = > comparison (>) = > SEC - MIN - HOUR ")
+        .setname("sanity test = > comparison (>) = > SEC - MIN - HOUR ")
         //////////////////////////////////////////////
         .CHECK_OUTPUT((second > second), "false")
         .CHECK_OUTPUT((second > minute), "true")
@@ -520,7 +520,7 @@ int main()
         .CHECK_OUTPUT((hour > second), "true")
         .CHECK_OUTPUT((hour > minute), "true")
         /////////////////////////////////////////////
-        .setname("sainty test = > comparison (<=) = > SEC - MIN - HOUR ")
+        .setname("sanity test = > comparison (<=) = > SEC - MIN - HOUR ")
         //////////////////////////////////////////////
         .CHECK_OUTPUT((second <= second), "true")
         .CHECK_OUTPUT((second <= minute), "true")
@@ -534,7 +534,7 @@ int main()
         .CHECK_OUTPUT((hour <= second), "false")
         .CHECK_OUTPUT((hour <= minute), "false")
         ////////////////////////////////////////////
-        .setname("sainty test = > comparison (>=) = > SEC - MIN - HOUR ")
+        .setname("sanity test = > comparison (>=) = > SEC - MIN - HOUR ")
         //////////////////////////////////////////////
         .CHECK_OUTPUT((second >= second), "true")
         .CHECK_OUTPUT((second >= minute), "false")
@@ -549,6 +549,461 @@ int main()
         .CHECK_OUTPUT((hour >= minute), "true")
         ////////////////////////////////////////////
 
+        // increment decrement testing:
+
+        /*********************************************/
+        // G - KG - TON tests//
+        /*********************************************/
+        .setname("sanity test = > gram increment decrement")
+        //////////////////////////////////////////////
+        .CHECK_OUTPUT((gram++), "6[g]")
+        .CHECK_OUTPUT((++gram), "6[g]")
+        .CHECK_OUTPUT((gram--), "4[g]")
+        .CHECK_OUTPUT((--gram), "4[g]")
+        /////////////////////////////////////////////
+        .setname("sanity test = > kilogram increment decrement")
+        .CHECK_OUTPUT((kilogram++), "7[kg]")
+        .CHECK_OUTPUT((++kilogram), "7[kg]")
+        .CHECK_OUTPUT((kilogram--), "5[kg]")
+        .CHECK_OUTPUT((--kilogram), "5[kg]")
+        ////////////////////////////////////////////
+        .setname("sanity test = > ton increment decrement")
+        .CHECK_OUTPUT((ton++), "1.2[ton]")
+        .CHECK_OUTPUT((++ton), "1.2[ton]")
+        .CHECK_OUTPUT((ton--), "-0.8[ton]")
+        .CHECK_OUTPUT((--ton), "-0.8[ton]")
+        ////////////////////////////////////////////
+        /*********************************************/
+        // CM - M - KM tests//
+        /*********************************************/
+        .setname("sanity test = > centimeter increment decrement")
+        .CHECK_OUTPUT((centimeter++), "-4.6[cm]")
+        .CHECK_OUTPUT((++centimeter), "-4.6[cm]")
+        .CHECK_OUTPUT((centimeter--), "-6.6[cm]")
+        .CHECK_OUTPUT((--centimeter), "-6.6[cm]")
+        //////////////////////////////////////////////
+        .setname("sanity test = > meter increment decrement")
+        .CHECK_OUTPUT((meter++), "51[m]")
+        .CHECK_OUTPUT((++meter), "51[m]")
+        .CHECK_OUTPUT((meter--), "49[m]")
+        .CHECK_OUTPUT((--meter), "49[m]")
+        /////////////////////////////////////////////
+        .setname("sanity test = > kilometer increment decrement")
+        .CHECK_OUTPUT((kilometer++), "3.3[km]")
+        .CHECK_OUTPUT((++kilometer), "3.3[km]")
+        .CHECK_OUTPUT((kilometer--), "1.3[km]")
+        .CHECK_OUTPUT((--kilometer), "1.3[km]")
+        ////////////////////////////////////////////
+        /*********************************************/
+        // SEC - MIN - HOUR tests//
+        /*********************************************/
+        .setname("sanity test = > second increment decrement")
+        .CHECK_OUTPUT((second++), "5[sec]")
+        .CHECK_OUTPUT((++second), "5[sec]")
+        .CHECK_OUTPUT((second--), "3[sec]")
+        .CHECK_OUTPUT((--second), "3[sec]")
+        ////////////////////////////////////////////
+        .setname("sanity test = > minute increment decrement")
+        .CHECK_OUTPUT((minute++), "56[min]")
+        .CHECK_OUTPUT((++minute), "56[min]")
+        .CHECK_OUTPUT((minute--), "54[min]")
+        .CHECK_OUTPUT((--minute), "54[min]")
+        //////////////////////////////////////////////
+        .setname("sanity test = > hour increment decrement")
+        .CHECK_OUTPUT((hour++), "1.25[hour]")
+        .CHECK_OUTPUT((++hour), "1.25[hour]")
+        .CHECK_OUTPUT((hour--), "-0.75[hour]")
+        .CHECK_OUTPUT((--hour), "-0.75[hour]")
+        /////////////////////////////////////////////
+
+        // IO testing:
+        /*********************************************/
+        // G - KG - TON tests//
+        /*********************************************/
+        .setname("sanity test = > gram IO test")
+        .CHECK_OK(istringstream("7[g]") >> gram)
+        .CHECK_OUTPUT(gram, "7[g]")
+        /////////////////////////////////////////////
+        .setname("sanity test = > kilogram IO test")
+        .CHECK_OK(istringstream("777[kg]") >> kilogram)
+        .CHECK_OUTPUT(gram, "777[kg]")
+        ////////////////////////////////////////////
+        .setname("sanity test = > ton IO test")
+        .CHECK_OK(istringstream("3[ton]") >> ton)
+        .CHECK_OUTPUT(ton, "3[ton]")
+        ////////////////////////////////////////////
+        /*********************************************/
+        // CM - M - KM tests//
+        /*********************************************/
+        ////////////////////////////////////////////
+        .setname("sanity test = > centimeter IO test")
+        .CHECK_OK(istringstream("33[cm]") >> centimeter)
+        .CHECK_OUTPUT(centimeter, "33[cm]")
+        ////////////////////////////////////////////
+        .setname("sanity test = > meter IO test")
+        .CHECK_OK(istringstream("7[m]") >> meter)
+        .CHECK_OUTPUT(meter, "7[m]")
+        ////////////////////////////////////////////
+        .setname("sanity test = > kilometer IO test")
+        .CHECK_OK(istringstream("2.5[km]") >> kilometer)
+        .CHECK_OUTPUT(kilometer, "2.5[km]")
+         ////////////////////////////////////////////
+        /*********************************************/
+        // SEC - MIN - HOUR tests//
+        /*********************************************/
+        ////////////////////////////////////////////
+        .setname("sanity test = > sec IO test")
+        .CHECK_OK(istringstream("3.333[sec]") >> second)
+        .CHECK_OUTPUT(second, "3.333[sec]")
+        ////////////////////////////////////////////
+        .setname("sanity test = > minute IO test")
+        .CHECK_OK(istringstream("7[min]") >> minute)
+        .CHECK_OUTPUT(minute, "7[m]")
+        ////////////////////////////////////////////
+        .setname("sanity test = > hour IO test")
+        .CHECK_OK(istringstream("0.5[hour]") >> hour)
+        .CHECK_OUTPUT(hour, "0.5[hour]")
+        ////////////////////////////////////////////
+
+
+        // 2. every unit-type tested with unit-types which should NOT work - with every operator
+       
+        // arithmetic testing:
+         /*********************************************/
+        // G - KG - TON tests//
+        /*********************************************/
+        .setname("sanity test = > gram arithmetic(+) should THROW!")
+        //////////////////////////////////////////////
+        .CHECK_THROWS(gram+centimeter)
+        .CHECK_THROWS(gram+meter)
+        .CHECK_THROWS(gram+kilometer)
+        .CHECK_THROWS(gram+second)
+        .CHECK_THROWS(gram+minute)
+        .CHECK_THROWS(gram+hour)
+       //////////////////////////////////////////////
+       .setname("sanity test = > kilogram arithmetic(+) should THROW!")
+        //////////////////////////////////////////////
+        .CHECK_THROWS(kilogram+centimeter)
+        .CHECK_THROWS(kilogram+meter)
+        .CHECK_THROWS(kilogram+kilometer)
+        .CHECK_THROWS(kilogram+second)
+        .CHECK_THROWS(kilogram+minute)
+        .CHECK_THROWS(kilogram+hour)
+       //////////////////////////////////////////////
+       .setname("sanity test = > ton arithmetic(+) should THROW!")
+        //////////////////////////////////////////////
+        .CHECK_THROWS(ton+centimeter)
+        .CHECK_THROWS(ton+meter)
+        .CHECK_THROWS(ton+kilometer)
+        .CHECK_THROWS(ton+second)
+        .CHECK_THROWS(ton+minute)
+        .CHECK_THROWS(ton+hour)
+       //////////////////////////////////////////////
+       .setname("sanity test = > gram arithmetic(-) should THROW!")
+        //////////////////////////////////////////////
+        .CHECK_THROWS(gram-centimeter)
+        .CHECK_THROWS(gram-meter)
+        .CHECK_THROWS(gram-kilometer)
+        .CHECK_THROWS(gram-second)
+        .CHECK_THROWS(gram-minute)
+        .CHECK_THROWS(gram-hour)
+       //////////////////////////////////////////////
+       .setname("sanity test = > kilogram arithmetic(-) should THROW!")
+        //////////////////////////////////////////////
+        .CHECK_THROWS(kilogram-centimeter)
+        .CHECK_THROWS(kilogram-meter)
+        .CHECK_THROWS(kilogram-kilometer)
+        .CHECK_THROWS(kilogram-second)
+        .CHECK_THROWS(kilogram-minute)
+        .CHECK_THROWS(kilogram-hour)
+       //////////////////////////////////////////////
+       .setname("sanity test = > ton arithmetic(-) should THROW!")
+        //////////////////////////////////////////////
+        .CHECK_THROWS(ton-centimeter)
+        .CHECK_THROWS(ton-meter)
+        .CHECK_THROWS(ton-kilometer)
+        .CHECK_THROWS(ton-second)
+        .CHECK_THROWS(ton-minute)
+        .CHECK_THROWS(ton-hour)
+       //////////////////////////////////////////////
+       .setname("sanity test = > gram arithmetic(+=) should THROW!")
+        //////////////////////////////////////////////
+        .CHECK_THROWS(gram+=centimeter)
+        .CHECK_THROWS(gram+=meter)
+        .CHECK_THROWS(gram+=kilometer)
+        .CHECK_THROWS(gram+=second)
+        .CHECK_THROWS(gram+=minute)
+        .CHECK_THROWS(gram+=hour)
+       //////////////////////////////////////////////
+        .setname("sanity test = > kilogram arithmetic(+=) should THROW!")
+        //////////////////////////////////////////////
+        .CHECK_THROWS(kilogram+=centimeter)
+        .CHECK_THROWS(kilogram+=meter)
+        .CHECK_THROWS(kilogram+=kilometer)
+        .CHECK_THROWS(kilogram+=second)
+        .CHECK_THROWS(kilogram+=minute)
+        .CHECK_THROWS(kilogram+=hour)
+       //////////////////////////////////////////////
+       .setname("sanity test = > ton arithmetic(+=) should THROW!")
+        //////////////////////////////////////////////
+        .CHECK_THROWS(ton+=centimeter)
+        .CHECK_THROWS(ton+=meter)
+        .CHECK_THROWS(ton+=kilometer)
+        .CHECK_THROWS(ton+=second)
+        .CHECK_THROWS(ton+=minute)
+        .CHECK_THROWS(ton+=hour)
+       //////////////////////////////////////////////
+       .setname("sanity test = > gram arithmetic(-=) should THROW!")
+        //////////////////////////////////////////////
+        .CHECK_THROWS(gram-=centimeter)
+        .CHECK_THROWS(gram-=meter)
+        .CHECK_THROWS(gram-=kilometer)
+        .CHECK_THROWS(gram-=second)
+        .CHECK_THROWS(gram-=minute)
+        .CHECK_THROWS(gram-=hour)
+       //////////////////////////////////////////////
+        .setname("sanity test = > kilogram arithmetic(-=) should THROW!")
+        //////////////////////////////////////////////
+        .CHECK_THROWS(kilogram-=centimeter)
+        .CHECK_THROWS(kilogram-=meter)
+        .CHECK_THROWS(kilogram-=kilometer)
+        .CHECK_THROWS(kilogram-=second)
+        .CHECK_THROWS(kilogram-=minute)
+        .CHECK_THROWS(kilogram-=hour)
+       //////////////////////////////////////////////
+        .setname("sanity test = > ton arithmetic(-=) should THROW!")
+        //////////////////////////////////////////////
+        .CHECK_THROWS(ton-=centimeter)
+        .CHECK_THROWS(ton-=meter)
+        .CHECK_THROWS(ton-=kilometer)
+        .CHECK_THROWS(ton-=second)
+        .CHECK_THROWS(ton-=minute)
+        .CHECK_THROWS(ton-=hour)
+       //////////////////////////////////////////////
+
+         /*********************************************/
+        // CM - M - KM tests//
+        /*********************************************/
+        .setname("sanity test = > centimeter arithmetic(+) should THROW!")
+        //////////////////////////////////////////////
+        .CHECK_THROWS(centimeter+gram)
+        .CHECK_THROWS(centimeter+kilogram)
+        .CHECK_THROWS(centimeter+ton)
+        .CHECK_THROWS(centimeter+second)
+        .CHECK_THROWS(centimeter+minute)
+        .CHECK_THROWS(centimeter+hour)
+       //////////////////////////////////////////////
+       .setname("sanity test = > meter arithmetic(+) should THROW!")
+        //////////////////////////////////////////////
+        .CHECK_THROWS(meter+gram)
+        .CHECK_THROWS(meter+kilogram)
+        .CHECK_THROWS(meter+ton)
+        .CHECK_THROWS(meter+second)
+        .CHECK_THROWS(meter+minute)
+        .CHECK_THROWS(meter+hour)
+       //////////////////////////////////////////////
+       .setname("sanity test = > kilometer arithmetic(+) should THROW!")
+        //////////////////////////////////////////////
+        .CHECK_THROWS(kilometer+gram)
+        .CHECK_THROWS(kilometer+kilogram)
+        .CHECK_THROWS(kilometer+ton)
+        .CHECK_THROWS(kilometer+second)
+        .CHECK_THROWS(kilometer+minute)
+        .CHECK_THROWS(kilometer+hour)
+        //////////////////////////////////////////////
+       .setname("sanity test = > centimeter arithmetic(-) should THROW!")
+        //////////////////////////////////////////////
+        .CHECK_THROWS(centimeter-gram)
+        .CHECK_THROWS(centimeter-kilogram)
+        .CHECK_THROWS(centimeter-ton)
+        .CHECK_THROWS(centimeter-second)
+        .CHECK_THROWS(centimeter-minute)
+        .CHECK_THROWS(centimeter-hour)
+        //////////////////////////////////////////////
+       .setname("sanity test = > meter arithmetic(-) should THROW!")
+        //////////////////////////////////////////////
+        .CHECK_THROWS(meter-gram)
+        .CHECK_THROWS(meter-kilogram)
+        .CHECK_THROWS(meter-ton)
+        .CHECK_THROWS(meter-second)
+        .CHECK_THROWS(meter-minute)
+        .CHECK_THROWS(meter-hour)
+        //////////////////////////////////////////////
+       .setname("sanity test = > kilometer arithmetic(-) should THROW!")
+        //////////////////////////////////////////////
+        .CHECK_THROWS(kilometer-gram)
+        .CHECK_THROWS(kilometer-kilogram)
+        .CHECK_THROWS(kilometer-ton)
+        .CHECK_THROWS(kilometer-second)
+        .CHECK_THROWS(kilometer-minute)
+        .CHECK_THROWS(kilometer-hour)
+       //////////////////////////////////////////////
+       .setname("sanity test = > centimeter arithmetic(+=) should THROW!")
+        //////////////////////////////////////////////
+        .CHECK_THROWS(centimeter+=gram)
+        .CHECK_THROWS(centimeter+=kilogram)
+        .CHECK_THROWS(centimeter+=ton)
+        .CHECK_THROWS(centimeter+=second)
+        .CHECK_THROWS(centimeter+=minute)
+        .CHECK_THROWS(centimeter+=hour)
+       //////////////////////////////////////////////
+        .setname("sanity test = > meter arithmetic(+=) should THROW!")
+        //////////////////////////////////////////////
+        .CHECK_THROWS(meter+=gram)
+        .CHECK_THROWS(meter+=kilogram)
+        .CHECK_THROWS(meter+=ton)
+        .CHECK_THROWS(meter+=second)
+        .CHECK_THROWS(meter+=minute)
+        .CHECK_THROWS(meter+=hour)
+       //////////////////////////////////////////////
+       .setname("sanity test = > kilometer arithmetic(+=) should THROW!")
+        //////////////////////////////////////////////
+        .CHECK_THROWS(kilometer+=gram)
+        .CHECK_THROWS(kilometer+=kilogram)
+        .CHECK_THROWS(kilometer+=ton)
+        .CHECK_THROWS(kilometer+=second)
+        .CHECK_THROWS(kilometer+=minute)
+        .CHECK_THROWS(kilometer+=hour)
+       //////////////////////////////////////////////
+       .setname("sanity test = > centimeter arithmetic(-=) should THROW!")
+        //////////////////////////////////////////////
+        .CHECK_THROWS(centimeter-=gram)
+        .CHECK_THROWS(centimeter-=kilogram)
+        .CHECK_THROWS(centimeter-=ton)
+        .CHECK_THROWS(centimeter-=second)
+        .CHECK_THROWS(centimeter-=minute)
+        .CHECK_THROWS(centimeter-=hour)
+       //////////////////////////////////////////////
+        .setname("sanity test = > meter arithmetic(-=) should THROW!")
+        //////////////////////////////////////////////
+        .CHECK_THROWS(meter-=gram)
+        .CHECK_THROWS(meter-=kilogram)
+        .CHECK_THROWS(meter-=ton)
+        .CHECK_THROWS(meter-=second)
+        .CHECK_THROWS(meter-=minute)
+        .CHECK_THROWS(meter-=hour)
+       //////////////////////////////////////////////
+        .setname("sanity test = > kilometer arithmetic(-=) should THROW!")
+        //////////////////////////////////////////////
+        .CHECK_THROWS(kilometer-=gram)
+        .CHECK_THROWS(kilometer-=kilogram)
+        .CHECK_THROWS(kilometer-=ton)
+        .CHECK_THROWS(kilometer-=second)
+        .CHECK_THROWS(kilometer-=minute)
+        .CHECK_THROWS(kilometer-=hour)
+       //////////////////////////////////////////////
+
+        /*********************************************/
+        // SEC - MIN - HOUR tests//
+        /*********************************************/
+        .setname("sanity test = > second arithmetic(+) should THROW!")
+        //////////////////////////////////////////////
+        .CHECK_THROWS(second+gram)
+        .CHECK_THROWS(second+kilogram)
+        .CHECK_THROWS(second+ton)
+        .CHECK_THROWS(second+centimeter)
+        .CHECK_THROWS(second+meter)
+        .CHECK_THROWS(second+kilometer)
+       //////////////////////////////////////////////
+       .setname("sanity test = > minute arithmetic(+) should THROW!")
+        //////////////////////////////////////////////
+       .CHECK_THROWS(minute+gram)
+        .CHECK_THROWS(minute+kilogram)
+        .CHECK_THROWS(minute+ton)
+        .CHECK_THROWS(minute+centimeter)
+        .CHECK_THROWS(minute+meter)
+        .CHECK_THROWS(minute+kilometer)
+       //////////////////////////////////////////////
+       .setname("sanity test = > hour arithmetic(+) should THROW!")
+        //////////////////////////////////////////////
+        .CHECK_THROWS(hour+gram)
+        .CHECK_THROWS(hour+kilogram)
+        .CHECK_THROWS(hour+ton)
+        .CHECK_THROWS(hour+centimeter)
+        .CHECK_THROWS(hour+meter)
+        .CHECK_THROWS(hour+kilometer)
+        //////////////////////////////////////////////
+       .setname("sanity test = > second arithmetic(-) should THROW!")
+        //////////////////////////////////////////////
+        .CHECK_THROWS(second-gram)
+        .CHECK_THROWS(second-kilogram)
+        .CHECK_THROWS(second-ton)
+        .CHECK_THROWS(second-centimeter)
+        .CHECK_THROWS(second-meter)
+        .CHECK_THROWS(second-kilometer)
+        //////////////////////////////////////////////
+       .setname("sanity test = > minute arithmetic(-) should THROW!")
+        //////////////////////////////////////////////
+        .CHECK_THROWS(minute-gram)
+        .CHECK_THROWS(minute-kilogram)
+        .CHECK_THROWS(minute-ton)
+        .CHECK_THROWS(minute-centimeter)
+        .CHECK_THROWS(minute-meter)
+        .CHECK_THROWS(minute-kilometer)
+        //////////////////////////////////////////////
+       .setname("sanity test = > hour arithmetic(-) should THROW!")
+        //////////////////////////////////////////////
+        .CHECK_THROWS(hour-gram)
+        .CHECK_THROWS(hour-kilogram)
+        .CHECK_THROWS(hour-ton)
+        .CHECK_THROWS(hour-centimeter)
+        .CHECK_THROWS(hour-meter)
+        .CHECK_THROWS(hour-kilometer)
+       //////////////////////////////////////////////
+       .setname("sanity test = > second arithmetic(+=) should THROW!")
+        //////////////////////////////////////////////
+        .CHECK_THROWS(second+=gram)
+        .CHECK_THROWS(second+=kilogram)
+        .CHECK_THROWS(second+=ton)
+        .CHECK_THROWS(second+=centimeter)
+        .CHECK_THROWS(second+=meter)
+        .CHECK_THROWS(second+=kilometer)
+       //////////////////////////////////////////////
+        .setname("sanity test = > minute arithmetic(+=) should THROW!")
+        //////////////////////////////////////////////
+         .CHECK_THROWS(minute+=gram)
+        .CHECK_THROWS(minute+=kilogram)
+        .CHECK_THROWS(minute+=ton)
+        .CHECK_THROWS(minute+=centimeter)
+        .CHECK_THROWS(minute+=meter)
+        .CHECK_THROWS(minute+=kilometer)
+       //////////////////////////////////////////////
+       .setname("sanity test = > hour arithmetic(+=) should THROW!")
+        //////////////////////////////////////////////
+        .CHECK_THROWS(hour+=gram)
+        .CHECK_THROWS(hour+=kilogram)
+        .CHECK_THROWS(hour+=ton)
+        .CHECK_THROWS(hour+=centimeter)
+        .CHECK_THROWS(hour+=meter)
+        .CHECK_THROWS(hour+=kilometer)
+       //////////////////////////////////////////////
+       .setname("sanity test = > second arithmetic(-=) should THROW!")
+        //////////////////////////////////////////////
+        .CHECK_THROWS(second-=gram)
+        .CHECK_THROWS(second-=kilogram)
+        .CHECK_THROWS(second-=ton)
+        .CHECK_THROWS(second-=centimeter)
+        .CHECK_THROWS(second-=meter)
+        .CHECK_THROWS(second-=kilometer)
+       //////////////////////////////////////////////
+        .setname("sanity test = > minute arithmetic(-=) should THROW!")
+        //////////////////////////////////////////////
+         .CHECK_THROWS(minute-=gram)
+        .CHECK_THROWS(minute-=kilogram)
+        .CHECK_THROWS(minute-=ton)
+        .CHECK_THROWS(minute-=centimeter)
+        .CHECK_THROWS(minute-=meter)
+        .CHECK_THROWS(minute-=kilometer)
+       //////////////////////////////////////////////
+        .setname("sanity test = > hour arithmetic(-=) should THROW!")
+        //////////////////////////////////////////////
+        .CHECK_THROWS(hour-=gram)
+        .CHECK_THROWS(hour-=kilogram)
+        .CHECK_THROWS(hour-=ton)
+        .CHECK_THROWS(hour-=centimeter)
+        .CHECK_THROWS(hour-=meter)
+        .CHECK_THROWS(hour-=kilometer)
+       //////////////////////////////////////////////
         .setname("...")
 
         .print(cout, /*show_grade=*/false);
