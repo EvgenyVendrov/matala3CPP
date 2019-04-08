@@ -9,12 +9,13 @@ class PhysicalNumber
 private:
     double _value;
     Unit _type;
+    void setValue(const double value);
+    void setType(const double value);
+
 
 public:
     //constructor & distructor
     PhysicalNumber(double value, Unit type);
-    ~PhysicalNumber();
-
     //arithmetic + operators:
     PhysicalNumber operator+(const PhysicalNumber &arg2) const;
     PhysicalNumber &operator+=(const PhysicalNumber &arg2);
@@ -41,7 +42,7 @@ public:
 
     //friend I/O operators:
     friend std::ostream &operator<<(std::ostream &os, const PhysicalNumber &arg);
-    friend std::istream &operator>>(std::istream &is, const PhysicalNumber &arg);
+    friend std::istream &operator>>(std::istream &is,  PhysicalNumber &arg);
 };
 
 } // namespace ariel
