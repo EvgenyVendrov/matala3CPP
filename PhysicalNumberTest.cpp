@@ -283,6 +283,272 @@ int main()
         .CHECK_OUTPUT(-hour, "-0.25[hour]")
         //////////////////////////////////////////////
 
+        // comparison testing:
+
+        /*********************************************/
+        // G - KG - TON tests//
+        /*********************************************/
+        .setname("sainty test = > comparison (==) = > G-KG-TON")
+        //////////////////////////////////////////////
+        .CHECK_OUTPUT((gram == gram), "true")
+        .CHECK_OUTPUT((gram == kilogram), "false")
+        .CHECK_OUTPUT((gram == ton), "false")
+        /////////////////////////////////////////////
+        .CHECK_OUTPUT((kilogram == kilogram), "true")
+        .CHECK_OUTPUT((kilogram == gram), "false")
+        .CHECK_OUTPUT((kilogram == ton), "false")
+        ////////////////////////////////////////////
+        .CHECK_OUTPUT((ton == ton), "true")
+        .CHECK_OUTPUT((ton == gram), "false")
+        .CHECK_OUTPUT((ton == kilogram), "false")
+        ////////////////////////////////////////////
+        .setname("sainty test = > comparison (!=) = > G-KG-TON")
+        //////////////////////////////////////////////
+        .CHECK_OUTPUT((gram != gram), "false")
+        .CHECK_OUTPUT((gram != kilogram), "true")
+        .CHECK_OUTPUT((gram != ton), "true")
+        /////////////////////////////////////////////
+        .CHECK_OUTPUT((kilogram != kilogram), "false")
+        .CHECK_OUTPUT((kilogram != gram), "true")
+        .CHECK_OUTPUT((kilogram != ton), "true")
+        ////////////////////////////////////////////
+        .CHECK_OUTPUT((ton != ton), "false")
+        .CHECK_OUTPUT((ton != gram), "true")
+        .CHECK_OUTPUT((ton != kilogram), "true")
+        ////////////////////////////////////////////
+        .setname("sainty test = > comparison (<) = > G-KG-TON")
+        //////////////////////////////////////////////
+        .CHECK_OUTPUT((gram < gram), "false")
+        .CHECK_OUTPUT((gram < kilogram), "true")
+        .CHECK_OUTPUT((gram < ton), "true")
+        /////////////////////////////////////////////
+        .CHECK_OUTPUT((kilogram < kilogram), "false")
+        .CHECK_OUTPUT((kilogram < gram), "false")
+        .CHECK_OUTPUT((kilogram < ton), "true")
+        ////////////////////////////////////////////
+        .CHECK_OUTPUT((ton < ton), "false")
+        .CHECK_OUTPUT((ton < gram), "false")
+        .CHECK_OUTPUT((ton < kilogram), "false")
+        ////////////////////////////////////////////
+        .setname("sainty test = > comparison (>) = > G-KG-TON")
+        //////////////////////////////////////////////
+        .CHECK_OUTPUT((gram > gram), "false")
+        .CHECK_OUTPUT((gram > kilogram), "true")
+        .CHECK_OUTPUT((gram > ton), "false")
+        /////////////////////////////////////////////
+        .CHECK_OUTPUT((kilogram > kilogram), "false")
+        .CHECK_OUTPUT((kilogram > gram), "true")
+        .CHECK_OUTPUT((kilogram > ton), "false")
+        ////////////////////////////////////////////
+        .CHECK_OUTPUT((ton > ton), "false")
+        .CHECK_OUTPUT((ton > gram), "true")
+        .CHECK_OUTPUT((ton > kilogram), "true")
+        /////////////////////////////////////////////
+        .setname("sainty test = > comparison (<=) = > G-KG-TON")
+        //////////////////////////////////////////////
+        .CHECK_OUTPUT((gram <= gram), "true")
+        .CHECK_OUTPUT((gram <= kilogram), "true")
+        .CHECK_OUTPUT((gram <= ton), "true")
+        /////////////////////////////////////////////
+        .CHECK_OUTPUT((kilogram <= kilogram), "true")
+        .CHECK_OUTPUT((kilogram <= gram), "false")
+        .CHECK_OUTPUT((kilogram <= ton), "true")
+        ////////////////////////////////////////////
+        .CHECK_OUTPUT((ton <= ton), "true")
+        .CHECK_OUTPUT((ton <= gram), "false")
+        .CHECK_OUTPUT((ton <= kilogram), "false")
+        ////////////////////////////////////////////
+        .setname("sainty test = > comparison (>=) = > G-KG-TON")
+        //////////////////////////////////////////////
+        .CHECK_OUTPUT((gram >= gram), "true")
+        .CHECK_OUTPUT((gram >= kilogram), "false")
+        .CHECK_OUTPUT((gram >= ton), "false")
+        /////////////////////////////////////////////
+        .CHECK_OUTPUT((kilogram >= kilogram), "true")
+        .CHECK_OUTPUT((kilogram >= gram), "true")
+        .CHECK_OUTPUT((kilogram >= ton), "false")
+        ////////////////////////////////////////////
+        .CHECK_OUTPUT((ton >= ton), "true")
+        .CHECK_OUTPUT((ton >= gram), "true")
+        .CHECK_OUTPUT((ton >= kilogram), "true")
+        ////////////////////////////////////////////
+
+        /*********************************************/
+        // CM - M - KM tests//
+        /*********************************************/
+        .setname("sainty test = > comparison (==) = > CM - M - KM ")
+        //////////////////////////////////////////////
+        .CHECK_OUTPUT((centimeter == centimeter), "true")
+        .CHECK_OUTPUT((centimeter == meter), "false")
+        .CHECK_OUTPUT((centimeter == kilometer), "false")
+        /////////////////////////////////////////////
+        .CHECK_OUTPUT((meter == meter), "true")
+        .CHECK_OUTPUT((meter == centimeter), "false")
+        .CHECK_OUTPUT((meter == kilometer), "false")
+        ////////////////////////////////////////////
+        .CHECK_OUTPUT((kilometer == kilometer), "true")
+        .CHECK_OUTPUT((kilometer == centimeter), "false")
+        .CHECK_OUTPUT((kilometer == meter), "false")
+        ////////////////////////////////////////////
+        .setname("sainty test = > comparison (!=) = >CM - M - KM ")
+        //////////////////////////////////////////////
+        .CHECK_OUTPUT((centimeter != centimeter), "false")
+        .CHECK_OUTPUT((centimeter != meter), "true")
+        .CHECK_OUTPUT((centimeter != kilometer), "true")
+        /////////////////////////////////////////////
+        .CHECK_OUTPUT((meter != meter), "false")
+        .CHECK_OUTPUT((meter != centimeter), "true")
+        .CHECK_OUTPUT((meter != kilometer), "true")
+        ////////////////////////////////////////////
+        .CHECK_OUTPUT((kilometer != kilometer), "false")
+        .CHECK_OUTPUT((kilometer != centimeter), "true")
+        .CHECK_OUTPUT((kilometer != meter), "true")
+        ////////////////////////////////////////////
+        .setname("sainty test = > comparison (<) = > CM - M - KM ")
+        //////////////////////////////////////////////
+        .CHECK_OUTPUT((centimeter < centimeter), "false")
+        .CHECK_OUTPUT((centimeter < meter), "true")
+        .CHECK_OUTPUT((centimeter < kilometer), "true")
+        /////////////////////////////////////////////
+        .CHECK_OUTPUT((meter < meter), "false")
+        .CHECK_OUTPUT((meter < centimeter), "false")
+        .CHECK_OUTPUT((meter < kilometer), "true")
+        ////////////////////////////////////////////
+        .CHECK_OUTPUT((kilometer < kilometer), "false")
+        .CHECK_OUTPUT((kilometer < centimeter), "false")
+        .CHECK_OUTPUT((kilometer < meter), "false")
+        ////////////////////////////////////////////
+        .setname("sainty test = > comparison (>) = > CM - M - KM ")
+        //////////////////////////////////////////////
+        .CHECK_OUTPUT((centimeter > centimeter), "false")
+        .CHECK_OUTPUT((centimeter > meter), "true")
+        .CHECK_OUTPUT((centimeter > kilometer), "false")
+        /////////////////////////////////////////////
+        .CHECK_OUTPUT((meter > meter), "false")
+        .CHECK_OUTPUT((meter > centimeter), "true")
+        .CHECK_OUTPUT((meter > kilometer), "false")
+        ////////////////////////////////////////////
+        .CHECK_OUTPUT((kilometer > kilometer), "false")
+        .CHECK_OUTPUT((kilometer > centimeter), "true")
+        .CHECK_OUTPUT((kilometer > meter), "true")
+        /////////////////////////////////////////////
+        .setname("sainty test = > comparison (<=) = > CM - M - KM ")
+        //////////////////////////////////////////////
+        .CHECK_OUTPUT((centimeter <= centimeter), "true")
+        .CHECK_OUTPUT((centimeter <= meter), "true")
+        .CHECK_OUTPUT((centimeter <= kilometer), "true")
+        /////////////////////////////////////////////
+        .CHECK_OUTPUT((meter <= meter), "true")
+        .CHECK_OUTPUT((meter <= centimeter), "false")
+        .CHECK_OUTPUT((meter <= kilometer), "true")
+        ////////////////////////////////////////////
+        .CHECK_OUTPUT((kilometer <= kilometer), "true")
+        .CHECK_OUTPUT((kilometer <= centimeter), "false")
+        .CHECK_OUTPUT((kilometer <= meter), "false")
+        ////////////////////////////////////////////
+        .setname("sainty test = > comparison (>=) = > CM - M - KM ")
+        //////////////////////////////////////////////
+        .CHECK_OUTPUT((centimeter >= centimeter), "true")
+        .CHECK_OUTPUT((centimeter >= meter), "false")
+        .CHECK_OUTPUT((centimeter >= kilometer), "false")
+        /////////////////////////////////////////////
+        .CHECK_OUTPUT((meter >= meter), "true")
+        .CHECK_OUTPUT((meter >= centimeter), "true")
+        .CHECK_OUTPUT((meter >= kilometer), "false")
+        ////////////////////////////////////////////
+        .CHECK_OUTPUT((kilometer >= kilometer), "true")
+        .CHECK_OUTPUT((kilometer >= centimeter), "true")
+        .CHECK_OUTPUT((kilometer >= meter), "true")
+        ////////////////////////////////////////////
+
+        /*********************************************/
+        // SEC - MIN - HOUR tests//
+        /*********************************************/
+        .setname("sainty test = > comparison (==) = > SEC - MIN - HOUR ")
+        //////////////////////////////////////////////
+        .CHECK_OUTPUT((second == second), "true")
+        .CHECK_OUTPUT((second == minute), "false")
+        .CHECK_OUTPUT((second == hour), "false")
+        /////////////////////////////////////////////
+        .CHECK_OUTPUT((minute == minute), "true")
+        .CHECK_OUTPUT((minute == second), "false")
+        .CHECK_OUTPUT((minute == hour), "false")
+        ////////////////////////////////////////////
+        .CHECK_OUTPUT((hour == hour), "true")
+        .CHECK_OUTPUT((hour == second), "false")
+        .CHECK_OUTPUT((hour == minute), "false")
+        ////////////////////////////////////////////
+        .setname("sainty test = > comparison (!=) = >SEC - MIN - HOUR")
+        //////////////////////////////////////////////
+        .CHECK_OUTPUT((second != second), "false")
+        .CHECK_OUTPUT((second != minute), "true")
+        .CHECK_OUTPUT((second != hour), "true")
+        /////////////////////////////////////////////
+        .CHECK_OUTPUT((minute != minute), "false")
+        .CHECK_OUTPUT((minute != second), "true")
+        .CHECK_OUTPUT((minute != hour), "true")
+        ////////////////////////////////////////////
+        .CHECK_OUTPUT((hour != hour), "false")
+        .CHECK_OUTPUT((hour != second), "true")
+        .CHECK_OUTPUT((hour != minute), "true")
+        ////////////////////////////////////////////
+        .setname("sainty test = > comparison (<) = > SEC - MIN - HOUR")
+        //////////////////////////////////////////////
+        .CHECK_OUTPUT((second < second), "false")
+        .CHECK_OUTPUT((second < minute), "true")
+        .CHECK_OUTPUT((second < hour), "true")
+        /////////////////////////////////////////////
+        .CHECK_OUTPUT((minute < minute), "false")
+        .CHECK_OUTPUT((minute < second), "false")
+        .CHECK_OUTPUT((minute < hour), "true")
+        ////////////////////////////////////////////
+        .CHECK_OUTPUT((hour < hour), "false")
+        .CHECK_OUTPUT((hour < second), "false")
+        .CHECK_OUTPUT((hour < minute), "false")
+        ////////////////////////////////////////////
+        .setname("sainty test = > comparison (>) = > SEC - MIN - HOUR ")
+        //////////////////////////////////////////////
+        .CHECK_OUTPUT((second > second), "false")
+        .CHECK_OUTPUT((second > minute), "true")
+        .CHECK_OUTPUT((second > hour), "false")
+        /////////////////////////////////////////////
+        .CHECK_OUTPUT((minute > minute), "false")
+        .CHECK_OUTPUT((minute > second), "true")
+        .CHECK_OUTPUT((minute > hour), "false")
+        ////////////////////////////////////////////
+        .CHECK_OUTPUT((hour > hour), "false")
+        .CHECK_OUTPUT((hour > second), "true")
+        .CHECK_OUTPUT((hour > minute), "true")
+        /////////////////////////////////////////////
+        .setname("sainty test = > comparison (<=) = > SEC - MIN - HOUR ")
+        //////////////////////////////////////////////
+        .CHECK_OUTPUT((second <= second), "true")
+        .CHECK_OUTPUT((second <= minute), "true")
+        .CHECK_OUTPUT((second <= hour), "true")
+        /////////////////////////////////////////////
+        .CHECK_OUTPUT((minute <= minute), "true")
+        .CHECK_OUTPUT((minute <= second), "false")
+        .CHECK_OUTPUT((minute <= hour), "true")
+        ////////////////////////////////////////////
+        .CHECK_OUTPUT((hour <= hour), "true")
+        .CHECK_OUTPUT((hour <= second), "false")
+        .CHECK_OUTPUT((hour <= minute), "false")
+        ////////////////////////////////////////////
+        .setname("sainty test = > comparison (>=) = > SEC - MIN - HOUR ")
+        //////////////////////////////////////////////
+        .CHECK_OUTPUT((second >= second), "true")
+        .CHECK_OUTPUT((second >= minute), "false")
+        .CHECK_OUTPUT((second >= hour), "false")
+        /////////////////////////////////////////////
+        .CHECK_OUTPUT((minute >= minute), "true")
+        .CHECK_OUTPUT((minute >= second), "true")
+        .CHECK_OUTPUT((minute >= hour), "false")
+        ////////////////////////////////////////////
+        .CHECK_OUTPUT((hour >= hour), "true")
+        .CHECK_OUTPUT((hour >= second), "true")
+        .CHECK_OUTPUT((hour >= minute), "true")
+        ////////////////////////////////////////////
+
         .setname("...")
 
         .print(cout, /*show_grade=*/false);
