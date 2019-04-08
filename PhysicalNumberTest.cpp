@@ -73,14 +73,14 @@ PhysicalNumber kilometer(2.3 , Unit::KM);
 PhysicalNumber second(0.4 , Unit::SEC);
 PhysicalNumber minute(55.5 , Unit::MIN);
 PhysicalNumber hour(0.25 , Unit::HOUR);
-// 1. every unit-type with unit-types which should work - with every operator
+// 1. every unit-type tested with unit-types which should work - with every operator
 // arithmetic testing:
 testcase
 .setname("sainty test = > arithmetic (+) = > should work = > G-KG-TON")
 //////////////////////////////////////////////
 .CHECK_OUTPUT(gram+gram, "10[g]")
 .CHECK_OUTPUT(gram+kilogram, "6005[g]")
-.CHECK_OUTPUT(gram+ton, "200005[g]")
+.CHECK_OUTPUT(gram+ton, "2000005[g]")
 /////////////////////////////////////////////
 .CHECK_OUTPUT(kilogram+kilogram, "12[kg]")
 .CHECK_OUTPUT(kilogram+gram, "6.005[kg]")
@@ -88,25 +88,61 @@ testcase
 ////////////////////////////////////////////
 .CHECK_OUTPUT(ton+ton, "0.4[ton]")
 .CHECK_OUTPUT(ton+gram, "0.200005[ton]")
-.CHECK_OUTPUT(ton+kilogram, "0.201[ton]")
+.CHECK_OUTPUT(ton+kilogram, "0.206[ton]")
 ////////////////////////////////////////////
 .setname("sainty test = > arithmetic (-) = > should work = > G-KG-TON")
 //////////////////////////////////////////////
 .CHECK_OUTPUT(gram-gram, "0[g]")
-.CHECK_OUTPUT(gram+kilogram, "6005[g]")
-.CHECK_OUTPUT(gram+ton, "200005[g]")
+.CHECK_OUTPUT(gram-kilogram, "-5995[g]")
+.CHECK_OUTPUT(gram-ton, "-199995[g]")
 /////////////////////////////////////////////
-.CHECK_OUTPUT(kilogram+kilogram, "12[kg]")
-.CHECK_OUTPUT(kilogram+gram, "6.005[kg]")
-.CHECK_OUTPUT(kilogram+ton, "206[kg]")
+.CHECK_OUTPUT(kilogram-kilogram, "0[kg]")
+.CHECK_OUTPUT(kilogram-gram, "5.995[kg]")
+.CHECK_OUTPUT(kilogram-ton, "-194[kg]")
 ////////////////////////////////////////////
-.CHECK_OUTPUT(ton+ton, "0.4[ton]")
-.CHECK_OUTPUT(ton+gram, "0.200005[ton]")
-.CHECK_OUTPUT(ton+kilogram, "0.201[ton]")
+.CHECK_OUTPUT(ton-ton, "0[ton]")
+.CHECK_OUTPUT(ton-gram, "0.199995[ton]")
+.CHECK_OUTPUT(ton-kilogram, "0.194[ton]")
 ////////////////////////////////////////////
-
-
-
+.setname("sainty test = > arithmetic (+=) = > should work = > G-KG-TON")
+//////////////////////////////////////////////
+.CHECK_OUTPUT(gram+=gram, "10[g]")
+.CHECK_OUTPUT(gram+=kilogram, "6005[g]")
+.CHECK_OUTPUT(gram+=ton, "2000005[g]")
+/////////////////////////////////////////////
+.CHECK_OUTPUT(kilogram+=kilogram, "12[kg]")
+.CHECK_OUTPUT(kilogram+=gram, "6.005[kg]")
+.CHECK_OUTPUT(kilogram+=ton, "206[kg]")
+////////////////////////////////////////////
+.CHECK_OUTPUT(ton+=ton, "0.4[ton]")
+.CHECK_OUTPUT(ton+=gram, "0.200005[ton]")
+.CHECK_OUTPUT(ton+=kilogram, "0.206[ton]")
+////////////////////////////////////////////
+.setname("sainty test = > unary (+) = > should work = > G-KG-TON")
+//////////////////////////////////////////////
+.CHECK_OUTPUT(+gram, "5[g]")
+.CHECK_OUTPUT(+kilogram, "6[kg]")
+.CHECK_OUTPUT(+ton, "0.2[ton]")
+/////////////////////////////////////////////
+.setname("sainty test = > arithmetic (-=) = > should work = > G-KG-TON")
+//////////////////////////////////////////////
+.CHECK_OUTPUT(gram-=gram, "0[g]")
+.CHECK_OUTPUT(gram-=kilogram, "-5995[g]")
+.CHECK_OUTPUT(gram-=ton, "-199995[g]")
+/////////////////////////////////////////////
+.CHECK_OUTPUT(kilogram-=kilogram, "0[kg]")
+.CHECK_OUTPUT(kilogram-=gram, "5.995[kg]")
+.CHECK_OUTPUT(kilogram-=ton, "-194[kg]")
+////////////////////////////////////////////
+.CHECK_OUTPUT(ton-=ton, "0[ton]")
+.CHECK_OUTPUT(ton-=gram, "0.199995[ton]")
+.CHECK_OUTPUT(ton-=kilogram, "0.194[ton]")
+////////////////////////////////////////////
+setname("sainty test = > unary (-) = > should work = > G-KG-TON")
+//////////////////////////////////////////////
+.CHECK_OUTPUT(-gram, "-5[g]")
+.CHECK_OUTPUT(-kilogram, "-6[kg]")
+.CHECK_OUTPUT(-ton, "-0.2[ton]")
 
 
 
