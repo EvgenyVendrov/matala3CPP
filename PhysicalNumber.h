@@ -9,8 +9,11 @@ class PhysicalNumber
 private:
     double _value;
     Unit _type;
-    void setValue(const double value);
-    void setType(const double value);
+    std::string getUnitInString() const;
+    Unit getUnit() const;
+    bool canWeCalcBoth(const PhysicalNumber &arg) const;
+    double conv2min () const;
+    static double normalizeResult(const double result,const Unit type);
 
 
 public:
