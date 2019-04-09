@@ -6,19 +6,24 @@ namespace ariel
 {
 class PhysicalNumber
 {
-private:
+  private:
     double _value;
     Unit _type;
     std::string getUnitInString() const;
-    Unit getUnit() const;
+    static Unit getUnitFromString(std::string str);
+    static double retVal(std::string str);
     bool canWeCalcBoth(const PhysicalNumber &arg) const;
-    double conv2min () const;
-    static double normalizeResult(const double result,const Unit type);
+    double conv2min() const;
+    static double normalizeResult(const double result, const Unit type);
+    void setUnit (const Unit type);
+    void setValue (const double value);
+    static Unit getUnitOfString (std::string str);
 
-
-public:
+  public:
     //constructor & distructor
     PhysicalNumber(double value, Unit type);
+    Unit getUnit() const;
+    double getValue() const;
     //arithmetic + operators:
     PhysicalNumber operator+(const PhysicalNumber &arg2) const;
     PhysicalNumber &operator+=(const PhysicalNumber &arg2);
@@ -45,7 +50,7 @@ public:
 
     //friend I/O operators:
     friend std::ostream &operator<<(std::ostream &os, const PhysicalNumber &arg);
-    friend std::istream &operator>>(std::istream &is,  PhysicalNumber &arg);
+    friend std::istream &operator>>(std::istream &is, PhysicalNumber &arg);
 };
 
 } // namespace ariel

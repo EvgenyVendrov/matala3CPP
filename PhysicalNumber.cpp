@@ -1,6 +1,7 @@
 #include "PhysicalNumber.h"
 #include "Unit.h"
 #include <string.h>
+#include <sstream>
 using ariel::PhysicalNumber, ariel::Unit, std::string;
 
 ////////////////////PUBLIC////////////////////
@@ -44,7 +45,16 @@ PhysicalNumber &PhysicalNumber::operator+()
 //arithmetic - operators:
 PhysicalNumber PhysicalNumber::operator-(const PhysicalNumber &arg2) const
 {
-    return arg2;
+    if (!this->canWeCalcBoth(arg2))
+    {
+        throw "YOU CAN NOT USE THIS OPERATOR ON TWO INCOMPATIBLE DIMENSIONS";
+    }
+    double valueFirst = this->conv2min();
+    double valueSecond = arg2.conv2min();
+    Unit toBeMade = this->getUnit();
+    double result = normalizeResult(valueFirst - valueSecond, toBeMade);
+    PhysicalNumber output(result, toBeMade);
+    return output;
 }
 
 PhysicalNumber &PhysicalNumber::operator-=(const PhysicalNumber &arg2)
@@ -53,10 +63,13 @@ PhysicalNumber &PhysicalNumber::operator-=(const PhysicalNumber &arg2)
     return p;
 }
 
+//unary -
 PhysicalNumber &PhysicalNumber::operator-()
 {
-    PhysicalNumber p(0, Unit::CM);
-    return p;
+    double value = this->getValue();
+    value *= (-1);
+    PhysicalNumber output(value, this->getUnit());
+    return output;
 }
 
 //comparison operators:
@@ -67,11 +80,31 @@ bool PhysicalNumber::operator<(const PhysicalNumber &arg2) const
 
 bool PhysicalNumber::operator<=(const PhysicalNumber &arg2) const
 {
+    if (!this->canWeCalcBoth(arg2))
+    {
+        throw "YOU CAN NOT USE THIS OPERATOR ON TWO INCOMPATIBLE DIMENSIONS";
+    }
+    double valueFirst = this->conv2min();
+    double valueSecond = arg2.conv2min();
+    if (valueFirst <= valueSecond)
+    {
+        return true;
+    }
     return false;
 }
 
 bool PhysicalNumber::operator>(const PhysicalNumber &arg2) const
 {
+    if (!this->canWeCalcBoth(arg2))
+    {
+        throw "YOU CAN NOT USE THIS OPERATOR ON TWO INCOMPATIBLE DIMENSIONS";
+    }
+    double valueFirst = this->conv2min();
+    double valueSecond = arg2.conv2min();
+    if (valueFirst > valueSecond)
+    {
+        return true;
+    }
     return false;
 }
 
@@ -82,6 +115,16 @@ bool PhysicalNumber::operator>=(const PhysicalNumber &arg2) const
 
 bool PhysicalNumber::operator==(const PhysicalNumber &arg2) const
 {
+    if (!this->canWeCalcBoth(arg2))
+    {
+        throw "YOU CAN NOT USE THIS OPERATOR ON TWO INCOMPATIBLE DIMENSIONS";
+    }
+    double valueFirst = this->conv2min();
+    double valueSecond = arg2.conv2min();
+    if (valueFirst == valueSecond)
+    {
+        return true;
+    }
     return false;
 }
 
@@ -125,17 +168,34 @@ std::ostream &ariel::operator<<(std::ostream &os, const PhysicalNumber &arg)
 }
 std::istream &ariel::operator>>(std::istream &is, PhysicalNumber &arg)
 {
-    std::string helpingS;
-    is >> helpingS;
-    arg._value = 0;
-    arg._type = Unit::G;
+
+    string saver;
+    is >> saver;
+    Unit unit;
+    double value;
+    unit = PhysicalNumber::getUnitFromString(saver);
+    value = PhysicalNumber::retVal(saver);
+    arg.setUnit(unit);
+    arg.setValue(value);
     return is;
 }
 
-//private methods
+////////////////////getters////////////////////
+
+Unit PhysicalNumber::getUnit() const
+{
+    return this->_type;
+}
+
+double PhysicalNumber::getValue() const
+{
+    return this->_value;
+}
+
+////////////////////PRIVATE////////////////////
 std::string PhysicalNumber::getUnitInString() const
 {
-    Unit helpingVar = this->_type;
+    Unit helpingVar = this->getUnit();
     switch (helpingVar)
     {
     case Unit::G:
@@ -159,6 +219,80 @@ std::string PhysicalNumber::getUnitInString() const
     default:
         break;
     }
+}
+
+Unit PhysicalNumber::getUnitFromString(string str)
+{
+    string unit;
+    for (int i = 0; i < str.length(); i++)
+    {
+        if (str[i] == '[')
+        {
+            i++;
+            while (str[i] != ']')
+            {
+                unit += str[i];
+                i++;
+            }
+        }
+    }
+    if (unit.compare("g") == 0)
+    {
+        return Unit::G;
+    }
+    else if (unit.compare("kg") == 0)
+    {
+        return Unit::KG;
+    }
+    else if (unit.compare("ton") == 0)
+    {
+        return Unit::TON;
+    }
+    else if (unit.compare("cm") == 0)
+    {
+        return Unit::CM;
+    }
+    else if (unit.compare("m") == 0)
+    {
+        return Unit::M;
+    }
+    else if (unit.compare("km") == 0)
+    {
+        return Unit::KM;
+    }
+    else if (unit.compare("sec") == 0)
+    {
+        return Unit::SEC;
+    }
+    else if (unit.compare("min") == 0)
+    {
+        return Unit::MIN;
+    }
+    else if (unit.compare("hour") == 0)
+    {
+        return Unit::HOUR;
+    }
+}
+
+double PhysicalNumber::retVal(string str)
+{
+    string helpingS;
+    for (int i = 0; i < str.length(); i++)
+    {
+        if (str[i] == '[')
+        {
+            i += str.length();
+        }
+        else
+        {
+            helpingS += str[i];
+        }
+    }
+    std::stringstream helpingStream(helpingS);
+    double output;
+    helpingStream >> output;
+    std::cout<<output<<std::endl;
+    return output;
 }
 
 bool PhysicalNumber::canWeCalcBoth(const PhysicalNumber &arg) const
@@ -255,35 +389,30 @@ bool PhysicalNumber::canWeCalcBoth(const PhysicalNumber &arg) const
 
 double PhysicalNumber::conv2min() const
 {
-    Unit helpingVar = this->_type;
+    Unit helpingVar = this->getUnit();
     switch (helpingVar)
     {
     case Unit::G:
-        return (this->_value);
+        return (this->getValue());
     case Unit::KG:
-        return (this->_value) * 1000;
+        return (this->getValue()) * 1000;
     case Unit::TON:
-        return (this->_value) * 1000 * 1000;
+        return (this->getValue()) * 1000 * 1000;
     case Unit::CM:
-        return (this->_value);
+        return (this->getValue());
     case Unit::M:
-        return (this->_value) * 100;
+        return (this->getValue()) * 100;
     case Unit::KM:
-        return (this->_value) * 100 * 1000;
+        return (this->getValue()) * 100 * 1000;
     case Unit::SEC:
-        return (this->_value);
+        return (this->getValue());
     case Unit::MIN:
-        return (this->_value) * 60;
+        return (this->getValue()) * 60;
     case Unit::HOUR:
-        return (this->_value) * 60 * 60;
+        return (this->getValue()) * 60 * 60;
     default:
         break;
     }
-}
-
-Unit PhysicalNumber::getUnit() const
-{
-    return this->_type;
 }
 
 double PhysicalNumber::normalizeResult(const double result, Unit type)
@@ -311,4 +440,14 @@ double PhysicalNumber::normalizeResult(const double result, Unit type)
     default:
         break;
     }
+}
+
+void PhysicalNumber::setValue(const double value)
+{
+    this->_value = value;
+}
+
+void PhysicalNumber::setUnit(const Unit type)
+{
+    this->_type = type;
 }
