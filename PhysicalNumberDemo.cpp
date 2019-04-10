@@ -32,14 +32,14 @@ int main()
     istringstream input("700[kg]");
     input >> a;
     cout << a << endl;   // Prints "700[kg]"
-    // cout << (a += PhysicalNumber(1, Unit::TON)) << endl;  // prints "1700[kg]"
-    // cout << a << endl;   // Prints "1700[kg]" since a has changed.
+    cout << (a += PhysicalNumber(1, Unit::TON)) << endl;  // prints "1700[kg]"
+    cout << a << endl;   // Prints "1700[kg]" since a has changed.
 
-    // try {
-    //   cout << (a+b) << endl;
-    // } catch (const std::exception& ex) {
-    //   cout << ex.what() << endl; // Prints "Units do not match - [m] cannot be converted to [kg]"
-    // }
+    try {
+      cout << (a+b) << endl;
+    } catch (const std::exception& ex) {
+      cout << ex.what() << endl; // Prints "Units do not match - [m] cannot be converted to [kg]"
+    }
   }
   catch (const std::exception &ex)
   {

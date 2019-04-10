@@ -2,6 +2,7 @@
 #include "Unit.h"
 #include <string.h>
 #include <sstream>
+#include <stdexcept>
 using ariel::PhysicalNumber, ariel::Unit, std::string;
 
 ////////////////////PUBLIC////////////////////
@@ -20,7 +21,9 @@ PhysicalNumber PhysicalNumber::operator+(const PhysicalNumber &arg2) const
 {
     if (!this->canWeCalcBoth(arg2))
     {
-        throw "YOU CAN NOT USE THIS OPERATOR ON TWO INCOMPATIBLE DIMENSIONS";
+        string type1 = this->getUnitInString();
+        string type2 = arg2.getUnitInString();
+        PhysicalNumber::throwExe(type1, type2);
     }
     double valueFirst = this->conv2min();
     double valueSecond = arg2.conv2min();
@@ -32,8 +35,17 @@ PhysicalNumber PhysicalNumber::operator+(const PhysicalNumber &arg2) const
 
 PhysicalNumber &PhysicalNumber::operator+=(const PhysicalNumber &arg2)
 {
-    PhysicalNumber p(0, Unit::CM);
-    return p;
+    if (!this->canWeCalcBoth(arg2))
+    {
+        throw "YOU CAN NOT USE THIS OPERATOR ON TWO INCOMPATIBLE DIMENSIONS";
+    }
+    double valueFirst = this->conv2min();
+    double valueSecond = arg2.conv2min();
+    Unit toBeMade = this->getUnit();
+    double result = normalizeResult(valueFirst + valueSecond, toBeMade);
+    this->setValue(result);
+    PhysicalNumber output(result, toBeMade);
+    return output;
 }
 
 PhysicalNumber &PhysicalNumber::operator+()
@@ -168,9 +180,13 @@ std::ostream &ariel::operator<<(std::ostream &os, const PhysicalNumber &arg)
 }
 std::istream &ariel::operator>>(std::istream &is, PhysicalNumber &arg)
 {
-
     string saver;
     is >> saver;
+    if (!PhysicalNumber::isFormatCorrect(saver))
+    {
+        is.setstate(std::ios::failbit);
+        return is;
+    }
     Unit unit;
     double value;
     unit = PhysicalNumber::getUnitFromString(saver);
@@ -291,7 +307,6 @@ double PhysicalNumber::retVal(string str)
     std::stringstream helpingStream(helpingS);
     double output;
     helpingStream >> output;
-    std::cout<<output<<std::endl;
     return output;
 }
 
@@ -450,4 +465,46 @@ void PhysicalNumber::setValue(const double value)
 void PhysicalNumber::setUnit(const Unit type)
 {
     this->_type = type;
+}
+
+bool PhysicalNumber::isFormatCorrect(std::string str)
+{
+    if (str.find('[') == std::string::npos || str.find(']') == std::string::npos)
+    {
+        return false;
+    }
+    else
+    {
+        int i = 0;
+        while (str[i] != '[')
+        {
+            if (!std::isdigit(str[i]) && str[i] != '.')
+            {
+                return false;
+            }
+            i++;
+        }
+        i++;
+        string type = "";
+        while (str[i] != ']')
+        {
+            type += str[i];
+            i++;
+        }
+        string lowerCaseUnit = "";
+        for (int i = 0; i < type.length(); i++)
+        {
+            lowerCaseUnit += std::tolower(type[i]);
+        }
+        if (lowerCaseUnit != "g" && lowerCaseUnit != "kg" && lowerCaseUnit != "ton" && lowerCaseUnit != "cm" && lowerCaseUnit != "m" && lowerCaseUnit != "km" && lowerCaseUnit != "sec" && lowerCaseUnit != "min" && lowerCaseUnit != "hour")
+        {
+            return false;
+        }
+        return true;
+    }
+}
+
+void PhysicalNumber::throwExe(std::string type1, std::string type2)
+{
+    throw std::invalid_argument("Units do not match - ["+type2+"]"+" cannot be converted to ["+type1+"]");
 }
