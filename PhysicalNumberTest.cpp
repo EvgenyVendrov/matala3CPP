@@ -277,25 +277,25 @@ int main()
       .CHECK_OUTPUT(+minute, "-12[min]")
       .CHECK_OUTPUT(+hour, "0.5[hour]")
     //   /////////////////////////////////////////////
-    //   .setname("sanity test = > arithmetic (-=) = > should work = > CM-M-KM")
-    //   //////////////////////////////////////////////
-    //   .CHECK_OUTPUT((second -= second), "0[sec]")
-    //   .CHECK_OUTPUT((second -= minute), "-3296[sec]")
-    //   .CHECK_OUTPUT((second -= hour), "-896[sec]")
+      .setname("sanity test = > arithmetic (-=) = > should work = > SEC-MIN-HOUR")
+      //////////////////////////////////////////////
+      .CHECK_OUTPUT((second -= second), "0[sec]")
+      .CHECK_OUTPUT((second -= minute), "720[sec]")
+      .CHECK_OUTPUT((second -= hour), "-1080[sec]")
     //   /////////////////////////////////////////////
-    //   .CHECK_OUTPUT((minute -= minute), "0[min]")
-    //   .CHECK_OUTPUT((minute -= second), "50.056[min]")
-    //   .CHECK_OUTPUT((minute -= hour), "40[min]")
+      .CHECK_OUTPUT((minute -= minute), "0[min]")
+      .CHECK_OUTPUT((minute -= second), "18[min]")
+      .CHECK_OUTPUT((minute -= hour), "-12[min]")
     //   ////////////////////////////////////////////
-    //   .CHECK_OUTPUT((hour -= hour), "0[hour]")
-    //   .CHECK_OUTPUT((hour -= second), "0.24889[hour]")
-    //   .CHECK_OUTPUT((hour -= minute), "-0.666[hour]")
+      .CHECK_OUTPUT((hour -= hour), "0[hour]")
+      .CHECK_OUTPUT((hour -= second), "0.3[hour]")
+      .CHECK_OUTPUT((hour -= minute), "0.5[hour]")
     //   ////////////////////////////////////////////
-    //   .setname("sanity test = > unary (-) = > should work = > CM-M-KM")
-    //   //////////////////////////////////////////////
-    //   .CHECK_OUTPUT(-second, "-4[sec]")
-    //   .CHECK_OUTPUT(-minute, "-55[min]")
-    //   .CHECK_OUTPUT(-hour, "-0.25[hour]")
+      .setname("sanity test = > unary (-) = > should work = > CM-M-KM")
+      //////////////////////////////////////////////
+      .CHECK_OUTPUT(-second, "1080[sec]")
+      .CHECK_OUTPUT(-minute, "12[min]")
+      .CHECK_OUTPUT(-hour, "-0.5[hour]")
     //   //////////////////////////////////////////////
 
     //   // comparison testing:
