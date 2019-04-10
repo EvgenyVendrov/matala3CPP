@@ -390,93 +390,93 @@ int main()
           .CHECK_OUTPUT((ton >= kilogram), "1")
           ////////////////////////////////////////////
 
-        //   /*********************************************/
-        //   // CM - M - KM tests//
-        //   /*********************************************/
-        //   .setname("sanity test = > comparison (==) = > CM - M - KM ")
-        //   //////////////////////////////////////////////
-        //   .CHECK_OUTPUT((centimeter == centimeter), "true")
-        //   .CHECK_OUTPUT((centimeter == meter), "false")
-        //   .CHECK_OUTPUT((centimeter == kilometer), "false")
-        //   /////////////////////////////////////////////
-        //   .CHECK_OUTPUT((meter == meter), "true")
-        //   .CHECK_OUTPUT((meter == centimeter), "false")
-        //   .CHECK_OUTPUT((meter == kilometer), "false")
-        //   ////////////////////////////////////////////
-        //   .CHECK_OUTPUT((kilometer == kilometer), "true")
-        //   .CHECK_OUTPUT((kilometer == centimeter), "false")
-        //   .CHECK_OUTPUT((kilometer == meter), "false")
-        //   ////////////////////////////////////////////
-        //   .setname("sanity test = > comparison (!=) = >CM - M - KM ")
-        //   //////////////////////////////////////////////
-        //   .CHECK_OUTPUT((centimeter != centimeter), "false")
-        //   .CHECK_OUTPUT((centimeter != meter), "true")
-        //   .CHECK_OUTPUT((centimeter != kilometer), "true")
-        //   /////////////////////////////////////////////
-        //   .CHECK_OUTPUT((meter != meter), "false")
-        //   .CHECK_OUTPUT((meter != centimeter), "true")
-        //   .CHECK_OUTPUT((meter != kilometer), "true")
-        //   ////////////////////////////////////////////
-        //   .CHECK_OUTPUT((kilometer != kilometer), "false")
-        //   .CHECK_OUTPUT((kilometer != centimeter), "true")
-        //   .CHECK_OUTPUT((kilometer != meter), "true")
-        //   ////////////////////////////////////////////
-        //   .setname("sanity test = > comparison (<) = > CM - M - KM ")
-        //   //////////////////////////////////////////////
-        //   .CHECK_OUTPUT((centimeter < centimeter), "false")
-        //   .CHECK_OUTPUT((centimeter < meter), "true")
-        //   .CHECK_OUTPUT((centimeter < kilometer), "true")
-        //   /////////////////////////////////////////////
-        //   .CHECK_OUTPUT((meter < meter), "false")
-        //   .CHECK_OUTPUT((meter < centimeter), "false")
-        //   .CHECK_OUTPUT((meter < kilometer), "true")
-        //   ////////////////////////////////////////////
-        //   .CHECK_OUTPUT((kilometer < kilometer), "false")
-        //   .CHECK_OUTPUT((kilometer < centimeter), "false")
-        //   .CHECK_OUTPUT((kilometer < meter), "false")
-        //   ////////////////////////////////////////////
-        //   .setname("sanity test = > comparison (>) = > CM - M - KM ")
-        //   //////////////////////////////////////////////
-        //   .CHECK_OUTPUT((centimeter > centimeter), "false")
-        //   .CHECK_OUTPUT((centimeter > meter), "true")
-        //   .CHECK_OUTPUT((centimeter > kilometer), "false")
-        //   /////////////////////////////////////////////
-        //   .CHECK_OUTPUT((meter > meter), "false")
-        //   .CHECK_OUTPUT((meter > centimeter), "true")
-        //   .CHECK_OUTPUT((meter > kilometer), "false")
-        //   ////////////////////////////////////////////
-        //   .CHECK_OUTPUT((kilometer > kilometer), "false")
-        //   .CHECK_OUTPUT((kilometer > centimeter), "true")
-        //   .CHECK_OUTPUT((kilometer > meter), "true")
-        //   /////////////////////////////////////////////
-        //   .setname("sanity test = > comparison (<=) = > CM - M - KM ")
-        //   //////////////////////////////////////////////
-        //   .CHECK_OUTPUT((centimeter <= centimeter), "true")
-        //   .CHECK_OUTPUT((centimeter <= meter), "true")
-        //   .CHECK_OUTPUT((centimeter <= kilometer), "true")
-        //   /////////////////////////////////////////////
-        //   .CHECK_OUTPUT((meter <= meter), "true")
-        //   .CHECK_OUTPUT((meter <= centimeter), "false")
-        //   .CHECK_OUTPUT((meter <= kilometer), "true")
-        //   ////////////////////////////////////////////
-        //   .CHECK_OUTPUT((kilometer <= kilometer), "true")
-        //   .CHECK_OUTPUT((kilometer <= centimeter), "false")
-        //   .CHECK_OUTPUT((kilometer <= meter), "false")
-        //   ////////////////////////////////////////////
-        //   .setname("sanity test = > comparison (>=) = > CM - M - KM ")
-        //   //////////////////////////////////////////////
-        //   .CHECK_OUTPUT((centimeter >= centimeter), "true")
-        //   .CHECK_OUTPUT((centimeter >= meter), "false")
-        //   .CHECK_OUTPUT((centimeter >= kilometer), "false")
-        //   /////////////////////////////////////////////
-        //   .CHECK_OUTPUT((meter >= meter), "true")
-        //   .CHECK_OUTPUT((meter >= centimeter), "true")
-        //   .CHECK_OUTPUT((meter >= kilometer), "false")
-        //   ////////////////////////////////////////////
-        //   .CHECK_OUTPUT((kilometer >= kilometer), "true")
-        //   .CHECK_OUTPUT((kilometer >= centimeter), "true")
-        //   .CHECK_OUTPUT((kilometer >= meter), "true")
-        //   ////////////////////////////////////////////
+          /*********************************************/
+          // CM - M - KM tests//
+          /*********************************************/
+          .setname("sanity test = > comparison (==) = > CM - M - KM ")
+          //////////////////////////////////////////////
+          .CHECK_OUTPUT((centimeter == centimeter), "1")
+          .CHECK_OUTPUT((centimeter == meter), "0")
+          .CHECK_OUTPUT((centimeter == kilometer), "0")
+          /////////////////////////////////////////////
+          .CHECK_OUTPUT((meter == meter), "1")
+          .CHECK_OUTPUT((meter == centimeter), "0")
+          .CHECK_OUTPUT((meter == kilometer), "0")
+          ////////////////////////////////////////////
+          .CHECK_OUTPUT((kilometer == kilometer), "1")
+          .CHECK_OUTPUT((kilometer == centimeter), "0")
+          .CHECK_OUTPUT((kilometer == meter), "0")
+          ////////////////////////////////////////////
+          .setname("sanity test = > comparison (!=) = >CM - M - KM ")
+          //////////////////////////////////////////////
+          .CHECK_OUTPUT((centimeter != centimeter), "0")
+          .CHECK_OUTPUT((centimeter != meter), "1")
+          .CHECK_OUTPUT((centimeter != kilometer), "1")
+          /////////////////////////////////////////////
+          .CHECK_OUTPUT((meter != meter), "0")
+          .CHECK_OUTPUT((meter != centimeter), "1")
+          .CHECK_OUTPUT((meter != kilometer), "1")
+          ////////////////////////////////////////////
+          .CHECK_OUTPUT((kilometer != kilometer), "0")
+          .CHECK_OUTPUT((kilometer != centimeter), "1")
+          .CHECK_OUTPUT((kilometer != meter), "1")
+          ////////////////////////////////////////////
+          .setname("sanity test = > comparison (<) = > CM - M - KM ")
+          //////////////////////////////////////////////
+          .CHECK_OUTPUT((centimeter < centimeter), "0")
+          .CHECK_OUTPUT((centimeter < meter), "1")
+          .CHECK_OUTPUT((centimeter < kilometer), "1")
+          /////////////////////////////////////////////
+          .CHECK_OUTPUT((meter < meter), "0")
+          .CHECK_OUTPUT((meter < centimeter), "0")
+          .CHECK_OUTPUT((meter < kilometer), "1")
+          ////////////////////////////////////////////
+          .CHECK_OUTPUT((kilometer < kilometer), "0")
+          .CHECK_OUTPUT((kilometer < centimeter), "0")
+          .CHECK_OUTPUT((kilometer < meter), "0")
+          ////////////////////////////////////////////
+          .setname("sanity test = > comparison (>) = > CM - M - KM ")
+          //////////////////////////////////////////////
+          .CHECK_OUTPUT((centimeter > centimeter), "0")
+          .CHECK_OUTPUT((centimeter > meter), "0")
+          .CHECK_OUTPUT((centimeter > kilometer), "0")
+          /////////////////////////////////////////////
+          .CHECK_OUTPUT((meter > meter), "0")
+          .CHECK_OUTPUT((meter > centimeter), "1")
+          .CHECK_OUTPUT((meter > kilometer), "0")
+          ////////////////////////////////////////////
+          .CHECK_OUTPUT((kilometer > kilometer), "0")
+          .CHECK_OUTPUT((kilometer > centimeter), "1")
+          .CHECK_OUTPUT((kilometer > meter), "1")
+          /////////////////////////////////////////////
+          .setname("sanity test = > comparison (<=) = > CM - M - KM ")
+          //////////////////////////////////////////////
+          .CHECK_OUTPUT((centimeter <= centimeter), "1")
+          .CHECK_OUTPUT((centimeter <= meter), "1")
+          .CHECK_OUTPUT((centimeter <= kilometer), "1")
+          /////////////////////////////////////////////
+          .CHECK_OUTPUT((meter <= meter), "1")
+          .CHECK_OUTPUT((meter <= centimeter), "0")
+          .CHECK_OUTPUT((meter <= kilometer), "1")
+          ////////////////////////////////////////////
+          .CHECK_OUTPUT((kilometer <= kilometer), "1")
+          .CHECK_OUTPUT((kilometer <= centimeter), "0")
+          .CHECK_OUTPUT((kilometer <= meter), "0")
+          ////////////////////////////////////////////
+          .setname("sanity test = > comparison (>=) = > CM - M - KM ")
+          //////////////////////////////////////////////
+          .CHECK_OUTPUT((centimeter >= centimeter), "1")
+          .CHECK_OUTPUT((centimeter >= meter), "0")
+          .CHECK_OUTPUT((centimeter >= kilometer), "0")
+          /////////////////////////////////////////////
+          .CHECK_OUTPUT((meter >= meter), "1")
+          .CHECK_OUTPUT((meter >= centimeter), "1")
+          .CHECK_OUTPUT((meter >= kilometer), "0")
+          ////////////////////////////////////////////
+          .CHECK_OUTPUT((kilometer >= kilometer), "1")
+          .CHECK_OUTPUT((kilometer >= centimeter), "1")
+          .CHECK_OUTPUT((kilometer >= meter), "1")
+          ////////////////////////////////////////////
 
         //   /*********************************************/
         //   // SEC - MIN - HOUR tests//
