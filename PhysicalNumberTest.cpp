@@ -478,93 +478,93 @@ int main()
           .CHECK_OUTPUT((kilometer >= meter), "1")
           ////////////////////////////////////////////
 
-        //   /*********************************************/
-        //   // SEC - MIN - HOUR tests//
-        //   /*********************************************/
-        //   .setname("sanity test = > comparison (==) = > SEC - MIN - HOUR ")
-        //   //////////////////////////////////////////////
-        //   .CHECK_OUTPUT((second == second), "true")
-        //   .CHECK_OUTPUT((second == minute), "false")
-        //   .CHECK_OUTPUT((second == hour), "false")
-        //   /////////////////////////////////////////////
-        //   .CHECK_OUTPUT((minute == minute), "true")
-        //   .CHECK_OUTPUT((minute == second), "false")
-        //   .CHECK_OUTPUT((minute == hour), "false")
-        //   ////////////////////////////////////////////
-        //   .CHECK_OUTPUT((hour == hour), "true")
-        //   .CHECK_OUTPUT((hour == second), "false")
-        //   .CHECK_OUTPUT((hour == minute), "false")
-        //   ////////////////////////////////////////////
-        //   .setname("sanity test = > comparison (!=) = >SEC - MIN - HOUR")
-        //   //////////////////////////////////////////////
-        //   .CHECK_OUTPUT((second != second), "false")
-        //   .CHECK_OUTPUT((second != minute), "true")
-        //   .CHECK_OUTPUT((second != hour), "true")
-        //   /////////////////////////////////////////////
-        //   .CHECK_OUTPUT((minute != minute), "false")
-        //   .CHECK_OUTPUT((minute != second), "true")
-        //   .CHECK_OUTPUT((minute != hour), "true")
-        //   ////////////////////////////////////////////
-        //   .CHECK_OUTPUT((hour != hour), "false")
-        //   .CHECK_OUTPUT((hour != second), "true")
-        //   .CHECK_OUTPUT((hour != minute), "true")
-        //   ////////////////////////////////////////////
-        //   .setname("sanity test = > comparison (<) = > SEC - MIN - HOUR")
-        //   //////////////////////////////////////////////
-        //   .CHECK_OUTPUT((second < second), "false")
-        //   .CHECK_OUTPUT((second < minute), "true")
-        //   .CHECK_OUTPUT((second < hour), "true")
-        //   /////////////////////////////////////////////
-        //   .CHECK_OUTPUT((minute < minute), "false")
-        //   .CHECK_OUTPUT((minute < second), "false")
-        //   .CHECK_OUTPUT((minute < hour), "true")
-        //   ////////////////////////////////////////////
-        //   .CHECK_OUTPUT((hour < hour), "false")
-        //   .CHECK_OUTPUT((hour < second), "false")
-        //   .CHECK_OUTPUT((hour < minute), "false")
-        //   ////////////////////////////////////////////
-        //   .setname("sanity test = > comparison (>) = > SEC - MIN - HOUR ")
-        //   //////////////////////////////////////////////
-        //   .CHECK_OUTPUT((second > second), "false")
-        //   .CHECK_OUTPUT((second > minute), "true")
-        //   .CHECK_OUTPUT((second > hour), "false")
-        //   /////////////////////////////////////////////
-        //   .CHECK_OUTPUT((minute > minute), "false")
-        //   .CHECK_OUTPUT((minute > second), "true")
-        //   .CHECK_OUTPUT((minute > hour), "false")
-        //   ////////////////////////////////////////////
-        //   .CHECK_OUTPUT((hour > hour), "false")
-        //   .CHECK_OUTPUT((hour > second), "true")
-        //   .CHECK_OUTPUT((hour > minute), "true")
-        //   /////////////////////////////////////////////
-        //   .setname("sanity test = > comparison (<=) = > SEC - MIN - HOUR ")
-        //   //////////////////////////////////////////////
-        //   .CHECK_OUTPUT((second <= second), "true")
-        //   .CHECK_OUTPUT((second <= minute), "true")
-        //   .CHECK_OUTPUT((second <= hour), "true")
-        //   /////////////////////////////////////////////
-        //   .CHECK_OUTPUT((minute <= minute), "true")
-        //   .CHECK_OUTPUT((minute <= second), "false")
-        //   .CHECK_OUTPUT((minute <= hour), "true")
-        //   ////////////////////////////////////////////
-        //   .CHECK_OUTPUT((hour <= hour), "true")
-        //   .CHECK_OUTPUT((hour <= second), "false")
-        //   .CHECK_OUTPUT((hour <= minute), "false")
-        //   ////////////////////////////////////////////
-        //   .setname("sanity test = > comparison (>=) = > SEC - MIN - HOUR ")
-        //   //////////////////////////////////////////////
-        //   .CHECK_OUTPUT((second >= second), "true")
-        //   .CHECK_OUTPUT((second >= minute), "false")
-        //   .CHECK_OUTPUT((second >= hour), "false")
-        //   /////////////////////////////////////////////
-        //   .CHECK_OUTPUT((minute >= minute), "true")
-        //   .CHECK_OUTPUT((minute >= second), "true")
-        //   .CHECK_OUTPUT((minute >= hour), "false")
-        //   ////////////////////////////////////////////
-        //   .CHECK_OUTPUT((hour >= hour), "true")
-        //   .CHECK_OUTPUT((hour >= second), "true")
-        //   .CHECK_OUTPUT((hour >= minute), "true")
-        //   ////////////////////////////////////////////
+          /*********************************************/
+          // SEC - MIN - HOUR tests//
+          /*********************************************/
+          .setname("sanity test = > comparison (==) = > SEC - MIN - HOUR ")
+          //////////////////////////////////////////////
+          .CHECK_OUTPUT((second == second), "1")
+          .CHECK_OUTPUT((second == minute), "0")
+          .CHECK_OUTPUT((second == hour), "0")
+          /////////////////////////////////////////////
+          .CHECK_OUTPUT((minute == minute), "1")
+          .CHECK_OUTPUT((minute == second), "0")
+          .CHECK_OUTPUT((minute == hour), "0")
+          ////////////////////////////////////////////
+          .CHECK_OUTPUT((hour == hour), "1")
+          .CHECK_OUTPUT((hour == second), "0")
+          .CHECK_OUTPUT((hour == minute), "0")
+          ////////////////////////////////////////////
+          .setname("sanity test = > comparison (!=) = >SEC - MIN - HOUR")
+          //////////////////////////////////////////////
+          .CHECK_OUTPUT((second != second), "0")
+          .CHECK_OUTPUT((second != minute), "1")
+          .CHECK_OUTPUT((second != hour), "1")
+          /////////////////////////////////////////////
+          .CHECK_OUTPUT((minute != minute), "0")
+          .CHECK_OUTPUT((minute != second), "1")
+          .CHECK_OUTPUT((minute != hour), "1")
+          ////////////////////////////////////////////
+          .CHECK_OUTPUT((hour != hour), "0")
+          .CHECK_OUTPUT((hour != second), "1")
+          .CHECK_OUTPUT((hour != minute), "1")
+          ////////////////////////////////////////////
+          .setname("sanity test = > comparison (<) = > SEC - MIN - HOUR")
+          //////////////////////////////////////////////
+          .CHECK_OUTPUT((second < second), "0")
+          .CHECK_OUTPUT((second < minute), "1")
+          .CHECK_OUTPUT((second < hour), "1")
+          /////////////////////////////////////////////
+          .CHECK_OUTPUT((minute < minute), "0")
+          .CHECK_OUTPUT((minute < second), "0")
+          .CHECK_OUTPUT((minute < hour), "1")
+          ////////////////////////////////////////////
+          .CHECK_OUTPUT((hour < hour), "0")
+          .CHECK_OUTPUT((hour < second), "0")
+          .CHECK_OUTPUT((hour < minute), "0")
+          ////////////////////////////////////////////
+          .setname("sanity test = > comparison (>) = > SEC - MIN - HOUR ")
+          //////////////////////////////////////////////
+          .CHECK_OUTPUT((second > second), "0")
+          .CHECK_OUTPUT((second > minute), "0")
+          .CHECK_OUTPUT((second > hour), "0")
+          /////////////////////////////////////////////
+          .CHECK_OUTPUT((minute > minute), "0")
+          .CHECK_OUTPUT((minute > second), "1")
+          .CHECK_OUTPUT((minute > hour), "0")
+          ////////////////////////////////////////////
+          .CHECK_OUTPUT((hour > hour), "0")
+          .CHECK_OUTPUT((hour > second), "1")
+          .CHECK_OUTPUT((hour > minute), "1")
+          /////////////////////////////////////////////
+          .setname("sanity test = > comparison (<=) = > SEC - MIN - HOUR ")
+          //////////////////////////////////////////////
+          .CHECK_OUTPUT((second <= second), "1")
+          .CHECK_OUTPUT((second <= minute), "1")
+          .CHECK_OUTPUT((second <= hour), "1")
+          /////////////////////////////////////////////
+          .CHECK_OUTPUT((minute <= minute), "1")
+          .CHECK_OUTPUT((minute <= second), "0")
+          .CHECK_OUTPUT((minute <= hour), "1")
+          ////////////////////////////////////////////
+          .CHECK_OUTPUT((hour <= hour), "1")
+          .CHECK_OUTPUT((hour <= second), "0")
+          .CHECK_OUTPUT((hour <= minute), "0")
+          ////////////////////////////////////////////
+          .setname("sanity test = > comparison (>=) = > SEC - MIN - HOUR ")
+          //////////////////////////////////////////////
+          .CHECK_OUTPUT((second >= second), "1")
+          .CHECK_OUTPUT((second >= minute), "0")
+          .CHECK_OUTPUT((second >= hour), "0")
+          /////////////////////////////////////////////
+          .CHECK_OUTPUT((minute >= minute), "1")
+          .CHECK_OUTPUT((minute >= second), "1")
+          .CHECK_OUTPUT((minute >= hour), "0")
+          ////////////////////////////////////////////
+          .CHECK_OUTPUT((hour >= hour), "1")
+          .CHECK_OUTPUT((hour >= second), "1")
+          .CHECK_OUTPUT((hour >= minute), "1")
+          ////////////////////////////////////////////
 
         //   // increment decrement testing:
 
@@ -633,396 +633,396 @@ int main()
         //   .CHECK_OUTPUT((--hour), "-0.75[hour]")
         //   /////////////////////////////////////////////
 
-        //   // IO testing:
-        //   /*********************************************/
-        //   // G - KG - TON tests//
-        //   /*********************************************/
-        //   .setname("sanity test = > gram IO test")
-        //   .CHECK_OK(istringstream("7[g]") >> gram)
-        //   .CHECK_OUTPUT(gram, "7[g]")
-        //   /////////////////////////////////////////////
-        //   .setname("sanity test = > kilogram IO test")
-        //   .CHECK_OK(istringstream("777[kg]") >> kilogram)
-        //   .CHECK_OUTPUT(gram, "777[kg]")
-        //   ////////////////////////////////////////////
-        //   .setname("sanity test = > ton IO test")
-        //   .CHECK_OK(istringstream("3[ton]") >> ton)
-        //   .CHECK_OUTPUT(ton, "3[ton]")
-        //   ////////////////////////////////////////////
-        //   /*********************************************/
-        //   // CM - M - KM tests//
-        //   /*********************************************/
-        //   ////////////////////////////////////////////
-        //   .setname("sanity test = > centimeter IO test")
-        //   .CHECK_OK(istringstream("33[cm]") >> centimeter)
-        //   .CHECK_OUTPUT(centimeter, "33[cm]")
-        //   ////////////////////////////////////////////
-        //   .setname("sanity test = > meter IO test")
-        //   .CHECK_OK(istringstream("7[m]") >> meter)
-        //   .CHECK_OUTPUT(meter, "7[m]")
-        //   ////////////////////////////////////////////
-        //   .setname("sanity test = > kilometer IO test")
-        //   .CHECK_OK(istringstream("2.5[km]") >> kilometer)
-        //   .CHECK_OUTPUT(kilometer, "2.5[km]")
-        //    ////////////////////////////////////////////
-        //   /*********************************************/
-        //   // SEC - MIN - HOUR tests//
-        //   /*********************************************/
-        //   ////////////////////////////////////////////
-        //   .setname("sanity test = > sec IO test")
-        //   .CHECK_OK(istringstream("3.333[sec]") >> second)
-        //   .CHECK_OUTPUT(second, "3.333[sec]")
-        //   ////////////////////////////////////////////
-        //   .setname("sanity test = > minute IO test")
-        //   .CHECK_OK(istringstream("7[min]") >> minute)
-        //   .CHECK_OUTPUT(minute, "7[m]")
-        //   ////////////////////////////////////////////
-        //   .setname("sanity test = > hour IO test")
-        //   .CHECK_OK(istringstream("0.5[hour]") >> hour)
-        //   .CHECK_OUTPUT(hour, "0.5[hour]")
-        //   ////////////////////////////////////////////
+          // IO testing:
+          /*********************************************/
+          // G - KG - TON tests//
+          /*********************************************/
+          .setname("sanity test = > gram IO test")
+          .CHECK_OK(istringstream("7[g]") >> gram)
+          .CHECK_OUTPUT(gram, "7[g]")
+          /////////////////////////////////////////////
+          .setname("sanity test = > kilogram IO test")
+          .CHECK_OK(istringstream("777[kg]") >> kilogram)
+          .CHECK_OUTPUT(kilogram, "777[kg]")
+          ////////////////////////////////////////////
+          .setname("sanity test = > ton IO test")
+          .CHECK_OK(istringstream("3[ton]") >> ton)
+          .CHECK_OUTPUT(ton, "3[ton]")
+          ////////////////////////////////////////////
+          /*********************************************/
+          // CM - M - KM tests//
+          /*********************************************/
+          ////////////////////////////////////////////
+          .setname("sanity test = > centimeter IO test")
+          .CHECK_OK(istringstream("33[cm]") >> centimeter)
+          .CHECK_OUTPUT(centimeter, "33[cm]")
+          ////////////////////////////////////////////
+          .setname("sanity test = > meter IO test")
+          .CHECK_OK(istringstream("7[m]") >> meter)
+          .CHECK_OUTPUT(meter, "7[m]")
+          ////////////////////////////////////////////
+          .setname("sanity test = > kilometer IO test")
+          .CHECK_OK(istringstream("2.5[km]") >> kilometer)
+          .CHECK_OUTPUT(kilometer, "2.5[km]")
+           ////////////////////////////////////////////
+          /*********************************************/
+          // SEC - MIN - HOUR tests//
+          /*********************************************/
+          ////////////////////////////////////////////
+          .setname("sanity test = > sec IO test")
+          .CHECK_OK(istringstream("3.333[sec]") >> second)
+          .CHECK_OUTPUT(second, "3.333[sec]")
+          ////////////////////////////////////////////
+          .setname("sanity test = > minute IO test")
+          .CHECK_OK(istringstream("7[min]") >> minute)
+          .CHECK_OUTPUT(minute, "7[min]")
+          ////////////////////////////////////////////
+          .setname("sanity test = > hour IO test")
+          .CHECK_OK(istringstream("0.5[hour]") >> hour)
+          .CHECK_OUTPUT(hour, "0.5[hour]")
+          ////////////////////////////////////////////
 
         //   // 2. every unit-type tested with unit-types which should NOT work - with every operator
 
-        //   // arithmetic testing:
-        //    /*********************************************/
-        //   // G - KG - TON tests//
-        //   /*********************************************/
-        //   .setname("sanity test = > gram arithmetic(+) should THROW!")
-        //   //////////////////////////////////////////////
-        //   .CHECK_THROWS(gram+centimeter)
-        //   .CHECK_THROWS(gram+meter)
-        //   .CHECK_THROWS(gram+kilometer)
-        //   .CHECK_THROWS(gram+second)
-        //   .CHECK_THROWS(gram+minute)
-        //   .CHECK_THROWS(gram+hour)
-        //  //////////////////////////////////////////////
-        //  .setname("sanity test = > kilogram arithmetic(+) should THROW!")
-        //   //////////////////////////////////////////////
-        //   .CHECK_THROWS(kilogram+centimeter)
-        //   .CHECK_THROWS(kilogram+meter)
-        //   .CHECK_THROWS(kilogram+kilometer)
-        //   .CHECK_THROWS(kilogram+second)
-        //   .CHECK_THROWS(kilogram+minute)
-        //   .CHECK_THROWS(kilogram+hour)
-        //  //////////////////////////////////////////////
-        //  .setname("sanity test = > ton arithmetic(+) should THROW!")
-        //   //////////////////////////////////////////////
-        //   .CHECK_THROWS(ton+centimeter)
-        //   .CHECK_THROWS(ton+meter)
-        //   .CHECK_THROWS(ton+kilometer)
-        //   .CHECK_THROWS(ton+second)
-        //   .CHECK_THROWS(ton+minute)
-        //   .CHECK_THROWS(ton+hour)
-        //  //////////////////////////////////////////////
-        //  .setname("sanity test = > gram arithmetic(-) should THROW!")
-        //   //////////////////////////////////////////////
-        //   .CHECK_THROWS(gram-centimeter)
-        //   .CHECK_THROWS(gram-meter)
-        //   .CHECK_THROWS(gram-kilometer)
-        //   .CHECK_THROWS(gram-second)
-        //   .CHECK_THROWS(gram-minute)
-        //   .CHECK_THROWS(gram-hour)
-        //  //////////////////////////////////////////////
-        //  .setname("sanity test = > kilogram arithmetic(-) should THROW!")
-        //   //////////////////////////////////////////////
-        //   .CHECK_THROWS(kilogram-centimeter)
-        //   .CHECK_THROWS(kilogram-meter)
-        //   .CHECK_THROWS(kilogram-kilometer)
-        //   .CHECK_THROWS(kilogram-second)
-        //   .CHECK_THROWS(kilogram-minute)
-        //   .CHECK_THROWS(kilogram-hour)
-        //  //////////////////////////////////////////////
-        //  .setname("sanity test = > ton arithmetic(-) should THROW!")
-        //   //////////////////////////////////////////////
-        //   .CHECK_THROWS(ton-centimeter)
-        //   .CHECK_THROWS(ton-meter)
-        //   .CHECK_THROWS(ton-kilometer)
-        //   .CHECK_THROWS(ton-second)
-        //   .CHECK_THROWS(ton-minute)
-        //   .CHECK_THROWS(ton-hour)
-        //  //////////////////////////////////////////////
-        //  .setname("sanity test = > gram arithmetic(+=) should THROW!")
-        //   //////////////////////////////////////////////
-        //   .CHECK_THROWS(gram+=centimeter)
-        //   .CHECK_THROWS(gram+=meter)
-        //   .CHECK_THROWS(gram+=kilometer)
-        //   .CHECK_THROWS(gram+=second)
-        //   .CHECK_THROWS(gram+=minute)
-        //   .CHECK_THROWS(gram+=hour)
-        //  //////////////////////////////////////////////
-        //   .setname("sanity test = > kilogram arithmetic(+=) should THROW!")
-        //   //////////////////////////////////////////////
-        //   .CHECK_THROWS(kilogram+=centimeter)
-        //   .CHECK_THROWS(kilogram+=meter)
-        //   .CHECK_THROWS(kilogram+=kilometer)
-        //   .CHECK_THROWS(kilogram+=second)
-        //   .CHECK_THROWS(kilogram+=minute)
-        //   .CHECK_THROWS(kilogram+=hour)
-        //  //////////////////////////////////////////////
-        //  .setname("sanity test = > ton arithmetic(+=) should THROW!")
-        //   //////////////////////////////////////////////
-        //   .CHECK_THROWS(ton+=centimeter)
-        //   .CHECK_THROWS(ton+=meter)
-        //   .CHECK_THROWS(ton+=kilometer)
-        //   .CHECK_THROWS(ton+=second)
-        //   .CHECK_THROWS(ton+=minute)
-        //   .CHECK_THROWS(ton+=hour)
-        //  //////////////////////////////////////////////
-        //  .setname("sanity test = > gram arithmetic(-=) should THROW!")
-        //   //////////////////////////////////////////////
-        //   .CHECK_THROWS(gram-=centimeter)
-        //   .CHECK_THROWS(gram-=meter)
-        //   .CHECK_THROWS(gram-=kilometer)
-        //   .CHECK_THROWS(gram-=second)
-        //   .CHECK_THROWS(gram-=minute)
-        //   .CHECK_THROWS(gram-=hour)
-        //  //////////////////////////////////////////////
-        //   .setname("sanity test = > kilogram arithmetic(-=) should THROW!")
-        //   //////////////////////////////////////////////
-        //   .CHECK_THROWS(kilogram-=centimeter)
-        //   .CHECK_THROWS(kilogram-=meter)
-        //   .CHECK_THROWS(kilogram-=kilometer)
-        //   .CHECK_THROWS(kilogram-=second)
-        //   .CHECK_THROWS(kilogram-=minute)
-        //   .CHECK_THROWS(kilogram-=hour)
-        //  //////////////////////////////////////////////
-        //   .setname("sanity test = > ton arithmetic(-=) should THROW!")
-        //   //////////////////////////////////////////////
-        //   .CHECK_THROWS(ton-=centimeter)
-        //   .CHECK_THROWS(ton-=meter)
-        //   .CHECK_THROWS(ton-=kilometer)
-        //   .CHECK_THROWS(ton-=second)
-        //   .CHECK_THROWS(ton-=minute)
-        //   .CHECK_THROWS(ton-=hour)
-        //  //////////////////////////////////////////////
+          // arithmetic testing:
+           /*********************************************/
+          // G - KG - TON tests//
+          /*********************************************/
+          .setname("sanity test = > gram arithmetic(+) should THROW!")
+          //////////////////////////////////////////////
+          .CHECK_THROWS(gram+centimeter)
+          .CHECK_THROWS(gram+meter)
+          .CHECK_THROWS(gram+kilometer)
+          .CHECK_THROWS(gram+second)
+          .CHECK_THROWS(gram+minute)
+          .CHECK_THROWS(gram+hour)
+         //////////////////////////////////////////////
+         .setname("sanity test = > kilogram arithmetic(+) should THROW!")
+          //////////////////////////////////////////////
+          .CHECK_THROWS(kilogram+centimeter)
+          .CHECK_THROWS(kilogram+meter)
+          .CHECK_THROWS(kilogram+kilometer)
+          .CHECK_THROWS(kilogram+second)
+          .CHECK_THROWS(kilogram+minute)
+          .CHECK_THROWS(kilogram+hour)
+         //////////////////////////////////////////////
+         .setname("sanity test = > ton arithmetic(+) should THROW!")
+          //////////////////////////////////////////////
+          .CHECK_THROWS(ton+centimeter)
+          .CHECK_THROWS(ton+meter)
+          .CHECK_THROWS(ton+kilometer)
+          .CHECK_THROWS(ton+second)
+          .CHECK_THROWS(ton+minute)
+          .CHECK_THROWS(ton+hour)
+         //////////////////////////////////////////////
+         .setname("sanity test = > gram arithmetic(-) should THROW!")
+          //////////////////////////////////////////////
+          .CHECK_THROWS(gram-centimeter)
+          .CHECK_THROWS(gram-meter)
+          .CHECK_THROWS(gram-kilometer)
+          .CHECK_THROWS(gram-second)
+          .CHECK_THROWS(gram-minute)
+          .CHECK_THROWS(gram-hour)
+         //////////////////////////////////////////////
+         .setname("sanity test = > kilogram arithmetic(-) should THROW!")
+          //////////////////////////////////////////////
+          .CHECK_THROWS(kilogram-centimeter)
+          .CHECK_THROWS(kilogram-meter)
+          .CHECK_THROWS(kilogram-kilometer)
+          .CHECK_THROWS(kilogram-second)
+          .CHECK_THROWS(kilogram-minute)
+          .CHECK_THROWS(kilogram-hour)
+         //////////////////////////////////////////////
+         .setname("sanity test = > ton arithmetic(-) should THROW!")
+          //////////////////////////////////////////////
+          .CHECK_THROWS(ton-centimeter)
+          .CHECK_THROWS(ton-meter)
+          .CHECK_THROWS(ton-kilometer)
+          .CHECK_THROWS(ton-second)
+          .CHECK_THROWS(ton-minute)
+          .CHECK_THROWS(ton-hour)
+         //////////////////////////////////////////////
+         .setname("sanity test = > gram arithmetic(+=) should THROW!")
+          //////////////////////////////////////////////
+          .CHECK_THROWS(gram+=centimeter)
+          .CHECK_THROWS(gram+=meter)
+          .CHECK_THROWS(gram+=kilometer)
+          .CHECK_THROWS(gram+=second)
+          .CHECK_THROWS(gram+=minute)
+          .CHECK_THROWS(gram+=hour)
+         //////////////////////////////////////////////
+          .setname("sanity test = > kilogram arithmetic(+=) should THROW!")
+          //////////////////////////////////////////////
+          .CHECK_THROWS(kilogram+=centimeter)
+          .CHECK_THROWS(kilogram+=meter)
+          .CHECK_THROWS(kilogram+=kilometer)
+          .CHECK_THROWS(kilogram+=second)
+          .CHECK_THROWS(kilogram+=minute)
+          .CHECK_THROWS(kilogram+=hour)
+         //////////////////////////////////////////////
+         .setname("sanity test = > ton arithmetic(+=) should THROW!")
+          //////////////////////////////////////////////
+          .CHECK_THROWS(ton+=centimeter)
+          .CHECK_THROWS(ton+=meter)
+          .CHECK_THROWS(ton+=kilometer)
+          .CHECK_THROWS(ton+=second)
+          .CHECK_THROWS(ton+=minute)
+          .CHECK_THROWS(ton+=hour)
+         //////////////////////////////////////////////
+         .setname("sanity test = > gram arithmetic(-=) should THROW!")
+          //////////////////////////////////////////////
+          .CHECK_THROWS(gram-=centimeter)
+          .CHECK_THROWS(gram-=meter)
+          .CHECK_THROWS(gram-=kilometer)
+          .CHECK_THROWS(gram-=second)
+          .CHECK_THROWS(gram-=minute)
+          .CHECK_THROWS(gram-=hour)
+         //////////////////////////////////////////////
+          .setname("sanity test = > kilogram arithmetic(-=) should THROW!")
+          //////////////////////////////////////////////
+          .CHECK_THROWS(kilogram-=centimeter)
+          .CHECK_THROWS(kilogram-=meter)
+          .CHECK_THROWS(kilogram-=kilometer)
+          .CHECK_THROWS(kilogram-=second)
+          .CHECK_THROWS(kilogram-=minute)
+          .CHECK_THROWS(kilogram-=hour)
+         //////////////////////////////////////////////
+          .setname("sanity test = > ton arithmetic(-=) should THROW!")
+          //////////////////////////////////////////////
+          .CHECK_THROWS(ton-=centimeter)
+          .CHECK_THROWS(ton-=meter)
+          .CHECK_THROWS(ton-=kilometer)
+          .CHECK_THROWS(ton-=second)
+          .CHECK_THROWS(ton-=minute)
+          .CHECK_THROWS(ton-=hour)
+         //////////////////////////////////////////////
 
-        //    /*********************************************/
-        //   // CM - M - KM tests//
-        //   /*********************************************/
-        //   .setname("sanity test = > centimeter arithmetic(+) should THROW!")
-        //   //////////////////////////////////////////////
-        //   .CHECK_THROWS(centimeter+gram)
-        //   .CHECK_THROWS(centimeter+kilogram)
-        //   .CHECK_THROWS(centimeter+ton)
-        //   .CHECK_THROWS(centimeter+second)
-        //   .CHECK_THROWS(centimeter+minute)
-        //   .CHECK_THROWS(centimeter+hour)
-        //  //////////////////////////////////////////////
-        //  .setname("sanity test = > meter arithmetic(+) should THROW!")
-        //   //////////////////////////////////////////////
-        //   .CHECK_THROWS(meter+gram)
-        //   .CHECK_THROWS(meter+kilogram)
-        //   .CHECK_THROWS(meter+ton)
-        //   .CHECK_THROWS(meter+second)
-        //   .CHECK_THROWS(meter+minute)
-        //   .CHECK_THROWS(meter+hour)
-        //  //////////////////////////////////////////////
-        //  .setname("sanity test = > kilometer arithmetic(+) should THROW!")
-        //   //////////////////////////////////////////////
-        //   .CHECK_THROWS(kilometer+gram)
-        //   .CHECK_THROWS(kilometer+kilogram)
-        //   .CHECK_THROWS(kilometer+ton)
-        //   .CHECK_THROWS(kilometer+second)
-        //   .CHECK_THROWS(kilometer+minute)
-        //   .CHECK_THROWS(kilometer+hour)
-        //   //////////////////////////////////////////////
-        //  .setname("sanity test = > centimeter arithmetic(-) should THROW!")
-        //   //////////////////////////////////////////////
-        //   .CHECK_THROWS(centimeter-gram)
-        //   .CHECK_THROWS(centimeter-kilogram)
-        //   .CHECK_THROWS(centimeter-ton)
-        //   .CHECK_THROWS(centimeter-second)
-        //   .CHECK_THROWS(centimeter-minute)
-        //   .CHECK_THROWS(centimeter-hour)
-        //   //////////////////////////////////////////////
-        //  .setname("sanity test = > meter arithmetic(-) should THROW!")
-        //   //////////////////////////////////////////////
-        //   .CHECK_THROWS(meter-gram)
-        //   .CHECK_THROWS(meter-kilogram)
-        //   .CHECK_THROWS(meter-ton)
-        //   .CHECK_THROWS(meter-second)
-        //   .CHECK_THROWS(meter-minute)
-        //   .CHECK_THROWS(meter-hour)
-        //   //////////////////////////////////////////////
-        //  .setname("sanity test = > kilometer arithmetic(-) should THROW!")
-        //   //////////////////////////////////////////////
-        //   .CHECK_THROWS(kilometer-gram)
-        //   .CHECK_THROWS(kilometer-kilogram)
-        //   .CHECK_THROWS(kilometer-ton)
-        //   .CHECK_THROWS(kilometer-second)
-        //   .CHECK_THROWS(kilometer-minute)
-        //   .CHECK_THROWS(kilometer-hour)
-        //  //////////////////////////////////////////////
-        //  .setname("sanity test = > centimeter arithmetic(+=) should THROW!")
-        //   //////////////////////////////////////////////
-        //   .CHECK_THROWS(centimeter+=gram)
-        //   .CHECK_THROWS(centimeter+=kilogram)
-        //   .CHECK_THROWS(centimeter+=ton)
-        //   .CHECK_THROWS(centimeter+=second)
-        //   .CHECK_THROWS(centimeter+=minute)
-        //   .CHECK_THROWS(centimeter+=hour)
-        //  //////////////////////////////////////////////
-        //   .setname("sanity test = > meter arithmetic(+=) should THROW!")
-        //   //////////////////////////////////////////////
-        //   .CHECK_THROWS(meter+=gram)
-        //   .CHECK_THROWS(meter+=kilogram)
-        //   .CHECK_THROWS(meter+=ton)
-        //   .CHECK_THROWS(meter+=second)
-        //   .CHECK_THROWS(meter+=minute)
-        //   .CHECK_THROWS(meter+=hour)
-        //  //////////////////////////////////////////////
-        //  .setname("sanity test = > kilometer arithmetic(+=) should THROW!")
-        //   //////////////////////////////////////////////
-        //   .CHECK_THROWS(kilometer+=gram)
-        //   .CHECK_THROWS(kilometer+=kilogram)
-        //   .CHECK_THROWS(kilometer+=ton)
-        //   .CHECK_THROWS(kilometer+=second)
-        //   .CHECK_THROWS(kilometer+=minute)
-        //   .CHECK_THROWS(kilometer+=hour)
-        //  //////////////////////////////////////////////
-        //  .setname("sanity test = > centimeter arithmetic(-=) should THROW!")
-        //   //////////////////////////////////////////////
-        //   .CHECK_THROWS(centimeter-=gram)
-        //   .CHECK_THROWS(centimeter-=kilogram)
-        //   .CHECK_THROWS(centimeter-=ton)
-        //   .CHECK_THROWS(centimeter-=second)
-        //   .CHECK_THROWS(centimeter-=minute)
-        //   .CHECK_THROWS(centimeter-=hour)
-        //  //////////////////////////////////////////////
-        //   .setname("sanity test = > meter arithmetic(-=) should THROW!")
-        //   //////////////////////////////////////////////
-        //   .CHECK_THROWS(meter-=gram)
-        //   .CHECK_THROWS(meter-=kilogram)
-        //   .CHECK_THROWS(meter-=ton)
-        //   .CHECK_THROWS(meter-=second)
-        //   .CHECK_THROWS(meter-=minute)
-        //   .CHECK_THROWS(meter-=hour)
-        //  //////////////////////////////////////////////
-        //   .setname("sanity test = > kilometer arithmetic(-=) should THROW!")
-        //   //////////////////////////////////////////////
-        //   .CHECK_THROWS(kilometer-=gram)
-        //   .CHECK_THROWS(kilometer-=kilogram)
-        //   .CHECK_THROWS(kilometer-=ton)
-        //   .CHECK_THROWS(kilometer-=second)
-        //   .CHECK_THROWS(kilometer-=minute)
-        //   .CHECK_THROWS(kilometer-=hour)
-        //  //////////////////////////////////////////////
+           /*********************************************/
+          // CM - M - KM tests//
+          /*********************************************/
+          .setname("sanity test = > centimeter arithmetic(+) should THROW!")
+          //////////////////////////////////////////////
+          .CHECK_THROWS(centimeter+gram)
+          .CHECK_THROWS(centimeter+kilogram)
+          .CHECK_THROWS(centimeter+ton)
+          .CHECK_THROWS(centimeter+second)
+          .CHECK_THROWS(centimeter+minute)
+          .CHECK_THROWS(centimeter+hour)
+         //////////////////////////////////////////////
+         .setname("sanity test = > meter arithmetic(+) should THROW!")
+          //////////////////////////////////////////////
+          .CHECK_THROWS(meter+gram)
+          .CHECK_THROWS(meter+kilogram)
+          .CHECK_THROWS(meter+ton)
+          .CHECK_THROWS(meter+second)
+          .CHECK_THROWS(meter+minute)
+          .CHECK_THROWS(meter+hour)
+         //////////////////////////////////////////////
+         .setname("sanity test = > kilometer arithmetic(+) should THROW!")
+          //////////////////////////////////////////////
+          .CHECK_THROWS(kilometer+gram)
+          .CHECK_THROWS(kilometer+kilogram)
+          .CHECK_THROWS(kilometer+ton)
+          .CHECK_THROWS(kilometer+second)
+          .CHECK_THROWS(kilometer+minute)
+          .CHECK_THROWS(kilometer+hour)
+          //////////////////////////////////////////////
+         .setname("sanity test = > centimeter arithmetic(-) should THROW!")
+          //////////////////////////////////////////////
+          .CHECK_THROWS(centimeter-gram)
+          .CHECK_THROWS(centimeter-kilogram)
+          .CHECK_THROWS(centimeter-ton)
+          .CHECK_THROWS(centimeter-second)
+          .CHECK_THROWS(centimeter-minute)
+          .CHECK_THROWS(centimeter-hour)
+          //////////////////////////////////////////////
+         .setname("sanity test = > meter arithmetic(-) should THROW!")
+          //////////////////////////////////////////////
+          .CHECK_THROWS(meter-gram)
+          .CHECK_THROWS(meter-kilogram)
+          .CHECK_THROWS(meter-ton)
+          .CHECK_THROWS(meter-second)
+          .CHECK_THROWS(meter-minute)
+          .CHECK_THROWS(meter-hour)
+          //////////////////////////////////////////////
+         .setname("sanity test = > kilometer arithmetic(-) should THROW!")
+          //////////////////////////////////////////////
+          .CHECK_THROWS(kilometer-gram)
+          .CHECK_THROWS(kilometer-kilogram)
+          .CHECK_THROWS(kilometer-ton)
+          .CHECK_THROWS(kilometer-second)
+          .CHECK_THROWS(kilometer-minute)
+          .CHECK_THROWS(kilometer-hour)
+         //////////////////////////////////////////////
+         .setname("sanity test = > centimeter arithmetic(+=) should THROW!")
+          //////////////////////////////////////////////
+          .CHECK_THROWS(centimeter+=gram)
+          .CHECK_THROWS(centimeter+=kilogram)
+          .CHECK_THROWS(centimeter+=ton)
+          .CHECK_THROWS(centimeter+=second)
+          .CHECK_THROWS(centimeter+=minute)
+          .CHECK_THROWS(centimeter+=hour)
+         //////////////////////////////////////////////
+          .setname("sanity test = > meter arithmetic(+=) should THROW!")
+          //////////////////////////////////////////////
+          .CHECK_THROWS(meter+=gram)
+          .CHECK_THROWS(meter+=kilogram)
+          .CHECK_THROWS(meter+=ton)
+          .CHECK_THROWS(meter+=second)
+          .CHECK_THROWS(meter+=minute)
+          .CHECK_THROWS(meter+=hour)
+         //////////////////////////////////////////////
+         .setname("sanity test = > kilometer arithmetic(+=) should THROW!")
+          //////////////////////////////////////////////
+          .CHECK_THROWS(kilometer+=gram)
+          .CHECK_THROWS(kilometer+=kilogram)
+          .CHECK_THROWS(kilometer+=ton)
+          .CHECK_THROWS(kilometer+=second)
+          .CHECK_THROWS(kilometer+=minute)
+          .CHECK_THROWS(kilometer+=hour)
+         //////////////////////////////////////////////
+         .setname("sanity test = > centimeter arithmetic(-=) should THROW!")
+          //////////////////////////////////////////////
+          .CHECK_THROWS(centimeter-=gram)
+          .CHECK_THROWS(centimeter-=kilogram)
+          .CHECK_THROWS(centimeter-=ton)
+          .CHECK_THROWS(centimeter-=second)
+          .CHECK_THROWS(centimeter-=minute)
+          .CHECK_THROWS(centimeter-=hour)
+         //////////////////////////////////////////////
+          .setname("sanity test = > meter arithmetic(-=) should THROW!")
+          //////////////////////////////////////////////
+          .CHECK_THROWS(meter-=gram)
+          .CHECK_THROWS(meter-=kilogram)
+          .CHECK_THROWS(meter-=ton)
+          .CHECK_THROWS(meter-=second)
+          .CHECK_THROWS(meter-=minute)
+          .CHECK_THROWS(meter-=hour)
+         //////////////////////////////////////////////
+          .setname("sanity test = > kilometer arithmetic(-=) should THROW!")
+          //////////////////////////////////////////////
+          .CHECK_THROWS(kilometer-=gram)
+          .CHECK_THROWS(kilometer-=kilogram)
+          .CHECK_THROWS(kilometer-=ton)
+          .CHECK_THROWS(kilometer-=second)
+          .CHECK_THROWS(kilometer-=minute)
+          .CHECK_THROWS(kilometer-=hour)
+         //////////////////////////////////////////////
 
-        //   /*********************************************/
-        //   // SEC - MIN - HOUR tests//
-        //   /*********************************************/
-        //   .setname("sanity test = > second arithmetic(+) should THROW!")
-        //   //////////////////////////////////////////////
-        //   .CHECK_THROWS(second+gram)
-        //   .CHECK_THROWS(second+kilogram)
-        //   .CHECK_THROWS(second+ton)
-        //   .CHECK_THROWS(second+centimeter)
-        //   .CHECK_THROWS(second+meter)
-        //   .CHECK_THROWS(second+kilometer)
-        //  //////////////////////////////////////////////
-        //  .setname("sanity test = > minute arithmetic(+) should THROW!")
-        //   //////////////////////////////////////////////
-        //  .CHECK_THROWS(minute+gram)
-        //   .CHECK_THROWS(minute+kilogram)
-        //   .CHECK_THROWS(minute+ton)
-        //   .CHECK_THROWS(minute+centimeter)
-        //   .CHECK_THROWS(minute+meter)
-        //   .CHECK_THROWS(minute+kilometer)
-        //  //////////////////////////////////////////////
-        //  .setname("sanity test = > hour arithmetic(+) should THROW!")
-        //   //////////////////////////////////////////////
-        //   .CHECK_THROWS(hour+gram)
-        //   .CHECK_THROWS(hour+kilogram)
-        //   .CHECK_THROWS(hour+ton)
-        //   .CHECK_THROWS(hour+centimeter)
-        //   .CHECK_THROWS(hour+meter)
-        //   .CHECK_THROWS(hour+kilometer)
-        //   //////////////////////////////////////////////
-        //  .setname("sanity test = > second arithmetic(-) should THROW!")
-        //   //////////////////////////////////////////////
-        //   .CHECK_THROWS(second-gram)
-        //   .CHECK_THROWS(second-kilogram)
-        //   .CHECK_THROWS(second-ton)
-        //   .CHECK_THROWS(second-centimeter)
-        //   .CHECK_THROWS(second-meter)
-        //   .CHECK_THROWS(second-kilometer)
-        //   //////////////////////////////////////////////
-        //  .setname("sanity test = > minute arithmetic(-) should THROW!")
-        //   //////////////////////////////////////////////
-        //   .CHECK_THROWS(minute-gram)
-        //   .CHECK_THROWS(minute-kilogram)
-        //   .CHECK_THROWS(minute-ton)
-        //   .CHECK_THROWS(minute-centimeter)
-        //   .CHECK_THROWS(minute-meter)
-        //   .CHECK_THROWS(minute-kilometer)
-        //   //////////////////////////////////////////////
-        //  .setname("sanity test = > hour arithmetic(-) should THROW!")
-        //   //////////////////////////////////////////////
-        //   .CHECK_THROWS(hour-gram)
-        //   .CHECK_THROWS(hour-kilogram)
-        //   .CHECK_THROWS(hour-ton)
-        //   .CHECK_THROWS(hour-centimeter)
-        //   .CHECK_THROWS(hour-meter)
-        //   .CHECK_THROWS(hour-kilometer)
-        //  //////////////////////////////////////////////
-        //  .setname("sanity test = > second arithmetic(+=) should THROW!")
-        //   //////////////////////////////////////////////
-        //   .CHECK_THROWS(second+=gram)
-        //   .CHECK_THROWS(second+=kilogram)
-        //   .CHECK_THROWS(second+=ton)
-        //   .CHECK_THROWS(second+=centimeter)
-        //   .CHECK_THROWS(second+=meter)
-        //   .CHECK_THROWS(second+=kilometer)
-        //  //////////////////////////////////////////////
-        //   .setname("sanity test = > minute arithmetic(+=) should THROW!")
-        //   //////////////////////////////////////////////
-        //    .CHECK_THROWS(minute+=gram)
-        //   .CHECK_THROWS(minute+=kilogram)
-        //   .CHECK_THROWS(minute+=ton)
-        //   .CHECK_THROWS(minute+=centimeter)
-        //   .CHECK_THROWS(minute+=meter)
-        //   .CHECK_THROWS(minute+=kilometer)
-        //  //////////////////////////////////////////////
-        //  .setname("sanity test = > hour arithmetic(+=) should THROW!")
-        //   //////////////////////////////////////////////
-        //   .CHECK_THROWS(hour+=gram)
-        //   .CHECK_THROWS(hour+=kilogram)
-        //   .CHECK_THROWS(hour+=ton)
-        //   .CHECK_THROWS(hour+=centimeter)
-        //   .CHECK_THROWS(hour+=meter)
-        //   .CHECK_THROWS(hour+=kilometer)
-        //  //////////////////////////////////////////////
-        //  .setname("sanity test = > second arithmetic(-=) should THROW!")
-        //   //////////////////////////////////////////////
-        //   .CHECK_THROWS(second-=gram)
-        //   .CHECK_THROWS(second-=kilogram)
-        //   .CHECK_THROWS(second-=ton)
-        //   .CHECK_THROWS(second-=centimeter)
-        //   .CHECK_THROWS(second-=meter)
-        //   .CHECK_THROWS(second-=kilometer)
-        //  //////////////////////////////////////////////
-        //   .setname("sanity test = > minute arithmetic(-=) should THROW!")
-        //   //////////////////////////////////////////////
-        //    .CHECK_THROWS(minute-=gram)
-        //   .CHECK_THROWS(minute-=kilogram)
-        //   .CHECK_THROWS(minute-=ton)
-        //   .CHECK_THROWS(minute-=centimeter)
-        //   .CHECK_THROWS(minute-=meter)
-        //   .CHECK_THROWS(minute-=kilometer)
-        //  //////////////////////////////////////////////
-        //   .setname("sanity test = > hour arithmetic(-=) should THROW!")
-        //   //////////////////////////////////////////////
-        //   .CHECK_THROWS(hour-=gram)
-        //   .CHECK_THROWS(hour-=kilogram)
-        //   .CHECK_THROWS(hour-=ton)
-        //   .CHECK_THROWS(hour-=centimeter)
-        //   .CHECK_THROWS(hour-=meter)
-        //   .CHECK_THROWS(hour-=kilometer)
-        //  //////////////////////////////////////////////
+          /*********************************************/
+          // SEC - MIN - HOUR tests//
+          /*********************************************/
+          .setname("sanity test = > second arithmetic(+) should THROW!")
+          //////////////////////////////////////////////
+          .CHECK_THROWS(second+gram)
+          .CHECK_THROWS(second+kilogram)
+          .CHECK_THROWS(second+ton)
+          .CHECK_THROWS(second+centimeter)
+          .CHECK_THROWS(second+meter)
+          .CHECK_THROWS(second+kilometer)
+         //////////////////////////////////////////////
+         .setname("sanity test = > minute arithmetic(+) should THROW!")
+          //////////////////////////////////////////////
+         .CHECK_THROWS(minute+gram)
+          .CHECK_THROWS(minute+kilogram)
+          .CHECK_THROWS(minute+ton)
+          .CHECK_THROWS(minute+centimeter)
+          .CHECK_THROWS(minute+meter)
+          .CHECK_THROWS(minute+kilometer)
+         //////////////////////////////////////////////
+         .setname("sanity test = > hour arithmetic(+) should THROW!")
+          //////////////////////////////////////////////
+          .CHECK_THROWS(hour+gram)
+          .CHECK_THROWS(hour+kilogram)
+          .CHECK_THROWS(hour+ton)
+          .CHECK_THROWS(hour+centimeter)
+          .CHECK_THROWS(hour+meter)
+          .CHECK_THROWS(hour+kilometer)
+          //////////////////////////////////////////////
+         .setname("sanity test = > second arithmetic(-) should THROW!")
+          //////////////////////////////////////////////
+          .CHECK_THROWS(second-gram)
+          .CHECK_THROWS(second-kilogram)
+          .CHECK_THROWS(second-ton)
+          .CHECK_THROWS(second-centimeter)
+          .CHECK_THROWS(second-meter)
+          .CHECK_THROWS(second-kilometer)
+          //////////////////////////////////////////////
+         .setname("sanity test = > minute arithmetic(-) should THROW!")
+          //////////////////////////////////////////////
+          .CHECK_THROWS(minute-gram)
+          .CHECK_THROWS(minute-kilogram)
+          .CHECK_THROWS(minute-ton)
+          .CHECK_THROWS(minute-centimeter)
+          .CHECK_THROWS(minute-meter)
+          .CHECK_THROWS(minute-kilometer)
+          //////////////////////////////////////////////
+         .setname("sanity test = > hour arithmetic(-) should THROW!")
+          //////////////////////////////////////////////
+          .CHECK_THROWS(hour-gram)
+          .CHECK_THROWS(hour-kilogram)
+          .CHECK_THROWS(hour-ton)
+          .CHECK_THROWS(hour-centimeter)
+          .CHECK_THROWS(hour-meter)
+          .CHECK_THROWS(hour-kilometer)
+         //////////////////////////////////////////////
+         .setname("sanity test = > second arithmetic(+=) should THROW!")
+          //////////////////////////////////////////////
+          .CHECK_THROWS(second+=gram)
+          .CHECK_THROWS(second+=kilogram)
+          .CHECK_THROWS(second+=ton)
+          .CHECK_THROWS(second+=centimeter)
+          .CHECK_THROWS(second+=meter)
+          .CHECK_THROWS(second+=kilometer)
+         //////////////////////////////////////////////
+          .setname("sanity test = > minute arithmetic(+=) should THROW!")
+          //////////////////////////////////////////////
+           .CHECK_THROWS(minute+=gram)
+          .CHECK_THROWS(minute+=kilogram)
+          .CHECK_THROWS(minute+=ton)
+          .CHECK_THROWS(minute+=centimeter)
+          .CHECK_THROWS(minute+=meter)
+          .CHECK_THROWS(minute+=kilometer)
+         //////////////////////////////////////////////
+         .setname("sanity test = > hour arithmetic(+=) should THROW!")
+          //////////////////////////////////////////////
+          .CHECK_THROWS(hour+=gram)
+          .CHECK_THROWS(hour+=kilogram)
+          .CHECK_THROWS(hour+=ton)
+          .CHECK_THROWS(hour+=centimeter)
+          .CHECK_THROWS(hour+=meter)
+          .CHECK_THROWS(hour+=kilometer)
+         //////////////////////////////////////////////
+         .setname("sanity test = > second arithmetic(-=) should THROW!")
+          //////////////////////////////////////////////
+          .CHECK_THROWS(second-=gram)
+          .CHECK_THROWS(second-=kilogram)
+          .CHECK_THROWS(second-=ton)
+          .CHECK_THROWS(second-=centimeter)
+          .CHECK_THROWS(second-=meter)
+          .CHECK_THROWS(second-=kilometer)
+         //////////////////////////////////////////////
+          .setname("sanity test = > minute arithmetic(-=) should THROW!")
+          //////////////////////////////////////////////
+           .CHECK_THROWS(minute-=gram)
+          .CHECK_THROWS(minute-=kilogram)
+          .CHECK_THROWS(minute-=ton)
+          .CHECK_THROWS(minute-=centimeter)
+          .CHECK_THROWS(minute-=meter)
+          .CHECK_THROWS(minute-=kilometer)
+         //////////////////////////////////////////////
+          .setname("sanity test = > hour arithmetic(-=) should THROW!")
+          //////////////////////////////////////////////
+          .CHECK_THROWS(hour-=gram)
+          .CHECK_THROWS(hour-=kilogram)
+          .CHECK_THROWS(hour-=ton)
+          .CHECK_THROWS(hour-=centimeter)
+          .CHECK_THROWS(hour-=meter)
+          .CHECK_THROWS(hour-=kilometer)
+         //////////////////////////////////////////////
         .setname("...")
 
-        .print(cout, /*show_grade=*/false);
+        .print(cout, /*show_grade=*/0);
     grade = testcase.grade();
   }
   else

@@ -18,8 +18,9 @@ class PhysicalNumber
     void setUnit (const Unit type);
     void setValue (const double value);
     static Unit getUnitOfString (std::string str);
-    static bool isFormatCorrect (std::string str); 
+    static bool isFormatCorrect (std::string str, PhysicalNumber &arg); 
     static void throwExe(std::string type1,std::string type2);
+
 
   public:
     //constructor 

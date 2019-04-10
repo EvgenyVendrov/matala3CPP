@@ -27,7 +27,7 @@ PhysicalNumber PhysicalNumber::operator+(const PhysicalNumber &arg2) const
     }
     double valueFirst = this->conv2min();
     double valueSecond = arg2.conv2min();
-    std::cout<<"first arg=>"<<arg2.getValue()*(1000*1000)<<"second arg=>"<<valueSecond<<std::endl;
+    std::cout << "first arg=>" << arg2.getValue() * (1000 * 1000) << "second arg=>" << valueSecond << std::endl;
     Unit toBeMade = this->getUnit();
     double result = normalizeResult((valueFirst + valueSecond), toBeMade);
     PhysicalNumber output(result, toBeMade);
@@ -144,7 +144,7 @@ bool PhysicalNumber::operator>(const PhysicalNumber &arg2) const
 
 bool PhysicalNumber::operator>=(const PhysicalNumber &arg2) const
 {
-     if (!this->canWeCalcBoth(arg2))
+    if (!this->canWeCalcBoth(arg2))
     {
         throw "YOU CAN NOT USE THIS OPERATOR ON TWO INCOMPATIBLE DIMENSIONS";
     }
@@ -191,28 +191,28 @@ bool PhysicalNumber::operator!=(const PhysicalNumber &arg2) const
 PhysicalNumber &PhysicalNumber::operator++(const int dummyArgForPostfix)
 {
     double value = this->getValue();
-    PhysicalNumber output(value++,this->getUnit());
+    PhysicalNumber output(value++, this->getUnit());
     return output;
 }
 
 PhysicalNumber &PhysicalNumber::operator++()
 {
-   double value = this->getValue();
-    PhysicalNumber output(++value,this->getUnit());
+    double value = this->getValue();
+    PhysicalNumber output(++value, this->getUnit());
     return output;
 }
 
 PhysicalNumber &PhysicalNumber::operator--(const int dummyArgForPostfix)
 {
     double value = this->getValue();
-    PhysicalNumber output(value--,this->getUnit());
+    PhysicalNumber output(value--, this->getUnit());
     return output;
 }
 
 PhysicalNumber &PhysicalNumber::operator--()
 {
-   double value = this->getValue();
-    PhysicalNumber output(--value,this->getUnit());
+    double value = this->getValue();
+    PhysicalNumber output(--value, this->getUnit());
     return output;
 }
 
@@ -228,7 +228,7 @@ std::istream &ariel::operator>>(std::istream &is, PhysicalNumber &arg)
 {
     string saver;
     is >> saver;
-    if (!PhysicalNumber::isFormatCorrect(saver))
+    if (!PhysicalNumber::isFormatCorrect(saver, arg))
     {
         is.setstate(std::ios::failbit);
         return is;
@@ -513,7 +513,7 @@ void PhysicalNumber::setUnit(const Unit type)
     this->_type = type;
 }
 
-bool PhysicalNumber::isFormatCorrect(std::string str)
+bool PhysicalNumber::isFormatCorrect(std::string str, PhysicalNumber &arg)
 {
     if (str.find('[') == std::string::npos || str.find(']') == std::string::npos)
     {
