@@ -120,9 +120,9 @@ int main()
         ////////////////////////////////////////////
         //.setname("sanity test = > unary (+) = > should work = > G-KG-TON")
         //////////////////////////////////////////////
-        //.CHECK_OUTPUT(+gram, "5[g]")
-        //.CHECK_OUTPUT(+kilogram, "6[kg]")
-        //.CHECK_OUTPUT((+ton), "0.7[ton]")
+        .CHECK_OUTPUT(+gram, "5[g]")
+        .CHECK_OUTPUT(+kilogram, "6[kg]")
+        .CHECK_OUTPUT((+ton), "0.7[ton]")
         //   /////////////////////////////////////////////
         .setname("sanity test = > arithmetic (-=) = > should work = > G-KG-TON")
         //////////////////////////////////////////////
@@ -194,13 +194,13 @@ int main()
         meter = PhysicalNumber(9, Unit::M);
         kilometer = PhysicalNumber(3, Unit::KM);
         testcase
-    //   ////////////////////////////////////////////
-    //   .setname("sanity test = > unary (+) = > should work = > CM-M-KM")
-    //   //////////////////////////////////////////////
-    //   .CHECK_OUTPUT(+centimeter, "-5.6[cm]")
-    //   .CHECK_OUTPUT(+meter, "50[m]")
-    //   .CHECK_OUTPUT(+kilometer, "2.3[km]")
-    //   /////////////////////////////////////////////
+      ////////////////////////////////////////////
+      .setname("sanity test = > unary (+) = > should work = > CM-M-KM")
+      //////////////////////////////////////////////
+      .CHECK_OUTPUT(+centimeter, "-8[cm]")
+      .CHECK_OUTPUT(+meter, "9[m]")
+      .CHECK_OUTPUT(+kilometer, "3[km]")
+      /////////////////////////////////////////////
       .setname("sanity test = > arithmetic (-=) = > should work = > CM-M-KM")
       //////////////////////////////////////////////
       .CHECK_OUTPUT((centimeter -= centimeter), "0[cm]")
@@ -222,56 +222,60 @@ int main()
       .CHECK_OUTPUT(-kilometer, "-3[km]")
     //   //////////////////////////////////////////////
 
-    //   /*********************************************/
-    //   // SEC - MIN - HOUR tests//
-    //   /*********************************************/
-    //   .setname("sanity test = > arithmetic (+) = > should work = > CM-M-KM")
-    //   //////////////////////////////////////////////
-    //   .CHECK_OUTPUT(second + second, "8[sec]")
-    //   .CHECK_OUTPUT(second + minute, "3304[sec]")
-    //   .CHECK_OUTPUT(second + hour, "1504[sec]")
+      /*********************************************/
+      // SEC - MIN - HOUR tests//
+      /*********************************************/
+      .setname("sanity test = > arithmetic (+) = > should work = > SEC-MIN-HOUR")
+      //////////////////////////////////////////////
+      .CHECK_OUTPUT(second + second, "22[sec]")
+      .CHECK_OUTPUT(second + minute, "-709[sec]")
+      .CHECK_OUTPUT(second + hour, "1811[sec]")
     //   /////////////////////////////////////////////
-    //   .CHECK_OUTPUT(minute + minute, "110[min]")
-    //   .CHECK_OUTPUT(minute + second, "55.0666[min]")
-    //   .CHECK_OUTPUT(minute + hour, "70[min]")
+      .CHECK_OUTPUT(minute + minute, "-24[min]")
+      .CHECK_OUTPUT(minute + second, "-11.8167[min]")
+      .CHECK_OUTPUT(minute + hour, "18[min]")
     //   ////////////////////////////////////////////
-    //   .CHECK_OUTPUT(hour + hour, "0.5[hour]")
-    //   .CHECK_OUTPUT(hour + second, "0.261[hour]")
-    //   .CHECK_OUTPUT(hour + minute, "1.166[hour]")
+      .CHECK_OUTPUT(hour + hour, "1[hour]")
+      .CHECK_OUTPUT(hour + second, "0.503056[hour]")
+      .CHECK_OUTPUT(hour + minute, "0.3[hour]")
     //   ////////////////////////////////////////////
-    //   .setname("sanity test = > arithmetic (-) = > should work = > CM-M-KM")
-    //   //////////////////////////////////////////////
-    //   .CHECK_OUTPUT(second - second, "0[sec]")
-    //   .CHECK_OUTPUT(second - minute, "-3296[sec]")
-    //   .CHECK_OUTPUT(second - hour, "-896[sec]")
+      .setname("sanity test = > arithmetic (-) = > should work = > SEC-MIN-HOUR")
+      //////////////////////////////////////////////
+      .CHECK_OUTPUT(second - second, "0[sec]")
+      .CHECK_OUTPUT(second - minute, "731[sec]")
+      .CHECK_OUTPUT(second - hour, "-1789[sec]")
     //   /////////////////////////////////////////////
-    //   .CHECK_OUTPUT(minute - minute, "0[min]")
-    //   .CHECK_OUTPUT(minute - second, "50.056[min]")
-    //   .CHECK_OUTPUT(minute - hour, "40[min]")
+      .CHECK_OUTPUT(minute - minute, "0[min]")
+      .CHECK_OUTPUT(minute - second, "-12.1833[min]")
+      .CHECK_OUTPUT(minute - hour, "-42[min]")
     //   ////////////////////////////////////////////
-    //   .CHECK_OUTPUT(hour - hour, "0[hour]")
-    //   .CHECK_OUTPUT(hour - second, "0.24889[hour]")
-    //   .CHECK_OUTPUT(hour - minute, "-0.666[hour]")
-    //   ////////////////////////////////////////////
-    //   .setname("sanity test = > arithmetic (+=) = > should work = > CM-M-KM")
-    //   //////////////////////////////////////////////
-    //   .CHECK_OUTPUT((second += second), "8[sec]")
-    //   .CHECK_OUTPUT((second += minute), "3304[sec]")
-    //   .CHECK_OUTPUT((second += hour), "1504[sec]")
-    //   /////////////////////////////////////////////
-    //   .CHECK_OUTPUT((minute += minute), "110[min]")
-    //   .CHECK_OUTPUT((minute += second), "55.0666[min]")
-    //   .CHECK_OUTPUT((minute += hour), "70[min]")
-    //   ////////////////////////////////////////////
-    //   .CHECK_OUTPUT((hour += hour), "0.5[hour]")
-    //   .CHECK_OUTPUT((hour += second), "0.261[hour]")
-    //   .CHECK_OUTPUT((hour += minute), "1.166[hour]")
-    //   ////////////////////////////////////////////
-    //   .setname("sanity test = > unary (+) = > should work = > CM-M-KM")
-    //   //////////////////////////////////////////////
-    //   .CHECK_OUTPUT(+second, "4[sec]")
-    //   .CHECK_OUTPUT(+minute, "55[min]")
-    //   .CHECK_OUTPUT(+hour, "0.25[hour]")
+      .CHECK_OUTPUT(hour - hour, "0[hour]")
+      .CHECK_OUTPUT(hour - second, "0.496944[hour]")
+      .CHECK_OUTPUT(hour - minute, "0.7[hour]")
+      ////////////////////////////////////////////
+      .setname("sanity test = > arithmetic (+=) = > should work = > SEC-MIN-HOUR")
+      //////////////////////////////////////////////
+      .CHECK_OUTPUT((second += second), "22[sec]")
+      .CHECK_OUTPUT((second += minute), "-698[sec]")
+      .CHECK_OUTPUT((second += hour), "1102[sec]")
+      /////////////////////////////////////////////
+      .CHECK_OUTPUT((minute += minute), "-24[min]")
+      .CHECK_OUTPUT((minute += second), "-5.63333[min]")
+      .CHECK_OUTPUT((minute += hour), "24.3667[min]")
+      // ////////////////////////////////////////////
+      .CHECK_OUTPUT((hour += hour), "1[hour]")
+      .CHECK_OUTPUT((hour += second), "1.30611[hour]")
+      .CHECK_OUTPUT((hour += minute), "1.71222[hour]");
+      ////////////////////////////////////////////
+    second=PhysicalNumber(11, Unit::SEC);
+    minute=PhysicalNumber(-12, Unit::MIN);
+    hour=PhysicalNumber(0.5, Unit::HOUR);
+    testcase
+      .setname("sanity test = > unary (+) = > should work = > SEC-MIN-HOUR")
+      ////////////////////////////////////////////
+      .CHECK_OUTPUT(+second, "11[sec]")
+      .CHECK_OUTPUT(+minute, "-12[min]")
+      .CHECK_OUTPUT(+hour, "0.5[hour]")
     //   /////////////////////////////////////////////
     //   .setname("sanity test = > arithmetic (-=) = > should work = > CM-M-KM")
     //   //////////////////////////////////////////////

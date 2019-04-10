@@ -50,13 +50,10 @@ PhysicalNumber &PhysicalNumber::operator+=(const PhysicalNumber &arg2)
 }
 
 //unary +
-PhysicalNumber &PhysicalNumber::operator+()
+PhysicalNumber &PhysicalNumber::operator+() const
 {
     double value = this->getValue();
-    std::cout<<"value=>>"<<value<<std::endl;
-    Unit unit = this -> getUnit();
-    PhysicalNumber output(value, unit);
-    std::cout<<"value=>>"<<output<<std::endl;
+    PhysicalNumber output(value, this->getUnit());
     return output;
 }
 

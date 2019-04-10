@@ -29,7 +29,7 @@ class PhysicalNumber
     //arithmetic + operators:
     PhysicalNumber operator+(const PhysicalNumber &arg2) const;
     PhysicalNumber &operator+=(const PhysicalNumber &arg2);
-    PhysicalNumber &operator+();
+    PhysicalNumber &operator+() const;
 
     //arithmetic - operators:
     PhysicalNumber operator-(const PhysicalNumber &arg2) const;
