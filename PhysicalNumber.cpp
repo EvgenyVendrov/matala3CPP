@@ -27,8 +27,9 @@ PhysicalNumber PhysicalNumber::operator+(const PhysicalNumber &arg2) const
     }
     double valueFirst = this->conv2min();
     double valueSecond = arg2.conv2min();
+    std::cout<<"first arg=>"<<arg2.getValue()*(1000*1000)<<"second arg=>"<<valueSecond<<std::endl;
     Unit toBeMade = this->getUnit();
-    double result = normalizeResult(valueFirst + valueSecond, toBeMade);
+    double result = normalizeResult((valueFirst + valueSecond), toBeMade);
     PhysicalNumber output(result, toBeMade);
     return output;
 }
@@ -48,10 +49,15 @@ PhysicalNumber &PhysicalNumber::operator+=(const PhysicalNumber &arg2)
     return output;
 }
 
+//unary +
 PhysicalNumber &PhysicalNumber::operator+()
 {
-    PhysicalNumber p(0, Unit::CM);
-    return p;
+    double value = this->getValue();
+    std::cout<<"value=>>"<<value<<std::endl;
+    Unit unit = this -> getUnit();
+    PhysicalNumber output(value, unit);
+    std::cout<<"value=>>"<<output<<std::endl;
+    return output;
 }
 
 //arithmetic - operators:
@@ -71,8 +77,17 @@ PhysicalNumber PhysicalNumber::operator-(const PhysicalNumber &arg2) const
 
 PhysicalNumber &PhysicalNumber::operator-=(const PhysicalNumber &arg2)
 {
-    PhysicalNumber p(0, Unit::CM);
-    return p;
+    if (!this->canWeCalcBoth(arg2))
+    {
+        throw "YOU CAN NOT USE THIS OPERATOR ON TWO INCOMPATIBLE DIMENSIONS";
+    }
+    double valueFirst = this->conv2min();
+    double valueSecond = arg2.conv2min();
+    Unit toBeMade = this->getUnit();
+    double result = normalizeResult(valueFirst - valueSecond, toBeMade);
+    this->setValue(result);
+    PhysicalNumber output(result, toBeMade);
+    return output;
 }
 
 //unary -
@@ -87,6 +102,16 @@ PhysicalNumber &PhysicalNumber::operator-()
 //comparison operators:
 bool PhysicalNumber::operator<(const PhysicalNumber &arg2) const
 {
+    if (!this->canWeCalcBoth(arg2))
+    {
+        throw "YOU CAN NOT USE THIS OPERATOR ON TWO INCOMPATIBLE DIMENSIONS";
+    }
+    double valueFirst = this->conv2min();
+    double valueSecond = arg2.conv2min();
+    if (valueFirst < valueSecond)
+    {
+        return true;
+    }
     return false;
 }
 
@@ -122,6 +147,16 @@ bool PhysicalNumber::operator>(const PhysicalNumber &arg2) const
 
 bool PhysicalNumber::operator>=(const PhysicalNumber &arg2) const
 {
+     if (!this->canWeCalcBoth(arg2))
+    {
+        throw "YOU CAN NOT USE THIS OPERATOR ON TWO INCOMPATIBLE DIMENSIONS";
+    }
+    double valueFirst = this->conv2min();
+    double valueSecond = arg2.conv2min();
+    if (valueFirst >= valueSecond)
+    {
+        return true;
+    }
     return false;
 }
 
@@ -142,32 +177,46 @@ bool PhysicalNumber::operator==(const PhysicalNumber &arg2) const
 
 bool PhysicalNumber::operator!=(const PhysicalNumber &arg2) const
 {
+    if (!this->canWeCalcBoth(arg2))
+    {
+        throw "YOU CAN NOT USE THIS OPERATOR ON TWO INCOMPATIBLE DIMENSIONS";
+    }
+    double valueFirst = this->conv2min();
+    double valueSecond = arg2.conv2min();
+    if (valueFirst != valueSecond)
+    {
+        return true;
+    }
     return false;
 }
 
 //increment / decrement operators:
 PhysicalNumber &PhysicalNumber::operator++(const int dummyArgForPostfix)
 {
-    PhysicalNumber p(0, Unit::CM);
-    return p;
+    double value = this->getValue();
+    PhysicalNumber output(value++,this->getUnit());
+    return output;
 }
 
 PhysicalNumber &PhysicalNumber::operator++()
 {
-    PhysicalNumber p(0, Unit::CM);
-    return p;
+   double value = this->getValue();
+    PhysicalNumber output(++value,this->getUnit());
+    return output;
 }
 
 PhysicalNumber &PhysicalNumber::operator--(const int dummyArgForPostfix)
 {
-    PhysicalNumber p(0, Unit::CM);
-    return p;
+    double value = this->getValue();
+    PhysicalNumber output(value--,this->getUnit());
+    return output;
 }
 
 PhysicalNumber &PhysicalNumber::operator--()
 {
-    PhysicalNumber p(0, Unit::CM);
-    return p;
+   double value = this->getValue();
+    PhysicalNumber output(--value,this->getUnit());
+    return output;
 }
 
 //friend I/O operators:
@@ -412,19 +461,19 @@ double PhysicalNumber::conv2min() const
     case Unit::KG:
         return (this->getValue()) * 1000;
     case Unit::TON:
-        return (this->getValue()) * 1000 * 1000;
+        return (this->getValue()) * (1000 * 1000);
     case Unit::CM:
         return (this->getValue());
     case Unit::M:
         return (this->getValue()) * 100;
     case Unit::KM:
-        return (this->getValue()) * 100 * 1000;
+        return (this->getValue()) * (100 * 1000);
     case Unit::SEC:
         return (this->getValue());
     case Unit::MIN:
         return (this->getValue()) * 60;
     case Unit::HOUR:
-        return (this->getValue()) * 60 * 60;
+        return (this->getValue()) * (60 * 60);
     default:
         break;
     }
@@ -506,5 +555,5 @@ bool PhysicalNumber::isFormatCorrect(std::string str)
 
 void PhysicalNumber::throwExe(std::string type1, std::string type2)
 {
-    throw std::invalid_argument("Units do not match - ["+type2+"]"+" cannot be converted to ["+type1+"]");
+    throw std::invalid_argument("Units do not match - [" + type2 + "]" + " cannot be converted to [" + type1 + "]");
 }
