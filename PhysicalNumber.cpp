@@ -55,8 +55,9 @@ PhysicalNumber &PhysicalNumber::operator+=(const PhysicalNumber &arg2)
 //unary +
 PhysicalNumber &PhysicalNumber::operator+()
 {
-    double val = this -> getValue();
-    this->setValue((-1)*val);
+    double val = this->getValue();
+    if (val < 0)
+        this->setValue((-1) * val);
     return (*this);
 }
 
@@ -244,7 +245,7 @@ std::ostream &ariel::operator<<(std::ostream &os, const PhysicalNumber &arg)
 {
     double value = arg._value;
     string unitType = PhysicalNumber::getUnitString(arg._type);
-    return (os << value << "["<<unitType<<"]");
+    return (os << value << "[" << unitType << "]");
 }
 std::istream &ariel::operator>>(std::istream &is, PhysicalNumber &arg)
 {
