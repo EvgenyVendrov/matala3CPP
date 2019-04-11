@@ -661,54 +661,54 @@ int main()
         .CHECK_OUTPUT((--hour), "0.5[hour]")
         // /////////////////////////////////////////////
 
-        // // IO testing:
-        // /*********************************************/
-        // // G - KG - TON tests//
-        // /*********************************************/
-        // .setname("sanity test = > gram IO test")
-        // .CHECK_OK(istringstream("7[g]") >> gram)
-        // .CHECK_OUTPUT(gram, "7[g]")
-        // /////////////////////////////////////////////
-        // .setname("sanity test = > kilogram IO test")
-        // .CHECK_OK(istringstream("777[kg]") >> kilogram)
-        // .CHECK_OUTPUT(kilogram, "777[kg]")
-        // ////////////////////////////////////////////
-        // .setname("sanity test = > ton IO test")
-        // .CHECK_OK(istringstream("3[ton]") >> ton)
-        // .CHECK_OUTPUT(ton, "3[ton]")
-        // ////////////////////////////////////////////
-        // /*********************************************/
-        // // CM - M - KM tests//
-        // /*********************************************/
-        // ////////////////////////////////////////////
-        // .setname("sanity test = > centimeter IO test")
-        // .CHECK_OK(istringstream("33[cm]") >> centimeter)
-        // .CHECK_OUTPUT(centimeter, "33[cm]")
-        // ////////////////////////////////////////////
-        // .setname("sanity test = > meter IO test")
-        // .CHECK_OK(istringstream("7[m]") >> meter)
-        // .CHECK_OUTPUT(meter, "7[m]")
-        // ////////////////////////////////////////////
-        // .setname("sanity test = > kilometer IO test")
-        // .CHECK_OK(istringstream("2.5[km]") >> kilometer)
-        // .CHECK_OUTPUT(kilometer, "2.5[km]")
-        //  ////////////////////////////////////////////
-        // /*********************************************/
-        // // SEC - MIN - HOUR tests//
-        // /*********************************************/
-        // ////////////////////////////////////////////
-        // .setname("sanity test = > sec IO test")
-        // .CHECK_OK(istringstream("3.333[sec]") >> second)
-        // .CHECK_OUTPUT(second, "3.333[sec]")
-        // ////////////////////////////////////////////
-        // .setname("sanity test = > minute IO test")
-        // .CHECK_OK(istringstream("7[min]") >> minute)
-        // .CHECK_OUTPUT(minute, "7[min]")
-        // ////////////////////////////////////////////
-        // .setname("sanity test = > hour IO test")
-        // .CHECK_OK(istringstream("0.5[hour]") >> hour)
-        // .CHECK_OUTPUT(hour, "0.5[hour]")
+        // IO testing:
+        /*********************************************/
+        // G - KG - TON tests//
+        /*********************************************/
+        .setname("sanity test = > gram '>>' test")
+        .CHECK_OK(istringstream("7[g]") >> gram)
+        .CHECK_OUTPUT(gram, "7[g]")
+        /////////////////////////////////////////////
+        .setname("sanity test = > kilogram '>>' test")
+        .CHECK_OK(istringstream("777[kg]") >> kilogram)
+        .CHECK_OUTPUT(kilogram, "777[kg]")
         ////////////////////////////////////////////
+        .setname("sanity test = > ton '>>' test")
+        .CHECK_OK(istringstream("3[ton]") >> ton)
+        .CHECK_OUTPUT(ton, "3[ton]")
+        // ////////////////////////////////////////////
+        /*********************************************/
+        // CM - M - KM tests//
+        /*********************************************/
+        ////////////////////////////////////////////
+        .setname("sanity test = > centimeter '>>' test")
+        .CHECK_OK(istringstream("33[cm]") >> centimeter)
+        .CHECK_OUTPUT(centimeter, "33[cm]")
+        //////////////////////////////////////////
+        .setname("sanity test = > meter '>>' test")
+        .CHECK_OK(istringstream("7[m]") >> meter)
+        .CHECK_OUTPUT(meter, "7[m]")
+        ////////////////////////////////////////////
+        .setname("sanity test = > kilometer '>>' test")
+        .CHECK_OK(istringstream("2.5[km]") >> kilometer)
+        .CHECK_OUTPUT(kilometer, "2.5[km]")
+         ////////////////////////////////////////////
+        /*********************************************/
+        // SEC - MIN - HOUR tests//
+        /*********************************************/
+        ////////////////////////////////////////////
+        .setname("sanity test = > sec '>>' test")
+        .CHECK_OK(istringstream("3.333[sec]") >> second)
+        .CHECK_OUTPUT(second, "3.333[sec]")
+        ////////////////////////////////////////////
+        .setname("sanity test = > minute '>>' test")
+        .CHECK_OK(istringstream("7[min]") >> minute)
+        .CHECK_OUTPUT(minute, "7[min]")
+        ////////////////////////////////////////////
+        .setname("sanity test = > hour '>>' test")
+        .CHECK_OK(istringstream("0.5[hour]") >> hour)
+        .CHECK_OUTPUT(hour, "0.5[hour]")
+        //////////////////////////////////////////
 
         //   // 2. every unit-type tested with unit-types which should NOT work - with every operator
 

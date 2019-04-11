@@ -27,7 +27,6 @@ PhysicalNumber PhysicalNumber::operator+(const PhysicalNumber &arg2) const
     }
     double valueFirst = this->conv2min();
     double valueSecond = arg2.conv2min();
-    std::cout << "first arg=>" << arg2.getValue() * (1000 * 1000) << "second arg=>" << valueSecond << std::endl;
     Unit toBeMade = this->getUnit();
     double result = normalizeResult((valueFirst + valueSecond), toBeMade);
     PhysicalNumber output(result, toBeMade);
@@ -38,7 +37,9 @@ PhysicalNumber &PhysicalNumber::operator+=(const PhysicalNumber &arg2)
 {
     if (!this->canWeCalcBoth(arg2))
     {
-        throw "YOU CAN NOT USE THIS OPERATOR ON TWO INCOMPATIBLE DIMENSIONS";
+        string type1 = this->getUnitInString();
+        string type2 = arg2.getUnitInString();
+        PhysicalNumber::throwExe(type1, type2);
     }
     double valueFirst = this->conv2min();
     double valueSecond = arg2.conv2min();
@@ -62,7 +63,9 @@ PhysicalNumber PhysicalNumber::operator-(const PhysicalNumber &arg2) const
 {
     if (!this->canWeCalcBoth(arg2))
     {
-        throw "YOU CAN NOT USE THIS OPERATOR ON TWO INCOMPATIBLE DIMENSIONS";
+        string type1 = this->getUnitInString();
+        string type2 = arg2.getUnitInString();
+        PhysicalNumber::throwExe(type1, type2);
     }
     double valueFirst = this->conv2min();
     double valueSecond = arg2.conv2min();
@@ -76,7 +79,9 @@ PhysicalNumber &PhysicalNumber::operator-=(const PhysicalNumber &arg2)
 {
     if (!this->canWeCalcBoth(arg2))
     {
-        throw "YOU CAN NOT USE THIS OPERATOR ON TWO INCOMPATIBLE DIMENSIONS";
+        string type1 = this->getUnitInString();
+        string type2 = arg2.getUnitInString();
+        PhysicalNumber::throwExe(type1, type2);
     }
     double valueFirst = this->conv2min();
     double valueSecond = arg2.conv2min();
@@ -101,7 +106,9 @@ bool PhysicalNumber::operator<(const PhysicalNumber &arg2) const
 {
     if (!this->canWeCalcBoth(arg2))
     {
-        throw "YOU CAN NOT USE THIS OPERATOR ON TWO INCOMPATIBLE DIMENSIONS";
+        string type1 = this->getUnitInString();
+        string type2 = arg2.getUnitInString();
+        PhysicalNumber::throwExe(type1, type2);
     }
     double valueFirst = this->conv2min();
     double valueSecond = arg2.conv2min();
@@ -116,7 +123,9 @@ bool PhysicalNumber::operator<=(const PhysicalNumber &arg2) const
 {
     if (!this->canWeCalcBoth(arg2))
     {
-        throw "YOU CAN NOT USE THIS OPERATOR ON TWO INCOMPATIBLE DIMENSIONS";
+        string type1 = this->getUnitInString();
+        string type2 = arg2.getUnitInString();
+        PhysicalNumber::throwExe(type1, type2);
     }
     double valueFirst = this->conv2min();
     double valueSecond = arg2.conv2min();
@@ -131,7 +140,9 @@ bool PhysicalNumber::operator>(const PhysicalNumber &arg2) const
 {
     if (!this->canWeCalcBoth(arg2))
     {
-        throw "YOU CAN NOT USE THIS OPERATOR ON TWO INCOMPATIBLE DIMENSIONS";
+        string type1 = this->getUnitInString();
+        string type2 = arg2.getUnitInString();
+        PhysicalNumber::throwExe(type1, type2);
     }
     double valueFirst = this->conv2min();
     double valueSecond = arg2.conv2min();
@@ -146,7 +157,9 @@ bool PhysicalNumber::operator>=(const PhysicalNumber &arg2) const
 {
     if (!this->canWeCalcBoth(arg2))
     {
-        throw "YOU CAN NOT USE THIS OPERATOR ON TWO INCOMPATIBLE DIMENSIONS";
+        string type1 = this->getUnitInString();
+        string type2 = arg2.getUnitInString();
+        PhysicalNumber::throwExe(type1, type2);
     }
     double valueFirst = this->conv2min();
     double valueSecond = arg2.conv2min();
@@ -161,7 +174,9 @@ bool PhysicalNumber::operator==(const PhysicalNumber &arg2) const
 {
     if (!this->canWeCalcBoth(arg2))
     {
-        throw "YOU CAN NOT USE THIS OPERATOR ON TWO INCOMPATIBLE DIMENSIONS";
+        string type1 = this->getUnitInString();
+        string type2 = arg2.getUnitInString();
+        PhysicalNumber::throwExe(type1, type2);
     }
     double valueFirst = this->conv2min();
     double valueSecond = arg2.conv2min();
@@ -176,7 +191,9 @@ bool PhysicalNumber::operator!=(const PhysicalNumber &arg2) const
 {
     if (!this->canWeCalcBoth(arg2))
     {
-        throw "YOU CAN NOT USE THIS OPERATOR ON TWO INCOMPATIBLE DIMENSIONS";
+        string type1 = this->getUnitInString();
+        string type2 = arg2.getUnitInString();
+        PhysicalNumber::throwExe(type1, type2);
     }
     double valueFirst = this->conv2min();
     double valueSecond = arg2.conv2min();
@@ -208,7 +225,6 @@ PhysicalNumber &PhysicalNumber::operator--(const int dummyArgForPostfix)
 {
     PhysicalNumber result(*this);
     double toBeSet = this->getValue();
-    std::cout<<toBeSet<<std::endl;
     --toBeSet;
     this->setValue(toBeSet);
     return result;
@@ -216,7 +232,7 @@ PhysicalNumber &PhysicalNumber::operator--(const int dummyArgForPostfix)
 
 PhysicalNumber &PhysicalNumber::operator--()
 {
-     double value = this->getValue();
+    double value = this->getValue();
     this->setValue(--value);
     return *this;
 }
