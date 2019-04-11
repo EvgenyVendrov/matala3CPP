@@ -747,6 +747,9 @@ int main()
         .CHECK_THROWS(istringstream("dfsadfdsfsdf") >> kilogram)
         .CHECK_OUTPUT(kilogram, "777[kg]")
         ////////////////////////////////////////////
+        .setname("SPEACIAL TEST")
+        .CHECK_OK(kilogram-kilogram-=kilogram-=gram)
+        ////////////////////////////////////////////
         //   // 2. every unit-type tested with unit-types which should NOT work - with every operator
 
         // arithmetic testing:
