@@ -567,12 +567,12 @@ int main()
     ////////////////////////////////////////////
 
     //   // increment decrement testing:
-    gram = PhysicalNumber (5, Unit::G);
-    kilogram = PhysicalNumber (6, Unit::KG);
-    ton = PhysicalNumber (0.7, Unit::TON);
-    centimeter = PhysicalNumber (-8, Unit::CM);
-    meter = PhysicalNumber (9, Unit::M);
-    kilometer = PhysicalNumber (3, Unit::KM);
+    gram = PhysicalNumber(5, Unit::G);
+    kilogram = PhysicalNumber(6, Unit::KG);
+    ton = PhysicalNumber(0.7, Unit::TON);
+    centimeter = PhysicalNumber(-8, Unit::CM);
+    meter = PhysicalNumber(9, Unit::M);
+    kilometer = PhysicalNumber(3, Unit::KM);
     second = PhysicalNumber(11, Unit::SEC);
     minute = PhysicalNumber(-12, Unit::MIN);
     hour = PhysicalNumber(0.5, Unit::HOUR);
@@ -584,18 +584,18 @@ int main()
         .setname("sanity test = > gram increment decrement")
         //////////////////////////////////////////////
         .CHECK_OUTPUT((gram++), "5[g]")
-        .CHECK_OUTPUT(gram,"6[g]")
+        .CHECK_OUTPUT(gram, "6[g]")
         .CHECK_OUTPUT((++gram), "7[g]")
         .CHECK_OUTPUT((gram--), "7[g]")
-        .CHECK_OUTPUT(gram,"6[g]") 
+        .CHECK_OUTPUT(gram, "6[g]")
         .CHECK_OUTPUT((--gram), "5[g]")
         /////////////////////////////////////////////
         .setname("sanity test = > kilogram increment decrement")
         .CHECK_OUTPUT((kilogram++), "6[kg]")
-        .CHECK_OUTPUT(kilogram,"7[kg]")
+        .CHECK_OUTPUT(kilogram, "7[kg]")
         .CHECK_OUTPUT((++kilogram), "8[kg]")
         .CHECK_OUTPUT((kilogram--), "8[kg]")
-        .CHECK_OUTPUT(kilogram,"7[kg]")
+        .CHECK_OUTPUT(kilogram, "7[kg]")
         .CHECK_OUTPUT((--kilogram), "6[kg]")
         // // ////////////////////////////////////////////
         .setname("sanity test = > ton increment decrement")
@@ -692,7 +692,7 @@ int main()
         .setname("sanity test = > kilometer '>>' test")
         .CHECK_OK(istringstream("2.5[km]") >> kilometer)
         .CHECK_OUTPUT(kilometer, "2.5[km]")
-         ////////////////////////////////////////////
+        ////////////////////////////////////////////
         /*********************************************/
         // SEC - MIN - HOUR tests//
         /*********************************************/
@@ -709,7 +709,44 @@ int main()
         .CHECK_OK(istringstream("0.5[hour]") >> hour)
         .CHECK_OUTPUT(hour, "0.5[hour]")
         //////////////////////////////////////////
-
+        // IO testing -  Illegal input:
+        /////////////////////////////////////////////
+        .setname("Illegal input [letter-numbers] = > kilogram '>>' test")
+        .CHECK_THROWS(istringstream("abcd[kg]") >> kilogram)
+        .CHECK_OUTPUT(kilogram, "777[kg]")
+        /////////////////////////////////////////////
+        .setname("Illegal input [wrong unit type] = > kilogram '>>' test")
+        .CHECK_THROWS(istringstream("70[abbsbsbs]") >> kilogram)
+        .CHECK_OUTPUT(kilogram, "777[kg]")
+        ////////////////////////////////////////////
+        .setname("Illegal input [wrong unit type & letter-numbers] = > kilogram '>>' test")
+        .CHECK_THROWS(istringstream("70[abbsbsbs]") >> kilogram)
+        .CHECK_OUTPUT(kilogram, "777[kg]")
+        ////////////////////////////////////////////
+        .setname("Illegal input [no numbers] = > kilogram '>>' test")
+        .CHECK_THROWS(istringstream("[kg]") >> kilogram)
+        .CHECK_OUTPUT(kilogram, "777[kg]")
+        ////////////////////////////////////////////
+         .setname("Illegal input [wrong unit type & no numbers] = > kilogram '>>' test")
+        .CHECK_THROWS(istringstream("[dfsdfdsaf]") >> kilogram)
+        .CHECK_OUTPUT(kilogram, "777[kg]")
+        ////////////////////////////////////////////
+         .setname("Illegal input [no unit type] = > kilogram '>>' test")
+        .CHECK_THROWS(istringstream("60[]") >> kilogram)
+        .CHECK_OUTPUT(kilogram, "777[kg]")
+        ////////////////////////////////////////////
+        .setname("Illegal input [empty input string] = > kilogram '>>' test")
+        .CHECK_THROWS(istringstream("") >> kilogram)
+        .CHECK_OUTPUT(kilogram, "777[kg]")
+        ////////////////////////////////////////////
+        .setname("Illegal input [only ']'] = > kilogram '>>' test")
+        .CHECK_THROWS(istringstream("]") >> kilogram)
+        .CHECK_OUTPUT(kilogram, "777[kg]")
+        ////////////////////////////////////////////
+        .setname("Illegal input [gibberish only] = > kilogram '>>' test")
+        .CHECK_THROWS(istringstream("dfsadfdsfsdf") >> kilogram)
+        .CHECK_OUTPUT(kilogram, "777[kg]")
+        ////////////////////////////////////////////
         //   // 2. every unit-type tested with unit-types which should NOT work - with every operator
 
         // arithmetic testing:

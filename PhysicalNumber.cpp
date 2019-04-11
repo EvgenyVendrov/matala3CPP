@@ -255,7 +255,6 @@ std::istream &ariel::operator>>(std::istream &is, PhysicalNumber &arg)
 
         throw std::invalid_argument("ASDSADA");
         return is;
-
     }
     Unit unit;
     double value;
@@ -539,6 +538,10 @@ void PhysicalNumber::setUnit(const Unit type)
 
 bool PhysicalNumber::isFormatCorrect(std::string str, PhysicalNumber &arg)
 {
+    if (str[0] == '[')
+    {
+        return false;
+    }
     if (str.find('[') == std::string::npos || str.find(']') == std::string::npos)
     {
         return false;
