@@ -3,6 +3,7 @@
 #include <string.h>
 #include <sstream>
 #include <stdexcept>
+#include <cmath>
 using ariel::PhysicalNumber, ariel::Unit, std::string;
 
 ////////////////////PUBLIC////////////////////
@@ -207,10 +208,11 @@ bool PhysicalNumber::operator!=(const PhysicalNumber &arg2) const
 //increment / decrement operators:
 PhysicalNumber &PhysicalNumber::operator++(const int dummyArgForPostfix)
 {
-    PhysicalNumber result(*this);
+    PhysicalNumber result(this->getValue(), this->getUnit());
     double toBeSet = this->getValue();
     ++toBeSet;
     this->setValue(toBeSet);
+    std::cout << "DFADFDAS=>" << result << std::endl;
     return result;
 }
 
@@ -223,10 +225,11 @@ PhysicalNumber &PhysicalNumber::operator++()
 
 PhysicalNumber &PhysicalNumber::operator--(const int dummyArgForPostfix)
 {
-    PhysicalNumber result(*this);
+    PhysicalNumber result(this->getValue(), this->getUnit());
     double toBeSet = this->getValue();
     --toBeSet;
     this->setValue(toBeSet);
+    std::cout << "DFSDSDFDSFSD=>>>" << result << std::endl;
     return result;
 }
 
@@ -240,9 +243,8 @@ PhysicalNumber &PhysicalNumber::operator--()
 //friend I/O operators:
 std::ostream &ariel::operator<<(std::ostream &os, const PhysicalNumber &arg)
 {
-    std::cout.precision(6);
-    string stringType = arg.getUnitInString();
-    os << arg._value << std::fixed << "[" << stringType
+   string stringType = arg.getUnitInString();
+    os << arg._value << "[" << stringType
        << "]";
     return os;
 }
@@ -301,8 +303,6 @@ std::string PhysicalNumber::getUnitInString() const
         return "min";
     case Unit::HOUR:
         return "hour";
-    default:
-        break;
     }
 }
 
@@ -366,7 +366,7 @@ double PhysicalNumber::retVal(string str)
     {
         if (str[i] == '[')
         {
-            i += str.length();
+            break;
         }
         else
         {
