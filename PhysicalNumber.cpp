@@ -190,30 +190,35 @@ bool PhysicalNumber::operator!=(const PhysicalNumber &arg2) const
 //increment / decrement operators:
 PhysicalNumber &PhysicalNumber::operator++(const int dummyArgForPostfix)
 {
-    double value = this->getValue();
-    PhysicalNumber output(value++, this->getUnit());
-    return output;
+    PhysicalNumber result(*this);
+    double toBeSet = this->getValue();
+    ++toBeSet;
+    this->setValue(toBeSet);
+    return result;
 }
 
 PhysicalNumber &PhysicalNumber::operator++()
 {
     double value = this->getValue();
-    PhysicalNumber output(++value, this->getUnit());
-    return output;
+    this->setValue(++value);
+    return *this;
 }
 
 PhysicalNumber &PhysicalNumber::operator--(const int dummyArgForPostfix)
 {
-    double value = this->getValue();
-    PhysicalNumber output(value--, this->getUnit());
-    return output;
+    PhysicalNumber result(*this);
+    double toBeSet = this->getValue();
+    std::cout<<toBeSet<<std::endl;
+    --toBeSet;
+    this->setValue(toBeSet);
+    return result;
 }
 
 PhysicalNumber &PhysicalNumber::operator--()
 {
-    double value = this->getValue();
-    PhysicalNumber output(--value, this->getUnit());
-    return output;
+     double value = this->getValue();
+    this->setValue(--value);
+    return *this;
 }
 
 //friend I/O operators:
