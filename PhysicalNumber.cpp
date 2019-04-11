@@ -251,8 +251,9 @@ std::istream &ariel::operator>>(std::istream &is, PhysicalNumber &arg)
     is >> saver;
     if (!PhysicalNumber::isFormatCorrect(saver, arg))
     {
-        is.setstate(std::ios::failbit);
-        return is;
+        
+        throw std::invalid_argument("ASDSADA");
+
     }
     Unit unit;
     double value;
