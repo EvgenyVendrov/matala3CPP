@@ -254,6 +254,8 @@ std::istream &ariel::operator>>(std::istream &is, PhysicalNumber &arg)
     {
 
         throw std::invalid_argument("ASDSADA");
+        return is;
+
     }
     Unit unit;
     double value;
