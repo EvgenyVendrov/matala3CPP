@@ -55,6 +55,8 @@ PhysicalNumber &PhysicalNumber::operator+=(const PhysicalNumber &arg2)
 //unary +
 PhysicalNumber &PhysicalNumber::operator+()
 {
+    double val = this -> getValue();
+    this->setValue((-1)*val);
     return (*this);
 }
 
