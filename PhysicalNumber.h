@@ -9,6 +9,7 @@ class PhysicalNumber
   private:
     double _value;
     Unit _type;
+    std::string _sUnit;
     std::string getUnitInString() const;
     static Unit getUnitFromString(std::string str);
     static double retVal(std::string str);
@@ -20,6 +21,7 @@ class PhysicalNumber
     static Unit getUnitOfString (std::string str);
     static bool isFormatCorrect (std::string str, PhysicalNumber &arg); 
     static void throwExe(std::string type1,std::string type2);
+    static std::string getUnitString (Unit);
 
 
   public:
@@ -30,7 +32,7 @@ class PhysicalNumber
     //arithmetic + operators:
     PhysicalNumber operator+(const PhysicalNumber &arg2) const;
     PhysicalNumber &operator+=(const PhysicalNumber &arg2);
-    PhysicalNumber &operator+() const;
+    PhysicalNumber &operator+();
 
     //arithmetic - operators:
     PhysicalNumber operator-(const PhysicalNumber &arg2) const;

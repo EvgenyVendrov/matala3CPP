@@ -299,6 +299,14 @@ int main()
     //   //////////////////////////////////////////////
     gram = PhysicalNumber(10, Unit::G);
     kilogram = PhysicalNumber(0.01, Unit::KG);
+    ton = PhysicalNumber(2, Unit::TON);
+    centimeter = PhysicalNumber(-8, Unit::CM);
+    meter = PhysicalNumber(9, Unit::M);
+    kilometer = PhysicalNumber(3, Unit::KM);
+    second = PhysicalNumber(11, Unit::SEC);
+    minute = PhysicalNumber(-12, Unit::MIN);
+    hour = PhysicalNumber(0.5, Unit::HOUR);
+
     testcase
         //   // comparison testing:
 
@@ -512,11 +520,11 @@ int main()
         .setname("sanity test = > comparison (<) = > SEC - MIN - HOUR")
         //////////////////////////////////////////////
         .CHECK_OUTPUT((second < second), "0")
-        .CHECK_OUTPUT((second < minute), "1")
+        .CHECK_OUTPUT((second < minute), "0")
         .CHECK_OUTPUT((second < hour), "1")
         /////////////////////////////////////////////
         .CHECK_OUTPUT((minute < minute), "0")
-        .CHECK_OUTPUT((minute < second), "0")
+        .CHECK_OUTPUT((minute < second), "1")
         .CHECK_OUTPUT((minute < hour), "1")
         ////////////////////////////////////////////
         .CHECK_OUTPUT((hour < hour), "0")
@@ -526,11 +534,11 @@ int main()
         .setname("sanity test = > comparison (>) = > SEC - MIN - HOUR ")
         //////////////////////////////////////////////
         .CHECK_OUTPUT((second > second), "0")
-        .CHECK_OUTPUT((second > minute), "0")
+        .CHECK_OUTPUT((second > minute), "1")
         .CHECK_OUTPUT((second > hour), "0")
         /////////////////////////////////////////////
         .CHECK_OUTPUT((minute > minute), "0")
-        .CHECK_OUTPUT((minute > second), "1")
+        .CHECK_OUTPUT((minute > second), "0")
         .CHECK_OUTPUT((minute > hour), "0")
         ////////////////////////////////////////////
         .CHECK_OUTPUT((hour > hour), "0")
@@ -540,11 +548,11 @@ int main()
         .setname("sanity test = > comparison (<=) = > SEC - MIN - HOUR ")
         //////////////////////////////////////////////
         .CHECK_OUTPUT((second <= second), "1")
-        .CHECK_OUTPUT((second <= minute), "1")
+        .CHECK_OUTPUT((second <= minute), "0")
         .CHECK_OUTPUT((second <= hour), "1")
         /////////////////////////////////////////////
         .CHECK_OUTPUT((minute <= minute), "1")
-        .CHECK_OUTPUT((minute <= second), "0")
+        .CHECK_OUTPUT((minute <= second), "1")
         .CHECK_OUTPUT((minute <= hour), "1")
         ////////////////////////////////////////////
         .CHECK_OUTPUT((hour <= hour), "1")
@@ -554,11 +562,11 @@ int main()
         .setname("sanity test = > comparison (>=) = > SEC - MIN - HOUR ")
         //////////////////////////////////////////////
         .CHECK_OUTPUT((second >= second), "1")
-        .CHECK_OUTPUT((second >= minute), "0")
+        .CHECK_OUTPUT((second >= minute), "1")
         .CHECK_OUTPUT((second >= hour), "0")
         /////////////////////////////////////////////
         .CHECK_OUTPUT((minute >= minute), "1")
-        .CHECK_OUTPUT((minute >= second), "1")
+        .CHECK_OUTPUT((minute >= second), "0")
         .CHECK_OUTPUT((minute >= hour), "0")
         ////////////////////////////////////////////
         .CHECK_OUTPUT((hour >= hour), "1")
@@ -727,11 +735,11 @@ int main()
         .CHECK_THROWS(istringstream("[kg]") >> kilogram)
         .CHECK_OUTPUT(kilogram, "777[kg]")
         ////////////////////////////////////////////
-         .setname("Illegal input [wrong unit type & no numbers] = > kilogram '>>' test")
+        .setname("Illegal input [wrong unit type & no numbers] = > kilogram '>>' test")
         .CHECK_THROWS(istringstream("[dfsdfdsaf]") >> kilogram)
         .CHECK_OUTPUT(kilogram, "777[kg]")
         ////////////////////////////////////////////
-         .setname("Illegal input [no unit type] = > kilogram '>>' test")
+        .setname("Illegal input [no unit type] = > kilogram '>>' test")
         .CHECK_THROWS(istringstream("60[]") >> kilogram)
         .CHECK_OUTPUT(kilogram, "777[kg]")
         ////////////////////////////////////////////
@@ -747,8 +755,8 @@ int main()
         .CHECK_THROWS(istringstream("dfsadfdsfsdf") >> kilogram)
         .CHECK_OUTPUT(kilogram, "777[kg]")
         ////////////////////////////////////////////
-       
-       // 2. every unit-type tested with unit-types which should NOT work - with every operator
+
+        // 2. every unit-type tested with unit-types which should NOT work - with every operator
 
         // arithmetic testing:
         /*********************************************/
@@ -1099,5 +1107,3 @@ int main()
   cout << "*** Grade: " << grade << " ***" << endl;
   return grade;
 }
-
-

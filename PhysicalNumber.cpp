@@ -13,6 +13,7 @@ PhysicalNumber::PhysicalNumber(double value, Unit type)
 {
     this->_value = value;
     this->_type = type;
+    //this->_sUnit =" PhysicalNumber::getUnitString(type)";
 }
 
 ////////////////////operators////////////////////
@@ -52,11 +53,9 @@ PhysicalNumber &PhysicalNumber::operator+=(const PhysicalNumber &arg2)
 }
 
 //unary +
-PhysicalNumber &PhysicalNumber::operator+() const
+PhysicalNumber &PhysicalNumber::operator+()
 {
-    double value = this->getValue();
-    PhysicalNumber output(value, this->getUnit());
-    return output;
+    return (*this);
 }
 
 //arithmetic - operators:
@@ -98,8 +97,8 @@ PhysicalNumber &PhysicalNumber::operator-()
 {
     double value = this->getValue();
     value *= (-1);
-    PhysicalNumber output(value, this->getUnit());
-    return output;
+    this->setValue(value);
+    return (*this);
 }
 
 //comparison operators:
@@ -228,7 +227,6 @@ PhysicalNumber &PhysicalNumber::operator--(const int dummyArgForPostfix)
     double toBeSet = this->getValue();
     --toBeSet;
     this->setValue(toBeSet);
-    std::cout << "DFSDSDFDSFSD=>>>" << result << std::endl;
     return result;
 }
 
@@ -242,10 +240,9 @@ PhysicalNumber &PhysicalNumber::operator--()
 //friend I/O operators:
 std::ostream &ariel::operator<<(std::ostream &os, const PhysicalNumber &arg)
 {
-   string stringType = arg.getUnitInString();
-    os << arg._value << "[" << stringType
-       << "]";
-    return os;
+    double value = arg._value;
+    string unitType = PhysicalNumber::getUnitString(arg._type);
+    return (os << value << "["<<unitType<<"]");
 }
 std::istream &ariel::operator>>(std::istream &is, PhysicalNumber &arg)
 {
@@ -579,4 +576,29 @@ bool PhysicalNumber::isFormatCorrect(std::string str, PhysicalNumber &arg)
 void PhysicalNumber::throwExe(std::string type1, std::string type2)
 {
     throw std::invalid_argument("Units do not match - [" + type2 + "]" + " cannot be converted to [" + type1 + "]");
+}
+
+string PhysicalNumber::getUnitString(Unit input)
+{
+    switch (input)
+    {
+    case Unit::G:
+        return "g";
+    case Unit::KG:
+        return "kg";
+    case Unit::TON:
+        return "ton";
+    case Unit::CM:
+        return "cm";
+    case Unit::M:
+        return "m";
+    case Unit::KM:
+        return "km";
+    case Unit::SEC:
+        return "sec";
+    case Unit::MIN:
+        return "min";
+    case Unit::HOUR:
+        return "hour";
+    }
 }
