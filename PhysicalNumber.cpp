@@ -240,8 +240,9 @@ PhysicalNumber &PhysicalNumber::operator--()
 //friend I/O operators:
 std::ostream &ariel::operator<<(std::ostream &os, const PhysicalNumber &arg)
 {
+    std::cout.precision(6);
     string stringType = arg.getUnitInString();
-    os << arg._value << "[" << stringType
+    os << arg._value << std::fixed << "[" << stringType
        << "]";
     return os;
 }
@@ -251,9 +252,8 @@ std::istream &ariel::operator>>(std::istream &is, PhysicalNumber &arg)
     is >> saver;
     if (!PhysicalNumber::isFormatCorrect(saver, arg))
     {
-        
-        throw std::invalid_argument("ASDSADA");
 
+        throw std::invalid_argument("ASDSADA");
     }
     Unit unit;
     double value;
