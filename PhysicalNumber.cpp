@@ -212,7 +212,6 @@ PhysicalNumber &PhysicalNumber::operator++(const int dummyArgForPostfix)
     double toBeSet = this->getValue();
     ++toBeSet;
     this->setValue(toBeSet);
-    std::cout << "DFADFDAS=>" << result << std::endl;
     return result;
 }
 
