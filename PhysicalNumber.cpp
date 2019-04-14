@@ -13,7 +13,6 @@ PhysicalNumber::PhysicalNumber(double value, Unit type)
 {
     this->_value = value;
     this->_type = type;
-    //this->_sUnit =" PhysicalNumber::getUnitString(type)";
 }
 
 ////////////////////operators////////////////////
@@ -210,7 +209,7 @@ bool PhysicalNumber::operator!=(const PhysicalNumber &arg2) const
 }
 
 //increment / decrement operators:
-PhysicalNumber &PhysicalNumber::operator++(const int dummyArgForPostfix)
+PhysicalNumber PhysicalNumber::operator++(const int dummyArgForPostfix)
 {
     PhysicalNumber result(this->getValue(), this->getUnit());
     double toBeSet = this->getValue();
@@ -219,14 +218,14 @@ PhysicalNumber &PhysicalNumber::operator++(const int dummyArgForPostfix)
     return result;
 }
 
-PhysicalNumber &PhysicalNumber::operator++()
+PhysicalNumber PhysicalNumber::operator++()
 {
     double value = this->getValue();
     this->setValue(++value);
     return *this;
 }
 
-PhysicalNumber &PhysicalNumber::operator--(const int dummyArgForPostfix)
+PhysicalNumber PhysicalNumber::operator--(const int dummyArgForPostfix)
 {
     PhysicalNumber result(this->getValue(), this->getUnit());
     double toBeSet = this->getValue();
@@ -235,7 +234,7 @@ PhysicalNumber &PhysicalNumber::operator--(const int dummyArgForPostfix)
     return result;
 }
 
-PhysicalNumber &PhysicalNumber::operator--()
+PhysicalNumber PhysicalNumber::operator--()
 {
     double value = this->getValue();
     this->setValue(--value);

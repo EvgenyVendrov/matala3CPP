@@ -640,7 +640,7 @@ int main()
         .setname("sanity test = > kilometer increment decrement")
         .CHECK_OUTPUT((kilometer++), "3[km]")
         .CHECK_OUTPUT(kilometer, "4[km]")
-        .CHECK_OUTPUT((++kilometer), "5[km]")
+        .CHECK_OUTPUT((++++kilometer), "6[km]")
         .CHECK_OUTPUT((kilometer--), "5[km]")
         .CHECK_OUTPUT(kilometer, "4[km]")
         .CHECK_OUTPUT((--kilometer), "3[km]")
@@ -721,8 +721,9 @@ int main()
         .CHECK_OK(istringstream("0.5[hour]") >> hour)
         .CHECK_OUTPUT(hour, "0.5[hour]")
         //////////////////////////////////////////
-        // IO testing -  Illegal input:
-        /////////////////////////////////////////////
+        
+        // // IO testing -  Illegal input:
+        // /////////////////////////////////////////////
         .setname("Illegal input [letter-numbers] = > kilogram '>>' test")
         .CHECK_OK(istringstream("abcd[kg]") >> kilogram)
         .CHECK_OUTPUT(kilogram, "777[kg]")

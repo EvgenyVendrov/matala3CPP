@@ -9,7 +9,6 @@ class PhysicalNumber
   private:
     double _value;
     Unit _type;
-    std::string _sUnit;
     std::string getUnitInString() const;
     static Unit getUnitFromString(std::string str);
     static double retVal(std::string str);
@@ -48,10 +47,10 @@ class PhysicalNumber
     bool operator!=(const PhysicalNumber &arg2) const;
 
     //increment / decrement operators:
-    PhysicalNumber &operator++(const int dummyArgForPostfix);
-    PhysicalNumber &operator++();
-    PhysicalNumber &operator--(const int dummyArgForPostfix);
-    PhysicalNumber &operator--();
+    PhysicalNumber operator++(const int dummyArgForPostfix);
+    PhysicalNumber operator++();
+    PhysicalNumber operator--(const int dummyArgForPostfix);
+    PhysicalNumber operator--();
 
     //friend I/O operators:
     friend std::ostream &operator<<(std::ostream &os, const PhysicalNumber &arg);
