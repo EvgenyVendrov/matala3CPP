@@ -55,10 +55,16 @@ PhysicalNumber &PhysicalNumber::operator+=(const PhysicalNumber &arg2)
 //unary +
 PhysicalNumber &PhysicalNumber::operator+()
 {
-    double val = this->getValue();
-    if (val < 0)
-        this->setValue((-1) * val);
-    return (*this);
+    Unit type = this->getUnit();
+    double value = this->getValue();
+    if (value < 0)
+    {
+        PhysicalNumber output(((-1) * value), type);
+        return output;
+    }
+
+    PhysicalNumber output(value, type);
+    return output;
 }
 
 //arithmetic - operators:
@@ -98,10 +104,12 @@ PhysicalNumber &PhysicalNumber::operator-=(const PhysicalNumber &arg2)
 //unary -
 PhysicalNumber &PhysicalNumber::operator-()
 {
+    Unit type = this->getUnit();
     double value = this->getValue();
     value *= (-1);
-    this->setValue(value);
-    return (*this);
+    // this->setValue(value);
+    PhysicalNumber output(value, type);
+    return output;
 }
 
 //comparison operators:
@@ -251,7 +259,7 @@ std::istream &ariel::operator>>(std::istream &is, PhysicalNumber &arg)
 {
     string saver;
     is >> saver;
-     std::ios::pos_type startPosition = is.tellg();
+    std::ios::pos_type startPosition = is.tellg();
     if (!PhysicalNumber::isFormatCorrect(saver, arg))
     {
 
