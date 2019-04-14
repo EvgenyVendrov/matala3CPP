@@ -1,9 +1,6 @@
 #include "PhysicalNumber.h"
 #include "Unit.h"
-#include <string.h>
-#include <sstream>
-#include <stdexcept>
-#include <cmath>
+
 using ariel::PhysicalNumber, ariel::Unit, std::string;
 
 ////////////////////PUBLIC////////////////////
@@ -26,8 +23,8 @@ PhysicalNumber PhysicalNumber::operator+(const PhysicalNumber &arg2) const
         string type2 = arg2.getUnitInString();
         PhysicalNumber::throwExe(type1, type2);
     }
-    double valueFirst = this->conv2min();
-    double valueSecond = arg2.conv2min();
+    double valueFirst = this->convVal2min();
+    double valueSecond = arg2.convVal2min();
     Unit toBeMade = this->getUnit();
     double result = normalizeResult((valueFirst + valueSecond), toBeMade);
     PhysicalNumber output(result, toBeMade);
@@ -42,8 +39,8 @@ PhysicalNumber &PhysicalNumber::operator+=(const PhysicalNumber &arg2)
         string type2 = arg2.getUnitInString();
         PhysicalNumber::throwExe(type1, type2);
     }
-    double valueFirst = this->conv2min();
-    double valueSecond = arg2.conv2min();
+    double valueFirst = this->convVal2min();
+    double valueSecond = arg2.convVal2min();
     Unit toBeMade = this->getUnit();
     double result = normalizeResult(valueFirst + valueSecond, toBeMade);
     this->setValue(result);
@@ -73,8 +70,8 @@ PhysicalNumber PhysicalNumber::operator-(const PhysicalNumber &arg2) const
         string type2 = arg2.getUnitInString();
         PhysicalNumber::throwExe(type1, type2);
     }
-    double valueFirst = this->conv2min();
-    double valueSecond = arg2.conv2min();
+    double valueFirst = this->convVal2min();
+    double valueSecond = arg2.convVal2min();
     Unit toBeMade = this->getUnit();
     double result = normalizeResult(valueFirst - valueSecond, toBeMade);
     PhysicalNumber output(result, toBeMade);
@@ -89,8 +86,8 @@ PhysicalNumber &PhysicalNumber::operator-=(const PhysicalNumber &arg2)
         string type2 = arg2.getUnitInString();
         PhysicalNumber::throwExe(type1, type2);
     }
-    double valueFirst = this->conv2min();
-    double valueSecond = arg2.conv2min();
+    double valueFirst = this->convVal2min();
+    double valueSecond = arg2.convVal2min();
     Unit toBeMade = this->getUnit();
     double result = normalizeResult(valueFirst - valueSecond, toBeMade);
     this->setValue(result);
@@ -114,8 +111,8 @@ bool PhysicalNumber::operator<(const PhysicalNumber &arg2) const
         string type2 = arg2.getUnitInString();
         PhysicalNumber::throwExe(type1, type2);
     }
-    double valueFirst = this->conv2min();
-    double valueSecond = arg2.conv2min();
+    double valueFirst = this->convVal2min();
+    double valueSecond = arg2.convVal2min();
     if (valueFirst < valueSecond)
     {
         return true;
@@ -131,8 +128,8 @@ bool PhysicalNumber::operator<=(const PhysicalNumber &arg2) const
         string type2 = arg2.getUnitInString();
         PhysicalNumber::throwExe(type1, type2);
     }
-    double valueFirst = this->conv2min();
-    double valueSecond = arg2.conv2min();
+    double valueFirst = this->convVal2min();
+    double valueSecond = arg2.convVal2min();
     if (valueFirst <= valueSecond)
     {
         return true;
@@ -148,8 +145,8 @@ bool PhysicalNumber::operator>(const PhysicalNumber &arg2) const
         string type2 = arg2.getUnitInString();
         PhysicalNumber::throwExe(type1, type2);
     }
-    double valueFirst = this->conv2min();
-    double valueSecond = arg2.conv2min();
+    double valueFirst = this->convVal2min();
+    double valueSecond = arg2.convVal2min();
     if (valueFirst > valueSecond)
     {
         return true;
@@ -165,8 +162,8 @@ bool PhysicalNumber::operator>=(const PhysicalNumber &arg2) const
         string type2 = arg2.getUnitInString();
         PhysicalNumber::throwExe(type1, type2);
     }
-    double valueFirst = this->conv2min();
-    double valueSecond = arg2.conv2min();
+    double valueFirst = this->convVal2min();
+    double valueSecond = arg2.convVal2min();
     if (valueFirst >= valueSecond)
     {
         return true;
@@ -182,8 +179,8 @@ bool PhysicalNumber::operator==(const PhysicalNumber &arg2) const
         string type2 = arg2.getUnitInString();
         PhysicalNumber::throwExe(type1, type2);
     }
-    double valueFirst = this->conv2min();
-    double valueSecond = arg2.conv2min();
+    double valueFirst = this->convVal2min();
+    double valueSecond = arg2.convVal2min();
     if (valueFirst == valueSecond)
     {
         return true;
@@ -199,8 +196,8 @@ bool PhysicalNumber::operator!=(const PhysicalNumber &arg2) const
         string type2 = arg2.getUnitInString();
         PhysicalNumber::throwExe(type1, type2);
     }
-    double valueFirst = this->conv2min();
-    double valueSecond = arg2.conv2min();
+    double valueFirst = this->convVal2min();
+    double valueSecond = arg2.convVal2min();
     if (valueFirst != valueSecond)
     {
         return true;
@@ -245,7 +242,7 @@ PhysicalNumber &PhysicalNumber::operator--()
 std::ostream &ariel::operator<<(std::ostream &os, const PhysicalNumber &arg)
 {
     double value = arg._value;
-    string unitType = PhysicalNumber::getUnitString(arg._type);
+    string unitType = convUnit2String(arg._type);
     return (os << value << "[" << unitType << "]");
 }
 std::istream &ariel::operator>>(std::istream &is, PhysicalNumber &arg)
@@ -265,8 +262,8 @@ std::istream &ariel::operator>>(std::istream &is, PhysicalNumber &arg)
     }
     Unit unit;
     double value;
-    unit = PhysicalNumber::getUnitFromString(saver);
-    value = PhysicalNumber::retVal(saver);
+    unit = convString2Unit(saver);
+    value = PhysicalNumber::parseValue(saver);
     arg.setUnit(unit);
     arg.setValue(value);
     return is;
@@ -311,60 +308,8 @@ std::string PhysicalNumber::getUnitInString() const
     }
 }
 
-Unit PhysicalNumber::getUnitFromString(string str)
-{
-    string unit;
-    for (int i = 0; i < str.length(); i++)
-    {
-        if (str[i] == '[')
-        {
-            i++;
-            while (str[i] != ']')
-            {
-                unit += str[i];
-                i++;
-            }
-        }
-    }
-    if (unit.compare("g") == 0)
-    {
-        return Unit::G;
-    }
-    else if (unit.compare("kg") == 0)
-    {
-        return Unit::KG;
-    }
-    else if (unit.compare("ton") == 0)
-    {
-        return Unit::TON;
-    }
-    else if (unit.compare("cm") == 0)
-    {
-        return Unit::CM;
-    }
-    else if (unit.compare("m") == 0)
-    {
-        return Unit::M;
-    }
-    else if (unit.compare("km") == 0)
-    {
-        return Unit::KM;
-    }
-    else if (unit.compare("sec") == 0)
-    {
-        return Unit::SEC;
-    }
-    else if (unit.compare("min") == 0)
-    {
-        return Unit::MIN;
-    }
-    else if (unit.compare("hour") == 0)
-    {
-        return Unit::HOUR;
-    }
-}
 
-double PhysicalNumber::retVal(string str)
+double PhysicalNumber::parseValue(string str)
 {
     string helpingS;
     for (int i = 0; i < str.length(); i++)
@@ -476,7 +421,7 @@ bool PhysicalNumber::canWeCalcBoth(const PhysicalNumber &arg) const
     }
 }
 
-double PhysicalNumber::conv2min() const
+double PhysicalNumber::convVal2min() const
 {
     Unit helpingVar = this->getUnit();
     switch (helpingVar)
@@ -587,27 +532,3 @@ void PhysicalNumber::throwExe(std::string type1, std::string type2)
     throw std::invalid_argument("Units do not match - [" + type2 + "]" + " cannot be converted to [" + type1 + "]");
 }
 
-string PhysicalNumber::getUnitString(Unit input)
-{
-    switch (input)
-    {
-    case Unit::G:
-        return "g";
-    case Unit::KG:
-        return "kg";
-    case Unit::TON:
-        return "ton";
-    case Unit::CM:
-        return "cm";
-    case Unit::M:
-        return "m";
-    case Unit::KM:
-        return "km";
-    case Unit::SEC:
-        return "sec";
-    case Unit::MIN:
-        return "min";
-    case Unit::HOUR:
-        return "hour";
-    }
-}
