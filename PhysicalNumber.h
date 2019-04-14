@@ -48,9 +48,9 @@ class PhysicalNumber
 
     //increment / decrement operators:
     PhysicalNumber operator++(const int dummyArgForPostfix);
-    PhysicalNumber operator++();
+    PhysicalNumber &operator++();
     PhysicalNumber operator--(const int dummyArgForPostfix);
-    PhysicalNumber operator--();
+    PhysicalNumber &operator--();
 
     //friend I/O operators:
     friend std::ostream &operator<<(std::ostream &os, const PhysicalNumber &arg);

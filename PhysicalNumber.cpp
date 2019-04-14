@@ -60,7 +60,7 @@ PhysicalNumber PhysicalNumber::operator+()
         return output;
     }
 
-        PhysicalNumber output( this->getValue(), this->getUnit());
+    PhysicalNumber output(this->getValue(), this->getUnit());
     return output;
 }
 
@@ -101,7 +101,7 @@ PhysicalNumber &PhysicalNumber::operator-=(const PhysicalNumber &arg2)
 //unary -
 PhysicalNumber PhysicalNumber::operator-()
 {
-    PhysicalNumber output(((-1)*this->getValue()), this->getUnit());
+    PhysicalNumber output(((-1) * this->getValue()), this->getUnit());
     return output;
 }
 
@@ -218,7 +218,7 @@ PhysicalNumber PhysicalNumber::operator++(const int dummyArgForPostfix)
     return result;
 }
 
-PhysicalNumber PhysicalNumber::operator++()
+PhysicalNumber &PhysicalNumber::operator++()
 {
     double value = this->getValue();
     this->setValue(++value);
@@ -234,7 +234,7 @@ PhysicalNumber PhysicalNumber::operator--(const int dummyArgForPostfix)
     return result;
 }
 
-PhysicalNumber PhysicalNumber::operator--()
+PhysicalNumber &PhysicalNumber::operator--()
 {
     double value = this->getValue();
     this->setValue(--value);
