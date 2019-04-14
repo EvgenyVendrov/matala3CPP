@@ -53,7 +53,7 @@ PhysicalNumber &PhysicalNumber::operator+=(const PhysicalNumber &arg2)
 }
 
 //unary +
-PhysicalNumber &PhysicalNumber::operator+()
+PhysicalNumber PhysicalNumber::operator+()
 {
     if (this->getValue() < 0)
     {
@@ -100,7 +100,7 @@ PhysicalNumber &PhysicalNumber::operator-=(const PhysicalNumber &arg2)
 }
 
 //unary -
-PhysicalNumber &PhysicalNumber::operator-()
+PhysicalNumber PhysicalNumber::operator-()
 {
     PhysicalNumber output(((-1)*this->getValue()), this->getUnit());
     return output;

@@ -32,12 +32,12 @@ class PhysicalNumber
     //arithmetic + operators:
     PhysicalNumber operator+(const PhysicalNumber &arg2) const;
     PhysicalNumber &operator+=(const PhysicalNumber &arg2);
-    PhysicalNumber &operator+();
+    PhysicalNumber operator+();
 
     //arithmetic - operators:
     PhysicalNumber operator-(const PhysicalNumber &arg2) const;
     PhysicalNumber &operator-=(const PhysicalNumber &arg2);
-    PhysicalNumber &operator-();
+    PhysicalNumber operator-();
 
     //comparison operators:
     bool operator>(const PhysicalNumber &arg2) const;
