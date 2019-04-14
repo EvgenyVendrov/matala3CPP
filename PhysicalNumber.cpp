@@ -55,15 +55,13 @@ PhysicalNumber &PhysicalNumber::operator+=(const PhysicalNumber &arg2)
 //unary +
 PhysicalNumber &PhysicalNumber::operator+()
 {
-    Unit type = this->getUnit();
-    double value = this->getValue();
-    if (value < 0)
+    if (this->getValue() < 0)
     {
-        PhysicalNumber output(((-1) * value), type);
+        PhysicalNumber output(((-1) * this->getValue()), this->getUnit());
         return output;
     }
 
-    PhysicalNumber output(value, type);
+        PhysicalNumber output( this->getValue(), this->getUnit());
     return output;
 }
 
@@ -104,11 +102,7 @@ PhysicalNumber &PhysicalNumber::operator-=(const PhysicalNumber &arg2)
 //unary -
 PhysicalNumber &PhysicalNumber::operator-()
 {
-    Unit type = this->getUnit();
-    double value = this->getValue();
-    value *= (-1);
-    // this->setValue(value);
-    PhysicalNumber output(value, type);
+    PhysicalNumber output(((-1)*this->getValue()), this->getUnit());
     return output;
 }
 
