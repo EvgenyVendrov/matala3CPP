@@ -251,10 +251,15 @@ std::istream &ariel::operator>>(std::istream &is, PhysicalNumber &arg)
 {
     string saver;
     is >> saver;
+     std::ios::pos_type startPosition = is.tellg();
     if (!PhysicalNumber::isFormatCorrect(saver, arg))
     {
 
-        throw std::invalid_argument("ASDSADA");
+        is.setstate(std::ios::failbit);
+        auto errorState = is.rdstate(); // remember error state
+        is.clear();                     // clear error so seekg will work
+        is.seekg(startPosition);        // rewind
+        is.clear(errorState);           // set back the error flag
         return is;
     }
     Unit unit;
